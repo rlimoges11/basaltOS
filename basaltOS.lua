@@ -46,22 +46,13 @@ return function(parentFrame)
     function api.animateWindow()
         
 
-
-local main = basalt.getMainFrame()
-local frame2 = main:addFrame():setPosition(5,5)
-
-
-        frame2:animate()
-            :move(10, 5, 0.5)   -- Move right
+        windowContainer:setY(-12)
+        windowContainer:animate()
+            :move(3, 3, 0.5)  -- Move down
             :sequence()
-            :move(10, 10, 0.5)  -- Then down
+            :resize(23, 14, 1) 
             :sequence()
-            :move(5, 10, 0.5)   -- Then left
-            :sequence()
-            :move(5, 5, 0.5)    -- Then up
-            
-
-       --windowAnimation:registerAnimation("windowAnimation", {start=function(anim) end, update=function(anim,progress) end})
+            :start()
     end
 
     function api.drawMenuBar()
@@ -119,19 +110,18 @@ local frame2 = main:addFrame():setPosition(5,5)
 
         -- Main window container
         windowContainer = desktop:addFrame("welcomeWindow")
-            :setPosition(2, winY)
-            :setSize(windowWidth -2, windowHeight)
+            :setPosition(3, winY)
+            :setSize(1, windowHeight)
 
         -- Create border effect
         borderFrame = windowContainer:addFrame()
-            
-            :setSize(windowWidth, windowHeight)
+            :setSize(23, windowHeight)
             :setBackground(colors.blue)
 
         -- Main content frame
         welcomeWin = borderFrame:addFrame()
             :setPosition(2, 2)
-            :setSize(windowWidth-4, windowHeight-2)
+            :setSize(21, windowHeight-2)
             :setBackground(colors.lightBlue)
 
         -- Title bar
@@ -169,11 +159,9 @@ local frame2 = main:addFrame():setPosition(5,5)
                         :setSize(windowWidth -2, windowHeight)
 
                     borderFrame:setSize(windowWidth, windowHeight)
-                        :setBackground(colors.blue)
 
                     welcomeWin:setPosition(2, 2)
                         :setSize(windowWidth-4, 12)
-                        :setBackground(colors.lightBlue)
 
                     minbtn:setText("\31")
                     maxbtn:setText("\30")
@@ -198,11 +186,9 @@ local frame2 = main:addFrame():setPosition(5,5)
                             :setSize(windowWidth -2, windowHeight)
 
                         borderFrame:setSize(windowWidth, 14)
-                            :setBackground(colors.blue)
 
                         welcomeWin:setPosition(2, 2)
                             :setSize(windowWidth-4, 12)
-                            :setBackground(colors.lightBlue)
 
                         maxbtn:setText("\30")
                         minbtn:setText("\31")
@@ -261,7 +247,7 @@ local frame2 = main:addFrame():setPosition(5,5)
             :setPosition(math.floor((windowWidth-4)/2)-2, windowHeight-3)
             :setSize(8, 1)
             :setBackground(colors.blue)
-            :setForeground(colors.lightBlue)
+            :setForeground(colors.white)
             :onClick(function()
                 windowContainer:destroy()
             end)
