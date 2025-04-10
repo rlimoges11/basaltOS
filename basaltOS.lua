@@ -4,17 +4,7 @@ return function(parentFrame)
     local tw, th = term.getSize()
     local api = {}
     local frame = parentFrame:addFrame()
-        :setSize(parentFrame:getWidth(), parentFrame:getHeight())
-        
-
-    -- Safe dimension getters
-    local function getWidth()
-        return frame:getWidth() or 51
-    end
-
-    local function getHeight()
-        return frame:getHeight() or 19
-    end
+        :setSize(tw, th)
 
     function api.loadBimg(path)
         local file = fs.open(path, "r")
@@ -59,7 +49,7 @@ return function(parentFrame)
     function api.drawMenuBar()
         menuBar = frame:addFrame("menuBar")
             :setPosition(1, 1)
-            :setSize(getWidth(), 1)
+            :setSize(tw, 1)
             :setBackground(colors.gray)
 
         -- Rainbow title
@@ -78,7 +68,7 @@ return function(parentFrame)
 
         -- Clock
         clock = menuBar:addLabel("clock")
-            :setPosition(getWidth() - 9, 1)
+            :setPosition(tw - 8, 1)
             :setForeground(colors.lightBlue)
 
         function updateClock()
@@ -95,7 +85,7 @@ return function(parentFrame)
     function api.drawTaskbar()
         taskbar = desktop:addFrame("taskbar")
             :setPosition(1, th-1)
-            :setSize(getWidth(), 1)
+            :setSize(tw, 1)
             :setBackground(colors.gray)
             :setForeground(colors.lightBlue)
     end
@@ -103,10 +93,10 @@ return function(parentFrame)
 
     function api.showWelcomeWindow()
         -- Window dimensions (will auto-adjust to content)
-        windowWidth = math.min(40, getWidth())
+        windowWidth = math.min(40, tw)
         windowHeight = 14
-        winX = math.floor((getWidth() - windowWidth) / 2) + 2
-        winY = math.floor((getHeight() - windowHeight) / 2) + 1
+        winX = math.floor((tw - windowWidth) / 2) + 2
+        winY = math.floor((th - windowHeight) / 2) + 1
         state = "normal"
 
         -- Main window container
@@ -199,11 +189,17 @@ return function(parentFrame)
                         windowContainer:setPosition(1, th-1)
                         windowContainer:setSize(10,1)
                         borderFrame:setSize(10,1)
+
                         maxbtn:setText("\30")
                         minbtn:setText("-")
                         state = "minimized"
                     end
+                
+
+
             end)
+
+
 
 
 
