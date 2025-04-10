@@ -1,7 +1,7 @@
 local basalt = require("basalt")
 local basaltOS = require("basaltOS")
-local monitor = peripheral.wrap("back") 
-if monitor then
+local monitor = peripheral.find("monitor") or nil
+if monitor ~= nil then
     term.redirect(monitor)
     monitor.setTextScale(0.5)
 end

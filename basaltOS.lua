@@ -196,20 +196,14 @@ return function(parentFrame)
                         state = "normal"
                     else
                         windowHeight = 1
-                        windowContainer:setPosition(1, 19)
+                        windowContainer:setPosition(1, th-1)
                         windowContainer:setSize(10,1)
                         borderFrame:setSize(10,1)
-
                         maxbtn:setText("\30")
                         minbtn:setText("-")
                         state = "minimized"
                     end
-                
-
-
             end)
-
-
 
 
 
