@@ -1,18 +1,10 @@
-local basalt = require("basalt")
+basalt = require("basalt")
 
 return function(parentFrame)
     local tw, th = term.getSize()
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
-
-    function api.loadBimg(path)
-        local file = fs.open(path, "r")
-        if file then
-            img = textutils.unserialize(file.readAll())
-            file:close()
-        end
-    end
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
@@ -27,7 +19,7 @@ return function(parentFrame)
 
         local bgImg = desktop:addImage()
             :setBimg(img)
-            :setSize(184, 81)
+            :setSize(tw, th)
             :setCurrentFrame(1)
             :setX(1)
             :setY(1)
@@ -274,5 +266,3 @@ return function(parentFrame)
 
     return api
 end
-
-
