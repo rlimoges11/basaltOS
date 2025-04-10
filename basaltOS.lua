@@ -1,0 +1,300 @@
+local basalt = require("basalt")
+
+return function(parentFrame)
+    local tw, th = term.getSize()
+    local api = {}
+    local frame = parentFrame:addFrame()
+        :setSize(parentFrame:getWidth(), parentFrame:getHeight())
+        
+
+    -- Safe dimension getters
+    local function getWidth()
+        return frame:getWidth() or 51
+    end
+
+    local function getHeight()
+        return frame:getHeight() or 19
+    end
+
+    function api.loadBimg(path)
+        local file = fs.open(path, "r")
+        if file then
+            img = textutils.unserialize(file.readAll())
+            file:close()
+        end
+    end
+
+    function api.drawDesktop()
+        desktop = frame:addFrame("desktop")
+            :setPosition(1, 2)
+            :setSize(getWidth(), th)
+        
+        local file = fs.open("images/bg.bimg", "r")
+        if file then
+            img = textutils.unserialize(file.readAll())
+            file:close()
+        end
+
+        local bgImg = desktop:addImage()
+            :setBimg(img)
+            :setCurrentFrame(1)
+            :setSize(26, 21)
+            :setX(1)
+            :setY(1)
+    end
+
+    function api.animateWindow()
+        
+
+
+local main = basalt.getMainFrame()
+local frame2 = main:addFrame():setPosition(5,5)
+
+
+        frame2:animate()
+            :move(10, 5, 0.5)   -- Move right
+            :sequence()
+            :move(10, 10, 0.5)  -- Then down
+            :sequence()
+            :move(5, 10, 0.5)   -- Then left
+            :sequence()
+            :move(5, 5, 0.5)    -- Then up
+            
+
+       --windowAnimation:registerAnimation("windowAnimation", {start=function(anim) end, update=function(anim,progress) end})
+    end
+
+    function api.drawMenuBar()
+        menuBar = frame:addFrame("menuBar")
+            :setPosition(1, 1)
+            :setSize(getWidth(), 1)
+            :setBackground(colors.gray)
+
+        -- Rainbow title
+        local title = "BasaltOS"
+        local rainbow = {
+            colors.red, colors.orange, colors.yellow, colors.lime,
+            colors.green, colors.cyan, colors.blue, colors.blue
+        }
+        
+        for i = 1, #title do
+            menuBar:addLabel("title_"..i)
+                :setText(title:sub(i,i))
+                :setPosition(i, 1)
+                :setForeground(rainbow[(i-1) % #rainbow + 1])
+        end
+
+        -- Clock
+        clock = menuBar:addLabel("clock")
+            :setPosition(getWidth() - 8, 1)
+            :setForeground(colors.lightBlue)
+
+        function updateClock()
+            while true do
+                clock:setText(textutils.formatTime(os.time("local"), false) .. " ^")
+                os.sleep(60)
+            end
+        end
+
+        -- Start clock in a coroutine
+        basalt.schedule(updateClock)
+    end
+
+    function api.drawTaskbar()
+        taskbar = desktop:addFrame("taskbar")
+            :setPosition(1, th-1)
+            :setSize(getWidth(), 1)
+            :setBackground(colors.gray)
+            :setForeground(colors.lightBlue)
+    end
+
+
+    function api.showWelcomeWindow()
+        -- Window dimensions (will auto-adjust to content)
+        windowWidth = math.min(40, getWidth())
+        windowHeight = 14
+        winX = math.floor((getWidth() - windowWidth) / 2) + 2
+        winY = math.floor((getHeight() - windowHeight) / 2) + 1
+        state = "normal"
+
+        -- Main window container
+        windowContainer = desktop:addFrame("welcomeWindow")
+            :setPosition(2, winY)
+            :setSize(windowWidth -2, windowHeight)
+
+        -- Create border effect
+        borderFrame = windowContainer:addFrame()
+            
+            :setSize(windowWidth, windowHeight)
+            :setBackground(colors.blue)
+
+        -- Main content frame
+        welcomeWin = borderFrame:addFrame()
+            :setPosition(2, 2)
+            :setSize(windowWidth-4, windowHeight-2)
+            :setBackground(colors.lightBlue)
+
+        -- Title bar
+        borderFrame:addFrame()
+            :setPosition(3, 1)
+            :setSize(windowWidth-3, 1)
+            :setBackground(colors.blue)
+            :addLabel("title")
+            :setText("Welcome to BasaltOS")
+            :setPosition(1, 1)
+            :setForeground(colors.white)
+
+        -- Maximize button 
+        maxbtn = borderFrame:addButton()
+            :setText("\30")
+            :setPosition(2, 1)
+            :setSize(1, 1)
+            :setBackground(colors.blue)
+            :setForeground(colors.lightBlue)
+            :onClick(function()
+                if state == "normal" or state == "minimized" then
+                    -- maximize
+                    windowHeight = th - 3
+                    windowContainer:setPosition(1, 1)
+                    windowContainer:setSize(tw, windowHeight + 1)
+                    borderFrame:setSize(tw, windowHeight+1)
+                    welcomeWin:setSize(tw - 2, windowHeight - 1)
+                    state = "maximized"
+                    minbtn:setText("\31")
+                    maxbtn:setText("-")
+                else
+                    -- normalize
+                    windowHeight = 14
+                    windowContainer:setPosition(winX, winY)
+                        :setSize(windowWidth -2, windowHeight)
+
+                    borderFrame:setSize(windowWidth, windowHeight)
+                        :setBackground(colors.blue)
+
+                    welcomeWin:setPosition(2, 2)
+                        :setSize(windowWidth-4, 12)
+                        :setBackground(colors.lightBlue)
+
+                    minbtn:setText("\31")
+                    maxbtn:setText("\30")
+                    state = "normal"
+
+                end
+            end)
+
+        -- Minimize button 
+        minbtn = borderFrame:addButton()
+            :setText("\31")
+            :setPosition(1,1)
+            :setSize(1, 1)
+            :setBackground(colors.blue)
+            :setForeground(colors.lightBlue)
+            :onClick(function()
+                    -- minimize
+                    if state == "minimized" then
+                        windowHeight = 14
+                        -- normalize again (make a function)
+                        windowContainer:setPosition(winX, winY)
+                            :setSize(windowWidth -2, windowHeight)
+
+                        borderFrame:setSize(windowWidth, 14)
+                            :setBackground(colors.blue)
+
+                        welcomeWin:setPosition(2, 2)
+                            :setSize(windowWidth-4, 12)
+                            :setBackground(colors.lightBlue)
+
+                        maxbtn:setText("\30")
+                        minbtn:setText("\31")
+                        state = "normal"
+                    else
+                        windowHeight = 1
+                        windowContainer:setPosition(1, 19)
+                        windowContainer:setSize(10,1)
+                        borderFrame:setSize(10,1)
+
+                        maxbtn:setText("\30")
+                        minbtn:setText("-")
+                        state = "minimized"
+                    end
+                
+                    
+            end)
+
+
+
+
+
+        -- Text content with word wrapping
+        local textContent = "BasaltOS is a lightweight Lua environment for ComputerCraft that combines classic computing nostalgia with modern functionality."
+        
+        -- Word wrapping function
+        local function wrapText(text, maxWidth)
+            local lines = {}
+            local line = ""
+            
+            for word in text:gmatch("%S+") do
+                if #line + #word + 1 <= maxWidth then
+                    line = line .. (line == "" and "" or " ") .. word
+                else
+                    table.insert(lines, line)
+                    line = word
+                end
+            end
+            table.insert(lines, line)
+            return lines
+        end
+
+ 
+        -- Add wrapped text
+        local wrappedText = wrapText(textContent, windowWidth-3)
+        for i, line in ipairs(wrappedText) do
+                welcomeWin:addLabel("line_"..i)
+                    :setText(line)
+                    :setPosition(2, i + 1)
+                    :setForeground(colors.white)
+        end
+
+        -- OK button 
+        welcomeButton = welcomeWin:addButton()
+            :setText(" OK ")
+            :setPosition(math.floor((windowWidth-4)/2)-2, windowHeight-3)
+            :setSize(8, 1)
+            :setBackground(colors.blue)
+            :setForeground(colors.lightBlue)
+            :onClick(function()
+                windowContainer:destroy()
+            end)
+
+        -- Make window draggable
+        local dragX, dragY
+        welcomeWin:addFrame("dragBar")
+            :setPosition(-10, 1)
+            :setSize(1, 1)
+            :setBackground(colors.blue)
+            :onDrag(function(event, btn, x, y)
+                if event == "mouse_click" then
+                    dragX, dragY = x, y
+                elseif event == "mouse_drag" then
+                    windowContainer:setPosition(
+                        windowContainer:getX() + (x - dragX),
+                        windowContainer:getY() + (y - dragY))
+                    dragX, dragY = x, y
+                end
+            end)
+    end
+
+    function api.start()
+        api.drawMenuBar()
+        api.drawDesktop()
+        api.drawTaskbar()
+        api.showWelcomeWindow()
+        api.animateWindow()
+
+        return api
+    end
+
+    return api
+end
+
+
