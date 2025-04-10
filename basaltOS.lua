@@ -27,9 +27,9 @@ return function(parentFrame)
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
             :setPosition(1, 2)
-            :setSize(getWidth(), th)
+            :setSize(tw, th)
         
-        local file = fs.open("images/bg.bimg", "r")
+        local file = fs.open("images/nightsky.bimg", "r")
         if file then
             img = textutils.unserialize(file.readAll())
             file:close()
@@ -37,20 +37,21 @@ return function(parentFrame)
 
         local bgImg = desktop:addImage()
             :setBimg(img)
+            :setSize(184, 81)
             :setCurrentFrame(1)
-            :setSize(26, 21)
             :setX(1)
             :setY(1)
     end
 
     function api.animateWindow()
-        
-
-        windowContainer:setY(-12)
+        windowContainer:setY(-5)
         windowContainer:animate()
-            :move(3, 3, 0.5)  -- Move down
+            :resize(1, 1, 0) 
             :sequence()
-            :resize(23, 14, 1) 
+            :move(3, 3, 0.5)  -- Move down
+            :resize(1, 14, 1.25) 
+            :sequence()
+            :resize(23, 14, 0.5) 
             :sequence()
             :start()
     end
@@ -77,7 +78,7 @@ return function(parentFrame)
 
         -- Clock
         clock = menuBar:addLabel("clock")
-            :setPosition(getWidth() - 8, 1)
+            :setPosition(getWidth() - 9, 1)
             :setForeground(colors.lightBlue)
 
         function updateClock()
@@ -111,7 +112,7 @@ return function(parentFrame)
         -- Main window container
         windowContainer = desktop:addFrame("welcomeWindow")
             :setPosition(3, winY)
-            :setSize(1, windowHeight)
+            :setSize(windowWidth, windowHeight)
 
         -- Create border effect
         borderFrame = windowContainer:addFrame()
@@ -204,7 +205,8 @@ return function(parentFrame)
                         state = "minimized"
                     end
                 
-                    
+
+
             end)
 
 
