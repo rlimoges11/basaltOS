@@ -11,7 +11,7 @@ return function(parentFrame)
             :setPosition(1, 2)
             :setSize(tw, th)
         
-        local file = fs.open("images/nightsky.bimg", "r")
+        local file = fs.open("images/basalty.bimg", "r")
         if file then
             img = textutils.unserialize(file.readAll())
             file:close()
@@ -66,7 +66,7 @@ return function(parentFrame)
         function updateClock()
             while true do
                 clock:setText(textutils.formatTime(os.time("local"), false) .. " ^")
-                os.sleep(60)
+                os.sleep(30)
             end
         end
 
