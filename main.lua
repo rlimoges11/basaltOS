@@ -11,6 +11,6 @@ local main = basalt.createFrame()
 
 
 -- Create OS instance
-local OS = basaltOS(main):start()
+local OS = basaltOS(main):start(monitor)
 
 basalt.run()
