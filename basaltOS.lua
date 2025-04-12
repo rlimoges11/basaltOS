@@ -332,39 +332,32 @@ return function(parentFrame)
 
     function api.drawIcon(ox, oy, ifg, ibg, filename)
         local icon = desktop:addFrame("icon")
-        :setBackground(ibg)
+            :setBackground(ibg)
             :setSize(8, 5)
             :setPosition(ox,oy)
-
 
         local iconArea = icon:addFrame("iconArea")
             :setBackground(ibg)
             :setSize(8, 4)
             :setPosition(1,1)
 
+        iconArea:addLabel("line_"..1)
+            :setText("\151\8\8\8\8\8\8\139")
+            :setPosition(1, 1)
+            :setForeground(ifg)
+        iconArea:addLabel("line_"..2)
+            :setText("\149\127\127\127\127\127\127\138")
+            :setPosition(1, 2)
+            :setForeground(ifg)
 
-            iconArea:addLabel("line_"..1)
-                :setText("\151\8\8\8\8\8\8\139")
-                :setPosition(1, 1)
-                :setForeground(ifg)
-            iconArea:addLabel("line_"..2)
-                :setText("\149\127\127\127\127\127\127\138")
-                :setPosition(1, 2)
-                :setForeground(ifg)
-
-            iconArea:addLabel("line_"..3)
-                :setText("\149\127\127\127\127\127\127\138")
-                :setPosition(1, 3)
-                :setForeground(ifg)
-
-
-            iconArea:addLabel("line_"..4)
-                :setText("\141\8\8\8\8\8\8\142")
-                :setPosition(1, 4)
-                :setForeground(ifg)
-
-
-
+        iconArea:addLabel("line_"..3)
+            :setText("\149\127\127\127\127\127\127\138")
+            :setPosition(1, 3)
+            :setForeground(ifg)
+        iconArea:addLabel("line_"..4)
+            :setText("\141\8\8\8\8\8\8\142")
+            :setPosition(1, 4)
+            :setForeground(ifg)
 
         local filename = icon:addLabel("filename")
             :setPosition(1, 5)
@@ -386,19 +379,17 @@ return function(parentFrame)
             api.drawTaskbar()
             os.sleep(0.15)
 
-            api.drawIcon(1, 2, colors.orange, colors.black, "Calc")
-            api.drawIcon(10, 2, colors.purple, colors.white, "Paint")
+            api.drawIcon(1, 2, colors.orange, colors.gray, "Calc")
+            api.drawIcon(10, 2, colors.magenta, colors.white, "Paint")
             api.drawIcon(19, 2, colors.white, colors.lightBlue, "Weather")
 
-            api.drawIcon(1, 8, colors.white, colors.gray, "Devices")
-            api.drawIcon(10, 8, colors.red, colors.yellow, "Games")
-            api.drawIcon(19, 8, colors.blue, colors.lightBlue, "Remote")
+            api.drawIcon(1, 8, colors.lightBlue, colors.gray, "Devices")
+            api.drawIcon(10, 8, colors.cyan, colors.white, "GPS")
+            api.drawIcon(19, 8, colors.white, colors.purple, "Remote")
 
-
-            api.drawIcon(1, 14, colors.lime, colors.black, "Logs")
-            api.drawIcon(10, 14, colors.cyan, colors.white, "GPS")
-            api.drawIcon(19, 14, colors.magenta, colors.black, "Media")
-
+            api.drawIcon(1, 14, colors.green, colors.white, "Logs")
+            api.drawIcon(10, 14, colors.red, colors.yellow, "Games")
+            api.drawIcon(19, 14, colors.lime, colors.black, "Media")
 
             api.showWelcomeWindow()
              os.sleep(0.5)
