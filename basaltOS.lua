@@ -96,12 +96,16 @@ return function(parentFrame)
 
         -- Clock
         clock = menuBar:addLabel("clock")
-            :setPosition(tw - 8, 1)
+            :setPosition(tw - 9, 1)
             :setForeground(colors.lightBlue)
 
         function updateClock()
+            local timestr = textutils.formatTime(os.time("local"), false)
+            if #timestr < 8 then
+                timestr = timestr .. " "
+            end
             while true do
-                clock:setText(textutils.formatTime(os.time("local"), false) .. " ^")
+                clock:setText(timestr .. " ^")
                 os.sleep(30)
             end
         end
