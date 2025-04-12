@@ -1,5 +1,8 @@
 basalt = require("basalt")
 
+
+
+
 return function(parentFrame)
     local tw, th = term.getSize()
     local api = {}
@@ -7,79 +10,12 @@ return function(parentFrame)
         :setSize(tw, th)
         :setBackground(colors.gray)        
 
+
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
             :setPosition(1, 2)
             :setSize(tw, th)
             :setBackground(colors.gray)
-            :onClick(function()
-                os.reboot()
-            end)
-
-    local images = {
-        "images/gate.bimg",
-        "images/wiz.bimg",
-        "images/wiz2.bimg",
-        "images/illager.bimg",
-        "images/helios.bimg",
-        "images/helios-2.bimg",
-        "images/helios-3.bimg",
-        "images/basalty.bimg",
-        "images/basalt2.bimg",
-        "images/basalt3.bimg",
-        "images/dragon.bimg",
-        "images/sunset.bimg",
-        "images/prominence2.bimg",
-        "images/prominence3.bimg",
-        "images/tantalius.bimg",
-        "images/janur.bimg",
-        "images/spooky.bimg",
-        "images/ps1.bimg",
-        
-    }
-    
-    -- Make sure we don't request more images than available
-    -- count = math.min(count, #images)
-    
-    -- Shuffle the images array
-    for i = #images, 2, -1 do
-        local j = math.random(i)
-        images[i], images[j] = images[j], images[i]
-    end
-
-    
-
-        local file = fs.open(images[1], "r")
-        if file then
-            img = textutils.unserialize(file.readAll())
-            file:close()
-        end
-
-
-
-
-        bgImg = desktop:addImage()
-            :setBimg(img)
-            :setSize(tw, th)
-            :setCurrentFrame(1)
-            :setX(1)
-            :setY(1)
-            :setBackground(colors.gray)
-
-
-
-        desktop:animate()
-            :move(1, -164, 0)  -- Move down
-            :sequence()
-            :move(1, 2, 2)  -- Move down
-            
-            :start()
-
-        bgImg:animate()
-            :move(1, 20, 2.5)  -- Move down
-            :sequence()
-            :start()            
-
     end
 
     function api.animateWindow()
@@ -137,13 +73,17 @@ return function(parentFrame)
             :setSize(tw, 1)
             :setBackground(colors.gray)
             :setForeground(colors.lightBlue)
+            :onClick(function()
+                os.reboot()
+            end)
+
     end
 
 
     function api.showWelcomeWindow()
         -- Window dimensions (will auto-adjust to content)
         windowWidth = math.min(40, tw)
-        windowHeight = 14
+        windowHeight = math.min(24, th - 8)
         winX = math.floor((tw - windowWidth) / 2) + 2
         winY = math.floor((th - windowHeight) / 2) + 1
         state = "normal"
@@ -152,6 +92,7 @@ return function(parentFrame)
         windowContainer = desktop:addFrame("welcomeWindow")
             :setPosition(3, winY)
             :setSize(windowWidth, windowHeight)
+
 
         -- Create border effect
         borderFrame = windowContainer:addFrame()
@@ -217,7 +158,8 @@ return function(parentFrame)
             :setSize(1, 1)
             :setBackground(colors.gray)
             :setForeground(colors.lightGray)
-            :onClick(function()
+            :onClick(
+                function()
                     -- minimize
                     if state == "minimized" then
                         windowHeight = 14
@@ -243,14 +185,8 @@ return function(parentFrame)
                         minbtn:setText("-")
                         state = "minimized"
                     end
-                
-
-
-            end)
-
-
-
-
+                end
+            )
 
         -- Text content with word wrapping
         local textContent = "BasaltOS is a lightweight Lua environment for ComputerCraft that combines classic computing nostalgia with modern functionality."
@@ -309,14 +245,79 @@ return function(parentFrame)
                     dragX, dragY = x, y
                 end
             end)
+        end
+
+    function api.addBG()
+        local images = {
+            "images/gate.bimg",
+            "images/wiz.bimg",
+            "images/wiz2.bimg",
+            "images/illager.bimg",
+            "images/helios.bimg",
+            "images/helios-2.bimg",
+            "images/helios-3.bimg",
+            "images/basalty.bimg",
+            "images/basalt2.bimg",
+            "images/basalt3.bimg",
+            "images/dragon.bimg",
+            "images/sunset.bimg",
+            "images/prominence2.bimg",
+            "images/prominence3.bimg",
+            "images/tantalius.bimg",
+            "images/spooky.bimg"
+        }
+
+        -- Shuffle the images array
+        for i = #images, 2, -1 do
+            local j = math.random(i)
+            images[i], images[j] = images[j], images[i]
+        end
+
+        local file = fs.open(images[1], "r")
+        if file then
+            img = textutils.unserialize(file.readAll())
+            file:close()
+        end
+
+        bgImg = desktop:addImage()
+            :setBimg(img)
+            :setSize(tw, th)
+            :setCurrentFrame(1)
+            :setX(1)
+            :setY(1)
+            :setBackground(colors.gray)
+            :setVisible(false)
+
+    end
+
+    function api.animateBG()
+        bgImg:setVisible(true)
+        bgImg:setY(-80)
+        bgImg:animate()
+            :move(1, 1, 1)  -- Move down
+            :start()
+
     end
 
     function api.start()
-        api.drawMenuBar()
-        api.drawDesktop()
-        api.drawTaskbar()
-        api.showWelcomeWindow()
-        api.animateWindow()
+        basalt.schedule(function()
+            api.drawMenuBar()
+            api.drawDesktop()
+            api.addBG()
+            os.sleep(0.5)
+
+            api.animateBG()
+            os.sleep(1)
+
+            api.drawTaskbar()
+            os.sleep(0.5)
+
+            api.showWelcomeWindow()
+            os.sleep(0.5)
+
+            api.animateWindow()
+        end)
+    
 
         return api
     end
