@@ -5,7 +5,7 @@ return function(parentFrame)
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
-        :setBackground(colors.gray)        
+        :setBackground(colors.lightGray)        
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
@@ -37,7 +37,6 @@ return function(parentFrame)
             "images/helios.bimg",
             "images/helios-2.bimg",
             "images/helios-3.bimg",
-            "images/basalty.bimg",
             "images/basalt2.bimg",
             "images/basalt3.bimg",
             "images/dragon.bimg",
@@ -76,9 +75,19 @@ return function(parentFrame)
 
     function api.drawMenuBar()
         menuBar = frame:addFrame("menuBar")
-            :setPosition(1, 1)
+            :setPosition(-tw+1, 1)
             :setSize(tw, 1)
             :setBackground(colors.gray)
+            :setVisible(false)
+            os.sleep(0.5)
+
+
+        menuBar:setVisible(true)
+        menuBar:animate()
+            :move(1,1,0.5)
+            :sequence()
+            :start()
+            os.sleep(0.5)
 
         -- Rainbow title
         local title = "BasaltOS"
@@ -100,12 +109,8 @@ return function(parentFrame)
             :setForeground(colors.lightBlue)
 
         function updateClock()
-            local timestr = textutils.formatTime(os.time("local"), false)
-            if #timestr < 8 then
-                timestr = timestr .. " "
-            end
             while true do
-                clock:setText(timestr .. " ^")
+                clock:setText(textutils.formatTime(os.time("local"), false) .. " ^")
                 os.sleep(30)
             end
         end
@@ -116,13 +121,20 @@ return function(parentFrame)
 
     function api.drawTaskbar()
         taskbar = desktop:addFrame("taskbar")
-            :setPosition(1, th-1)
+            :setPosition(-tw+1, th-1)
             :setSize(tw, 1)
             :setBackground(colors.gray)
             :setForeground(colors.lightBlue)
             :onClick(function()
                 os.reboot()
             end)
+            os.sleep(0.1)
+
+            taskbar:animate()
+                :move(1,th-1,0.5)
+                :sequence()
+                :start()
+            os.sleep(0.5)
 
     end
 
@@ -315,10 +327,11 @@ return function(parentFrame)
     function api.animateBG(offsetY)
         bgImg:setVisible(true)
         bgImg:setY(offsetY)
+        
         bgImg:animate()
             :move(1, 1, 1)  -- Move down
             :start()
-        os.sleep(1)
+        
     end
 
     function api.changeBG()
@@ -338,7 +351,6 @@ return function(parentFrame)
             os.sleep(0.25)
             api.changeBG()
             os.sleep(1)
-
 
             api.drawTaskbar()
             os.sleep(0.5)
