@@ -292,6 +292,11 @@ return function(parentFrame)
             :setY(1)
             :setBackground(colors.gray)
             :setVisible(false)
+            :onClick(function()
+                api.addBG()
+                api.animateBG()
+            end)
+
 
     end
 
