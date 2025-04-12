@@ -11,7 +11,7 @@ return function(parentFrame)
         desktop = frame:addFrame("desktop")
             :setPosition(1, 2)
             :setSize(tw, th)
-            :setBackground(colors.gray)
+            :setBackground(colors.lightGray)
     end
 
     function api.animateWindow()
@@ -350,10 +350,10 @@ return function(parentFrame)
             api.drawDesktop()
             os.sleep(0.25)
             api.changeBG()
-            os.sleep(0.1)
+            os.sleep(1)
 
             api.drawTaskbar()
-            os.sleep(0.25)
+            os.sleep(0.5)
 
             api.showWelcomeWindow()
             os.sleep(0.5)
