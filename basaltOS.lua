@@ -19,7 +19,8 @@ return function(parentFrame)
     end
 
     function api.animateWindow()
-        windowContainer:setY(-5)
+        windowContainer:setY(-10)
+        windowContainer:setVisible(true)
         windowContainer:animate()
             :resize(1, 1, 0) 
             :sequence()
@@ -92,6 +93,7 @@ return function(parentFrame)
         windowContainer = desktop:addFrame("welcomeWindow")
             :setPosition(3, winY)
             :setSize(windowWidth, windowHeight)
+            :setVisible(false)
 
 
         -- Create border effect
@@ -158,8 +160,7 @@ return function(parentFrame)
             :setSize(1, 1)
             :setBackground(colors.gray)
             :setForeground(colors.lightGray)
-            :onClick(
-                function()
+            :onClick(function()
                     -- minimize
                     if state == "minimized" then
                         windowHeight = 14
@@ -187,6 +188,10 @@ return function(parentFrame)
                     end
                 end
             )
+
+
+
+
 
         -- Text content with word wrapping
         local textContent = "BasaltOS is a lightweight Lua environment for ComputerCraft that combines classic computing nostalgia with modern functionality."
