@@ -337,11 +337,11 @@ return function(parentFrame)
             api.drawDesktop()
             os.sleep(0.25)
             api.changeBG()
-            os.sleep(1)
+            os.sleep(0.1)
 
 
             api.drawTaskbar()
-            os.sleep(0.5)
+            os.sleep(0.25)
 
             api.showWelcomeWindow()
             os.sleep(0.5)
