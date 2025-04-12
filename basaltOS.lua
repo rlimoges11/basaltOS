@@ -145,7 +145,7 @@ return function(parentFrame)
     function api.showWelcomeWindow()
         -- Window dimensions (will auto-adjust to content)
         windowWidth = math.min(40, tw)
-        windowHeight = math.min(24, th - 8)
+        windowHeight = math.min(24, th - 7)
         winX = math.floor((tw - windowWidth) / 2) + 2
         winY = math.floor((th - windowHeight) / 2) + 1
         state = "normal"
@@ -294,23 +294,6 @@ return function(parentFrame)
             :onClick(function()
                 windowContainer:destroy()
             end)
-
-        -- Make window draggable
-        local dragX, dragY
-        welcomeWin:addFrame("dragBar")
-            :setPosition(-10, 1)
-            :setSize(1, 1)
-            :setBackground(colors.blue)
-            :onDrag(function(event, btn, x, y)
-                if event == "mouse_click" then
-                    dragX, dragY = x, y
-                elseif event == "mouse_drag" then
-                    windowContainer:setPosition(
-                        windowContainer:getX() + (x - dragX),
-                        windowContainer:getY() + (y - dragY))
-                    dragX, dragY = x, y
-                end
-            end)
         end
 
     function api.addBG(img)
@@ -338,7 +321,7 @@ return function(parentFrame)
     end
 
     function api.changeBG()
-        if tw > 90 then
+        if tw > 57 then
             api.addBG(api.getRandomBG())
             api.animateBG(-th+1)
         else
@@ -347,21 +330,59 @@ return function(parentFrame)
         end
     end
 
+    function api.drawIcon(ox, oy, ifg, ibg, filename)
+        local icon = desktop:addFrame("icon")
+            :setBackground(ibg)
+            :setSize(8, 5)
+            :setPosition(ox,oy)
+
+        local borderTop = icon:addLabel("borderTop")
+            :setPosition(1, 1)
+            :setBackground(ibg)
+            :setForeground(ifg)
+            :setSize (9, 1)
+            :setText("\135\131\131\131\131\131\131\139")
+
+
+        local borderBottom = icon:addLabel("borderBottom")
+            :setPosition(1, 4)
+            :setBackground(ibg)
+            :setForeground(ifg)
+            :setSize (9, 1)
+            :setText("\141\140\140\140\140\140\140\142")
+
+        local filename = icon:addLabel("filename")
+            :setPosition(1, 5)
+            :setBackground(colors.black)
+            :setForeground(ifg)
+            :setText("\187" .. filename)
+            
+
+
+    end
+
     function api.start(monitor)
         basalt.schedule(function()
             api.drawMenuBar()
             api.drawDesktop()
-            os.sleep(0.25)
+            os.sleep(0.15)
             api.changeBG()
             os.sleep(1)
 
             api.drawTaskbar()
-            os.sleep(0.5)
+            os.sleep(0.15)
+
+            api.drawIcon(1, 2, colors.orange, colors.black, "Calc")
+            api.drawIcon(10, 2, colors.white, colors.magenta, "Paint")
+            api.drawIcon(19, 2, colors.yellow, colors.lightBlue, "Weather")
+
+            api.drawIcon(1, 8, colors.yellow, colors.black, "Devices")
+            api.drawIcon(10, 8, colors.lime, colors.green, "Game")
+            api.drawIcon(19, 8, colors.black, colors.lime, "Remote")
 
             api.showWelcomeWindow()
-            os.sleep(0.5)
-
-            api.animateWindow()
+             os.sleep(0.5)
+             api.animateWindow()
         end)
     
 
