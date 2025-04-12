@@ -1,15 +1,11 @@
 basalt = require("basalt")
 
-
-
-
 return function(parentFrame)
     local tw, th = term.getSize()
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
         :setBackground(colors.gray)        
-
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
@@ -30,6 +26,52 @@ return function(parentFrame)
             :resize(23, 14, 0.5) 
             :sequence()
             :start()
+    end
+
+    function api.getRandomBG()
+        local images = {
+            "images/gate.bimg",
+            "images/wiz.bimg",
+            "images/wiz2.bimg",
+            "images/illager.bimg",
+            "images/helios.bimg",
+            "images/helios-2.bimg",
+            "images/helios-3.bimg",
+            "images/basalty.bimg",
+            "images/basalt2.bimg",
+            "images/basalt3.bimg",
+            "images/dragon.bimg",
+            "images/sunset.bimg",
+            "images/prominence2.bimg",
+            "images/prominence3.bimg",
+            "images/tantalius.bimg",
+            "images/spooky.bimg"
+        }
+
+        -- Shuffle the images array
+        for i = #images, 2, -1 do
+            local j = math.random(i)
+            images[i], images[j] = images[j], images[i]
+        end
+
+        local file = fs.open(images[1], "r")
+        if file then
+            img = textutils.unserialize(file.readAll())
+            file:close()
+        end
+
+        return img
+    end
+
+
+    function api.loadImg(path)
+        local file = fs.open(path, "r")
+        if file then
+            img = textutils.unserialize(file.readAll())
+            file:close()
+        end
+
+        return img
     end
 
     function api.drawMenuBar()
@@ -252,38 +294,7 @@ return function(parentFrame)
             end)
         end
 
-    function api.addBG()
-        local images = {
-            "images/gate.bimg",
-            "images/wiz.bimg",
-            "images/wiz2.bimg",
-            "images/illager.bimg",
-            "images/helios.bimg",
-            "images/helios-2.bimg",
-            "images/helios-3.bimg",
-            "images/basalty.bimg",
-            "images/basalt2.bimg",
-            "images/basalt3.bimg",
-            "images/dragon.bimg",
-            "images/sunset.bimg",
-            "images/prominence2.bimg",
-            "images/prominence3.bimg",
-            "images/tantalius.bimg",
-            "images/spooky.bimg"
-        }
-
-        -- Shuffle the images array
-        for i = #images, 2, -1 do
-            local j = math.random(i)
-            images[i], images[j] = images[j], images[i]
-        end
-
-        local file = fs.open(images[1], "r")
-        if file then
-            img = textutils.unserialize(file.readAll())
-            file:close()
-        end
-
+    function api.addBG(img)
         bgImg = desktop:addImage()
             :setBimg(img)
             :setSize(tw, th)
@@ -293,31 +304,37 @@ return function(parentFrame)
             :setBackground(colors.gray)
             :setVisible(false)
             :onClick(function()
-                api.addBG()
-                api.animateBG()
+                api.changeBG()
             end)
-
-
     end
 
-    function api.animateBG()
+    function api.animateBG(offsetY)
         bgImg:setVisible(true)
-        bgImg:setY(-80)
+        bgImg:setY(offsetY)
         bgImg:animate()
             :move(1, 1, 1)  -- Move down
             :start()
-
+        os.sleep(1)
     end
 
-    function api.start()
+    function api.changeBG()
+        if tw > 90 then
+            api.addBG(api.getRandomBG())
+            api.animateBG(-th+1)
+        else
+            api.addBG(api.loadImg("images/basalty.bimg"))
+            api.animateBG(-th+1)
+        end
+    end
+
+    function api.start(monitor)
         basalt.schedule(function()
             api.drawMenuBar()
             api.drawDesktop()
-            api.addBG()
-            os.sleep(0.5)
-
-            api.animateBG()
+            os.sleep(0.25)
+            api.changeBG()
             os.sleep(1)
+
 
             api.drawTaskbar()
             os.sleep(0.5)
