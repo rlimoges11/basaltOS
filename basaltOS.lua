@@ -5,24 +5,81 @@ return function(parentFrame)
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
+        :setBackground(colors.gray)        
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
             :setPosition(1, 2)
             :setSize(tw, th)
+            :setBackground(colors.gray)
+            :onClick(function()
+                os.reboot()
+            end)
+
+    local images = {
+        "images/gate.bimg",
+        "images/wiz.bimg",
+        "images/wiz2.bimg",
+        "images/illager.bimg",
+        "images/helios.bimg",
+        "images/helios-2.bimg",
+        "images/helios-3.bimg",
+        "images/basalty.bimg",
+        "images/basalt2.bimg",
+        "images/basalt3.bimg",
+        "images/dragon.bimg",
+        "images/sunset.bimg",
+        "images/prominence2.bimg",
+        "images/prominence3.bimg",
+        "images/tantalius.bimg",
+        "images/janur.bimg",
+        "images/spooky.bimg",
+        "images/ps1.bimg",
         
-        local file = fs.open("images/basalty.bimg", "r")
+    }
+    
+    -- Make sure we don't request more images than available
+    -- count = math.min(count, #images)
+    
+    -- Shuffle the images array
+    for i = #images, 2, -1 do
+        local j = math.random(i)
+        images[i], images[j] = images[j], images[i]
+    end
+
+    
+
+        local file = fs.open(images[1], "r")
         if file then
             img = textutils.unserialize(file.readAll())
             file:close()
         end
 
-        local bgImg = desktop:addImage()
+
+
+
+        bgImg = desktop:addImage()
             :setBimg(img)
             :setSize(tw, th)
             :setCurrentFrame(1)
             :setX(1)
             :setY(1)
+            :setBackground(colors.gray)
+
+
+
+        desktop:animate()
+            :move(1, -164, 0)  -- Move down
+            :sequence()
+            :move(1, 2, 2)  -- Move down
+            
+            :start()
+
+        bgImg:animate()
+            :move(1, 20, 2.5)  -- Move down
+            :sequence()
+            :start()            
+
     end
 
     function api.animateWindow()
@@ -99,19 +156,19 @@ return function(parentFrame)
         -- Create border effect
         borderFrame = windowContainer:addFrame()
             :setSize(23, windowHeight)
-            :setBackground(colors.blue)
+            :setBackground(colors.gray)
 
         -- Main content frame
         welcomeWin = borderFrame:addFrame()
             :setPosition(2, 2)
             :setSize(21, windowHeight-2)
-            :setBackground(colors.lightBlue)
+            :setBackground(colors.gray)
 
         -- Title bar
         borderFrame:addFrame()
             :setPosition(3, 1)
             :setSize(windowWidth-3, 1)
-            :setBackground(colors.blue)
+            :setBackground(colors.gray)
             :addLabel("title")
             :setText("Welcome to BasaltOS")
             :setPosition(1, 1)
@@ -122,8 +179,8 @@ return function(parentFrame)
             :setText("\30")
             :setPosition(2, 1)
             :setSize(1, 1)
-            :setBackground(colors.blue)
-            :setForeground(colors.lightBlue)
+            :setBackground(colors.gray)
+            :setForeground(colors.lightGray)
             :onClick(function()
                 if state == "normal" or state == "minimized" then
                     -- maximize
@@ -158,8 +215,8 @@ return function(parentFrame)
             :setText("\31")
             :setPosition(1,1)
             :setSize(1, 1)
-            :setBackground(colors.blue)
-            :setForeground(colors.lightBlue)
+            :setBackground(colors.gray)
+            :setForeground(colors.lightGray)
             :onClick(function()
                     -- minimize
                     if state == "minimized" then
@@ -230,7 +287,7 @@ return function(parentFrame)
             :setText(" OK ")
             :setPosition(math.floor((windowWidth-4)/2)-2, windowHeight-3)
             :setSize(8, 1)
-            :setBackground(colors.blue)
+            :setBackground(colors.gray)
             :setForeground(colors.white)
             :onClick(function()
                 windowContainer:destroy()
