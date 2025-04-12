@@ -30,6 +30,7 @@ return function(parentFrame)
 
     function api.getRandomBG()
         local images = {
+            
             "images/gate.bimg",
             "images/wiz.bimg",
             "images/wiz2.bimg",
@@ -41,10 +42,12 @@ return function(parentFrame)
             "images/basalt3.bimg",
             "images/dragon.bimg",
             "images/sunset.bimg",
-            "images/prominence2.bimg",
-            "images/prominence3.bimg",
             "images/tantalius.bimg",
-            "images/spooky.bimg"
+            "images/spooky.bimg",
+            "images/guardian.bimg",
+            "images/kerrigan.bimg",
+            "images/ps1.bimg",
+            "images/friona.bimg",
         }
 
         -- Shuffle the images array
