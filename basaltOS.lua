@@ -129,7 +129,12 @@ return function(parentFrame)
             :setBackground(colors.gray)
             :setForeground(colors.lightBlue)
             :onClick(function()
-                os.reboot()
+                frame:setVisible(false)
+
+                --os.reboot()
+                local trek = parentFrame:addProgram()
+                :setSize(164,th)
+                :execute("trek.lua")
             end)
             os.sleep(0.1)
 
@@ -317,7 +322,6 @@ return function(parentFrame)
         bgImg:animate()
             :move(1, 1, 1)  -- Move down
             :start()
-        
     end
 
     function api.changeBG()
