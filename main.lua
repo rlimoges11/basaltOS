@@ -5,15 +5,14 @@ local monitors = { peripheral.find("monitor") }
 local monitor = nil
 
 local function initMonitors()
-    if monitors ~= nil then
-        for _, monitor in pairs(monitors) do
-            monitor.setBackgroundColor(colors.black)
-            monitor.setTextScale(0.5)
-            monitor.clear()
-            monitor = monitors[1]
-            term.redirect(monitor)
-        end
+    for _, monitor in pairs(monitors) do
+        monitor.setBackgroundColor(colors.black)
+        monitor.setTextScale(0.5)
+        monitor.clear()
     end
+
+    monitor = monitors[1]
+    term.redirect(monitor)
 
     main = basalt.createFrame()
     :setSize(basalt.getMainFrame():getSize())

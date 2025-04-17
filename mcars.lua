@@ -23,25 +23,17 @@ return function()
             :setSize(w,h)
             :setBackground(bg)
             :onClick(function(thisPanel)
-                thisPanel:setVisible(false)
+                    thisPanel.bgImg:setCurrentFrame(math.random(1,9))
             end)
 
         local img = api.loadImg("images/mcars.bimg")
-        local bgImg = thisPanel:addImage()
+        thisPanel.bgImg = thisPanel:addImage()
             :setBimg(img)
             :setSize(w, h)
             :setCurrentFrame(math.random(1,9))
             :setX(1)
             :setY(1)
 
-
-        local panelContent = thisPanel:addLabel()
-            :setBackground(colors.black)
-            :setForeground(colors.white)
-            :setSize(w-2, h-2)
-            :setText(tostring(#panels))
-
-        
             table.insert(panels, thisPanel)
         return thisPanel
 
@@ -57,8 +49,8 @@ return function()
         return img
     end
 
-    function api.start(monitors)
-        if monitors ~= nil then
+    function api.start(monitor)
+        if monitor ~= nil then
             if term.current() ~= term.native() then
                 term.redirect(monitor)
 
