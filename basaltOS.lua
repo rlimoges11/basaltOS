@@ -322,6 +322,7 @@ return function(parentFrame)
         bgImg:animate()
             :move(1, 1, 1)  -- Move down
             :start()
+        
     end
 
     function api.changeBG()
