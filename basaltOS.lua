@@ -34,6 +34,8 @@ return function(parentFrame)
             "images/gate.bimg",
             "images/wiz.bimg",
             "images/wiz2.bimg",
+            "images/wiz3.bimg",
+            "images/wiz4.bimg",
             "images/illager.bimg",
             "images/helios.bimg",
             "images/helios-2.bimg",
@@ -48,6 +50,9 @@ return function(parentFrame)
             "images/kerrigan.bimg",
             "images/ps1.bimg",
             "images/friona.bimg",
+            "images/reactor.bimg",
+            "images/skelak.bimg",
+            "images/reactor.bimg",
         }
 
         -- Shuffle the images array
@@ -132,9 +137,16 @@ return function(parentFrame)
                 frame:setVisible(false)
 
                 --os.reboot()
-                local trek = parentFrame:addProgram()
-                :setSize(164,th)
-                :execute("trek.lua")
+                --local trek = parentFrame:addProgram()
+                --:setSize(164,th)
+                --:execute("trek.lua")
+
+                local tw, th = term.getSize()
+                local elevator = parentFrame:addProgram()
+                    :setSize(tw, th)
+                    :execute("apps/hellevator.lua")
+
+
             end)
             os.sleep(0.1)
 
@@ -179,7 +191,7 @@ return function(parentFrame)
             :setSize(windowWidth-3, 1)
             :setBackground(colors.gray)
             :addLabel("title")
-            :setText("Welcome to BasaltOS")
+            :setText("Welcome to Helios")
             :setPosition(1, 1)
             :setForeground(colors.white)
 
@@ -260,7 +272,7 @@ return function(parentFrame)
 
 
         -- Text content with word wrapping
-        local textContent = "BasaltOS is a lightweight Lua environment for ComputerCraft that combines classic computing nostalgia with modern functionality."
+        local textContent = "Sorry I'm afk right now, back in a few minutes"
         
         -- Word wrapping function
         local function wrapText(text, maxWidth)

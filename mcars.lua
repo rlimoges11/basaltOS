@@ -1,7 +1,6 @@
 basalt = require("basalt")
 panels = {}
 
-
 return function()
     local tw, th = term.getSize()
     local api = {}

@@ -11,7 +11,7 @@ local function initMonitors()
         monitor.clear()
     end
 
-    monitor = monitors[1]
+    monitor = monitors[#monitors]
     term.redirect(monitor)
 
     main = basalt.createFrame()

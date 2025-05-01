@@ -1,0 +1,433 @@
+{
+{
+    {
+        "                                                                                               \159                                        \159                           ",
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000b000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaa2aaaabbbfffbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                            \145                             \159    \130    \149\148    \149 \149\131\148                        \143\129                           ",
+        "000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000b000020000bf0000f0bbf000000000000000000000000b7000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaafbbfffbbffbbbbbbbbbbbbbbbbbbbbbbbbbfffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                            \149                           \129\130\144   \132   \159\143\149 \143   \149\159  \133                                                     ",
+        "000000000000000000000000000000000000000000000000000000000000f000000000000000000000000000bbb0002000aab0b000fb00f00000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbbbbbbbffaaaaaaaabbffffffb7ffbbbbbbbbbbbbbbbbbbbbbbbbffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                            \130\144                         \129  \149  \159\143\144\132\151\143\139\133\159\143    \129  \129  \143                   \133                              ",
+        "000000000000000000000000000000000000000000000000000000000000b70000000000000000000000000b00f00aab2abbbff0000b00f00b0000000000000000000b000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbbbbbfffbaabfaabfff7bfffffffbbbfbbbbbbbbbbbbbbbbbbbfffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                             \130                        \159   \149  \149 \130\139\149 \159\133      \129   \143\129 \149                 \133                               ",
+        "0000000000000000000000000000000000000000000000000000000000000b000000000000000000000000b000f00b07ba0f70000007000bb0f00000000000000000b0000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbbbffffbaaffffff7ffffffffffbfffbbbbbbbbbbbbbbbbbbffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                              \130                      \159    \133  \130\144    \130          \130\129 \159\129                \149                                ",
+        "00000000000000000000000000000000000000000000000000000000000000b0000000000000000000000b0000f00fb000070000000000770ff0000000000000000b00000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbfffffbaabfffffffffffffffffffbbbbbbbbbbbbbbbbbbfffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                                   \129 \149   \159\149   \130                          \159\143        \149                                ",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000000000070b000fb000b00000000000000000000000000bb00000000b00000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbbffffbaaaaaffffffffffffffffffbbbbbbbbffbbbbbbbbfffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                               \149                    \133    \133\149   \159                         \159  \149      \159\129                                ",
+        "000000000000000000000000000000000000000000000000000000000000000f00000000000000000000b0000fb000a0000000000000000000000000b00f000000bb00000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbbbfffff7aaaabffffffffffffffffffbbbbbbbfffbbbbbbbffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                \148                  \135       \133  \135       \159\143\143\144      \138       \149  \133     \143                                  ",
+        "0000000000000000000000000000000000000000000000000000000000000000f000000000000000000b0000000b00a0000000fffb000000b0000000b00f00000b0000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbbbbffffffbbaaa7fffffffb7bffffffffbbbbbbbfffbbbbbbfffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                 \131\144               \151      \144\129\159\144\149        \130\131\131\129             \159      \159\143\129                                   ",
+        "00000000000000000000000000000000000000000000000000000000000000000bf000000000000000b0000007bbba00000000bbbb0000000000000b000000bbb00000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbbbbbfffffffba7abffffffffffffffffffffbbbbbffffbbbffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                   \139\143          \144 \159\129      \149  \130\139\129                  \151\159\135   \129  \149  \159                                      ",
+        "0000000000000000000000000000000000000000000000000000000000000000000bb000000000070bb000000f007bb000000000000000000fbb000b00f00b00000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbbbbbffffffffbabfffffffffffffffffffffbffbbbfffbbbfffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                     \130    \159      \133       \149\143\139\144                      \151  \151   \130\143                                        ",
+        "000000000000000000000000000000000000000000000000000000000000000000000b0000b000000b0000000fabb0000000000000000000000f00b000bb0000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbfbbbbbbffffffffbbafffffffffffffffffffffff7bbffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                      \130\144  \129\148    \159        \130\143\149\149                         \129    \133\159\159                                      ",
+        "0000000000000000000000000000000000000000000000000000000000000000000000b7007f0000b00000000bbba0000000000000000000000000b0000bff00000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbfbbbbbfffffffffffabffffffffffffffffffffffbbbffffff7bffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                        \139\143  \151  \151           \148\151\133                     \138\143\151       \130                                      ",
+        "000000000000000000000000000000000000000000000000000000000000000000000000bb00f00b000000000007ab000000000000000000000bbb0000000700000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7bbffffffffffffbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                            \129  \131\144          \130\135                                                                       ",
+        "0000000000000000000000000000000000000000000000000000000000000000000000000000f00fb0000000000bb00000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                        \151\143  \144   \129               \159\144           \159\144                                                     ",
+        "000000000000000000000000000000000000000000000000000000000000000000000000f500f0007000000000000000fc00000000000f700000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff71ffbbbbffffffffffffffff7ffffffffffff7ffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                        \159 \138  \131\131\131                \138\146\144         \159\149                                                      ",
+        "000000000000000000000000000000000000000000000000000000000000000000000000c0f00bbb00000000000000007a200000000076000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff11effffffffffffffffffffff6ffffffffff0cffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                       \151  \159                      \139\129        \151\143\129                                                      ",
+        "00000000000000000000000000000000000000000000000000000000000000000000000f0010000000000000000000000c600000000f6c000000000000000000000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff711ffffffffffffffffffffffffaffffffff7afffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                     \159\131\129\129\159\129                                                                                         ",
+        "000000000000000000000000000000000000000000000000000000000000000000000ffce1e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff5511effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                    \159\149\129 \151\143                                                                                          ",
+        "00000000000000000000000000000000000000000000000000000000000000000000f55017000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7111cfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                    \149\151\131\139\149\139                                                                                          ",
+        "00000000000000000000000000000000000000000000000000000000000000000000f1111f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc775c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                    \157 \148\129\159\135\131                                                                                         ",
+        "00000000000000000000000000000000000000000000000000000000000000000000f0151ec00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff71c1efffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                    \149\135\135\131                                                                                            ",
+        "00000000000000000000000000000000000000000000000000000000000000000000f5ce00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7cffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                      \159\143\143\135\131\131\131\140\140\143\143\135                                                                                  ",
+        "0000000000000000000000000000000000000000000000000000000000000000000000fffffffbbbbb0000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbb7bbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                                 \143\143\131\131\129  \135\131\129                                                                                         ",
+        "00000000000000000000000000000000000000000000000000000000000000000ffff700bb700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                            \143\131\129     \143\131\131\129                                                                                            ",
+        "000000000000000000000000000000000000000000000000000000000000ff700000bbbb00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                         \159\131    \159\131\131\129                                                                                                 ",
+        "000000000000000000000000000000000000000000000000000000000ff0000bbb70000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffffff7bbbbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                      \159\135\129    \135                                                                                                      ",
+        "000000000000000000000000000000000000000000000000000000ff70000b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                                                     \135   \159\143\129                                                                                                        ",
+        "00000000000000000000000000000000000000000000000000000f000bbb00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "          \144      \130\131                                   \159\135\129                                                                                                           ",
+        "000000000070000007f00000000000000000000000000000000000bb700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffbbbbbbbbbffffffffffffffffffffffffffffffffffbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "          \149                                           \129                                                                                                             ",
+        "0000000000f0000000000000000000000000000000000000000000b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffff7bbbbbbbbffffffffffffffffffffffffffffffffffbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "          \149        \148                                 \151\148                                                                                                             ",
+        "0000000000f00000000b000000000000000000000000000000000fb0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "ffffffffffbbbbbbbbbffffffffffffffffffffffffffffffffffbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "          \130        \149 \143                               \130\149                                                                                                             ",
+        "0000000000700000000b0f0000000000000000000000000000000bb0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbff7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \144       \149   \149                              \158          \159\131\159\129           \159\143\144                                                                                 ",
+        "0000000000070000000b000b000000000000000000000000000000f0000000000ffbb00000000000ff7000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbffbbfffffffffffffffffffffffffffffff7ffffffffff77fffffffffffffb7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \149   \149                              \130\148          \135             \144 \149                                                                                 ",
+        "00000000000f0000000b000b000000000000000000000000000000bb0000000000b0000000000000f0b000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbffbbffffffffffffffffffffffffffffffffffffffffffbffffffffffffffbbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \149    \139\144                                        \144     \131  \130\143\144 \159\129 \149                                                                                 ",
+        "0000000000070000000b0000fb0000000000000000000000000000000000000000b00000f007f90f70b000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbffbbbbffffffffffffffffffffffffffffffffffffffffbffffff7bbb7ff7bbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \149     \130\144                                      \144\151\143\149        \149  \159 \149                                                                                 ",
+        "0000000000070000000b000007b000000000000000000000000000000000000009b9300000000700b0b000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbffbbbbbfffffffffffffffffffffffffffffffffffffffb937fffbbbbbfff9bffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \149      \130\144                                     \149\149 \130\144 \159     \148 \135 \149\129                                                                                 ",
+        "0000000000070000000b000000fb00000000000000000000000000000000000009b0730f0000090f09b000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbffbbbbbbffffffffffffffffffffffffffffffffffffffb939ff7bbbbbffb9bffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \149\159      \138                               \146\144   \159 \149 \149  \133\159\139   \136\130\129 \159                        \148                                                         ",
+        "0000000000070000000bf000000f0000000000000000000000000000000fb000f0b0300fbb0009bb090000000000000000000000007000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbf7bbbbbbbfffffffffffffffffffffffffffffff7ffff7b937ff7ffbbbb9997ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                   \149        \148                               \139\139\144 \149 \136 \149\130\129 \133     \144\130\147\133                        \149                                                         ",
+        "0000000000000000000b00000000b0000000000000000000000000000000bfb0f0303fb0b00000739b000000000000000000000000f000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbffbbbbbbbfffffffffffffffffffffffffffffffffbffbbb39b9bffbbbbbbbfffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \149\149       \130               \159\144                \141\132\149 \149\139\143\135\133 \139\143      \131\129\132\144                      \149                                                         ",
+        "0000000000070000000bf0000000f000000000000000f70000000000000000bbf0b33390ff000000f77700000000000000000000007000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbf7bbbbbbbbfffffffffffffff7fffffffffffffffffff9b999bbbb7bbbbbb7bffffffffffffffffffffffffefffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \129       \149\149        \149           \159\131     \139               \149        \143\143\143     \149 \149                    \159\129\129                                                         ",
+        "0000000000070000000bf00000000b00000000000ff00000f000000000000000f00000000bbb00000b0700000000000000000000ffe000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbf7bbbbbbbbffffffffffffbbbbbbbbfffffffffffffff9bbbbbbbb77fbbbbb7ffffffffffffffffffffff77ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \148       \149\151        \149          \135      \131\129    \143\131\144        \149      \135\151\143 \159     \138 \129                   \144\129                                                           ",
+        "00000000000f0000000bf00000000b0000000000f000000bb0000ffb00000000f000000bff0f00000f0700000000000000000007700000000000000000000000000000000000000000000000000000000000",
+        "fffffffffff7bbbbbbbf7bbbbbbbbfffffffffffbbbbbbbffffffbbfffffffff9bbbbbbf77f7bbbbb7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \159       \149\149         \144      \143\131\129      \159\133\136 \143 \149  \130\143\144      \149      \130\143\129\143\129     \138               \159\143\143\156\151                                                              ",
+        "00000000000f0000000bf000000000b000000fff000000b77070f00ffb000000f000000ffbff00000b000000000000000fffe700000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffff7bbbbbbbfbbbbbbbbbbfffffff7bbbbbbbb7fffff7bbbbfffffffbbbbbbbb7fbbbbbbb7fffffffffffffff7777fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \149       \138\149               \149        \159\151\129    \157     \144     \129             \143\131 \144               \130\131\129                                                                ",
+        "00000000000f00000007f000000000000000f00000000b770000f00000b0000070000000000000bb0b000000000000000ee70000000000000000000000000000000000000000000000000000000000000000",
+        "fffffffffffbbbbbbbbbbbbbbbbbbbbfffffbbbbbbbbb7ffffff7bbbbbffffffbbbbbbbbbbbbbbf7b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "           \130\139       \129          \133    \149        \138\144\143\144  \143\151\148     \144             \159\135\131\131\129  \131\129\132                                       \131\143                            \144\159\144         ",
+        "000000000007b000000070000000000b0000f000000007bf700ff700000b0000000000000bbbb7007b7000000000000000000000000000000000000000ff00000000000000000000000000007fb000000000",
+        "fffffffffffffbbbbbbbbbbbbbbbbbbfffffbbbbbbbbbbf7fff77bbbbbbfffffbbbbbbbbbfffffffffffffffffffffffffffffffffffffffffffffffff77fffffffffffffffffffffffffffff7ffffffffff"
+    },
+    {
+        "            \130\148                     \159\129           \149 \149 \144\149      \129 \139\148\148     \143\143\143\135\131\131\131\131\159\141\132                                      \151\131\132\135\143\129\159\144                    \159\143               ",
+        "0000000000007f000000000000000000000f7000000000007070ff00000070fb900000fffffff7bb700000000000000000000000000000000000000ffe77ff700000000000000000000ff000000000000000",
+        "fffffffffffff7bbbbbbbbbbbbbbbbbffff7bbbbbbbbbbb7f7f777bbbbbbbb7fbbbbbb7bb7bbbbfffffffffffffffffffffffffffffffffffffffff77fbb77fffffffffffffffffffff7bfffffffffffffff"
+    },
+    {
+        "             \130                \151   \159\133         \151\129 \149   \143\149         \149\149      \159\143\131\131\129                                          \159\129 \129   \144\133                 \159\143\143\129\159       \136\145\148     ",
+        "0000000000000b0000000000000000b000ff000000000bb07000f7000000000b9000000bbbbb000000000000000000000000000000000000000000ff07000be00000000000000000fff7b00000007fb00000",
+        "ffffffffffffffbbbbbbbbbbbbbbbbffff77bbbbbbbbb777f7777bbbbbbbbbbfbbbbbbbfffffffffffffffffffffffffffffffffffffffffffffff7bbbbbb7ffffffffffffffffff777b7ffffffff7ffffff"
+    },
+    {
+        "             \133\149  \149\144          \135   \159\129          \130\159\143\130\159 \130\139\156         \149\143\143\131\131\129                                                 \151       \148\149                \129   \159        \138\129\151\144  \148",
+        "0000000000000f700b70000000000b000ff0000000000777f70fbf000000000b9bbbb0000000000000000000000000000000000000000000000000f0000000b70000000000000000f000b000000007bfb00e",
+        "fffffffffffff7bbbfbbbbbbbbbbbffffbbbbbbbbbbbbbbb7b77f7bbbbbbbbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbb7fffffffffffffffffbbbb7fffffffff77ffff"
+    },
+    {
+        "           \136\159\135   \129\138         \133    \133              \143\143\149  \130         \130\143                                                     \130\144      \130\136\148             \131     \149          \130\144\130\144 ",
+        "000000000007f7000bb000000000b0000f00000000000000b7b00b000000000ff00000000000000000000000000000000000000000000000000000bf0000007e70000000000000f00000b0000000000b7f70",
+        "ffffffffffff7bbbbffbbbbbbbbbfffffbbbbbbbbbbbbbbb7b77ffbbbbbbbbbbbffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbb7ffffffffffffffbbbbbb7ffffffffff7bbff"
+    },
+    {
+        "           \151\149      \144        \159\158\129 \149               \138\133\138\144\131\133           \159\159                                                            \130\139             \131\144    \149          \129\148\141\159 ",
+        "00000000000f7000000f00000000fb70f000000000000000777bff00000000000bf0000000000000000000000000000000000000000000000000000000000007f0000000000000bf0000b00000000007fff0",
+        "fffffffffff7bbbbbffbbbbbbbbb7fffbbbbbbbbbbbbbbbbbbb777bbbbbbbbbbb7bfffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbb7ffffffffffffffbbbbbffffffffffff777f"
+    },
+    {
+        "          \159\151       \130         \149 \133                   \138\143              \130 \130\131\143\143\143\144                                             \144       \149                   \149           \130 \130\159",
+        "0000000000ff00000007000000000b0f00000000000000000007700000000000000f0bffffb00000000000000000000000000000000000000000000070000000b0000000000000000000b0000000000070bf",
+        "ffffffffff77bbbbbfffbbbbbbbbbffbbbbbbbbbbbbbbbbbbbbbb7bbbbbbbbbbbbbbffb7bbffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbffffffffffffffffbbbb7ffffffffffff777"
+    },
+    {
+        "         \132\129      \148  \149        \149\159                      \149        \131\129\149   \138  \139\143\135\129   \159\131\132                                       \138      \159\129             \159\131    \149            \130\129\130",
+        "00000000077000000700f00000000bf0000000000000000000000b00000000bbf000f00bbbb000ffb000000000000000000000000000000000000000b000000b70000000000000ff0000b00000000000077b",
+        "ffffffffffbbbbbbbfff7bbbbbbbbfbbbbbbbbbbbbbbbbbbbbbbb7bbbbbbbbff7bbbbfffffffffbbfffffffffffffffffffffffffffffffffffffffffbbbbbbfffffffffffffffbbbbbbffffffffffffffff"
+    },
+    {
+        "         \135\144      \144  \130       \149 \149  \143\139                  \130     \151    \149   \130\143\144     \159\135 \129                                         \138     \133               \144    \133   \159\139         \130",
+        "000000000f7000000700b0000000b0f00bb000000000000000000700000b0000f000ffb00000ff0b00000000000000000000000000000000000000000b00000b000000000000000f0000b000ff0000000007",
+        "fffffffff7bbbbbbbffffbbbbbbbffbbbffbbbbbbbbbbbbbbbbbbbbbbbbfffffbbbbb7ffffffb7bfffffffffffffffffffffffffffffffffffffffffffbbbbbffffffffffffffffbbbbbffff7bffffffffff"
+    },
+    {
+        "        \151\143       \148          \135 \144  \136  \148                      \129\133         \130\144 \136\145  \159\129                                                \139\159\131             \149  \131\129     \129          ",
+        "00000000770000000b0000000000b0b00b00f0000000000000000000000b7000000000fb07f00bb000000000000000000000000000000000000000000000000fff0000000000000f00b700000b0000000000",
+        "ffffffffbbbbbbbbbffffbbbbbbbffffffffbbbbbbbbbbbbbbbbbbbbbbbffffffbbbbbbfff7bbfffffffffffffffffffffffffffffffffffffffffffffbbbbbbb7fffffffffffffbbbffffffffffffffffff"
+    },
+    {
+        "       \151         \149            \129  \159  \138                      \149\144    \148     \144\155\144 \130                                              \149       \132            \130 \151                \147 ",
+        "00000007000000000b000000000000700f00b0000000000000000000000fb0000f000007f7070000000000000000000000000000000000000000000000f00000007000000000000b0b0000000000000000f0",
+        "fffffffbbbbbbbbbbffffbbbbbbbfffff7fffbbbbbbbbbbbbbbbbbbbbbbbfffffbbbbbbf7fffffffffffffffffffffffffffffffffffffffffffffffff7bbbbbbbffffffffffffffbfffffffffffffffff7f"
+    },
+    {
+        "    \151\143\135          \149  \151      \149 \159\144\135 \130   \149                    \151\151\158\144\151   \148    \130\144                                                 \138      \151              \129                 \131 ",
+        "0000fff0000000000b00f000000b0fb70b000f00000000000000000000bff7f000f0000fb0000000000000000000000000000000000000000000000000b000000b00000000000000b0000000000000000070",
+        "ffff777bbbbbbbbbbfff7bbbbbbff7fffffffbbbbbbbbbbbbbbbbbbbbbf77fbfff7bbbbbfffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbfffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "    \149            \149  \149     \143\143\143\129\131\131\129  \149 \130\143                  \149\129\130\131 \130   \130\143\144   \130\144                                                      \149                                   ",
+        "0000f000000000000b00f00000bff77f700b0bb000000000000000000bbb70b000bb7000fb000000000000000000000000000000000000000000000000000000b00000000000000000000000000000000000",
+        "ffff7bbbbbbbbbbbbfffbbbbbbfb7bbbbbbffffbbbbbbbbbbbbbbbbbbfffffffffffbbbbbffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "   \144\129\129           \149  \149     \149        \138\135\144 \130                 \149\129\144    \149    \139\143\144  \139                                                \149    \149                                   ",
+        "0007f700000000000b00f00000f00000000ffb0b00000000000000000bfb0000c0000bbf00f000000000000000000000000000000000000000000000000f0000b00000000000000000000000000000000000",
+        "ff7f7bbbbbbbbbbbbfffbbbbbfbbbbbbbbbbbfffbbbbbbbbbbbbbbbbbfbffffffffffffbbb7ffffffffffffffffffffffffffffffffffffffffffffffffbbbbbffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "    \148            \149\151     \159\143\133      \159\144  \149                   \129  \144   \149\148   \130                                                     \149     \139\143                                 ",
+        "00007000000000000bf00000bff000000b900b0000000000000000000700b00055000700000000000000000000000000000000000000000000000000000f00000ff000000000000000000000000000000000",
+        "ff77bbbbbbbbbbbbbf7bbbbb7b7bbbbbb9bbbfffbbbbbbbbbbbbbbbbbbbbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbbfffffffffffffffffffffffffffffffff"
+    },
+    {
+        "    \129            \149\129     \149  \159\135\131\129   \149  \138\135 \138\144               \129  \138   \133\149                                                         \149       \159                                ",
+        "00007000000000000b700000f00bbbb000900ff0bf000000000000000700f00055000000000000000000000000000000000000000000000000000000000f0000000f00000000000000000000000000000000",
+        "ff77bbbbbbbbbbbbbfbbbbbb7bb9999999bbbbbffbbbbbbbbbbbbbbbbbbbbfffdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbbb7ffffffffffffffffffffffffffffffff"
+    },
+    {
+        " \144\135\149            \151       \149  \149      \130    \148                    \159   \138\130\144                                                        \149     \135\129                                 ",
+        "0b77000000000000b0000000f00b000000b0000b00000000000000000000b00057700000000000000000000000000000000000000000000000000000000f00000bb000000000000000000000000000000000",
+        "ffbbbbbbbbbbbbbb7fbbbbbbbbb99999999bbbbfffbbbbbbbbbbbbbbbbbbfffffdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbbfffffffffffffffffffffffffffffffffff"
+    },
+    {
+        " \148 \133            \138      \138\129  \149\135\130\143\144\151\148     \138\135\144\144              \130\139\135\129   \130\148\130\138  \129 \155                                                  \149    \159                                   ",
+        "07070000000000007000000ff00b93303000000ff7f00000000000000fbbb000ffd50070f00000000000000000000000000000000000000000000000000f0000b00000000000000000000000000000000000",
+        "fbbbbbbbbbbbbbbbbfbbbbbbbbb93003039bbbbbbfbbbbbbbbbbbbbbbbffffffbd5fffff7ffffffffffffffffffffffffffffffffffffffffffffffffffbbbbbffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        " \149               \131         \129\149\159\143\135\143\135 \131\131    \149 \138\144            \159\148      \133\135     \130\139\144 \159                                              \149   \143                                    ",
+        "07000000000000000f000000000b9000000bb0000b0bf000000000000bb000000bd000007f70f0000000000000000000000000000000000000000000000f000b000000000000000000000000000000000000",
+        "fbbbbbbbbbbbbbbbb7bbbbbbbbb9333333999bbbbfffbbbbbbbbbbbbb7ffffffbffffffff7ff7ffffffffffffffffffffffffffffffffffffffffffffffbbbbfffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "\131\149               \129   \144   \135\129 \131    \149\148      \138\143 \149            \148\129     \151\149       \130\158\135\135                                              \149  \133\144                                    ",
+        "f70000000000000007000f000bb09000090000000ff0f0000000000007700000bd0000000c5fe0000000000000000000000000000000000000000000000f00bb000000000000000000000000000000000000",
+        "7bbbbbbbbbbbbbbbbbbbbbbbb999399993399bbbbbbfbbbbbbbbbbbbbbbfffff7fffffffff17fffffffffffffffffffffffffffffffffffffffffffffffbbbffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                     \148      \139     \129\159\143  \148     \144           \157\131     \144\143\138 \138                                                      \129 \159 \129    \149                               ",
+        "000000000000000000000f00000030000039900900000f00000000000fb00000f7d0b000000000000000000000000000000000000000000000000000000f0b070000f0000000000000000000000000000000",
+        "7bbbbbbbbbbbbbbbbbbbb7bbb99999999993399bbbbffbbbbbbbbbbbbbffffffddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbfffffffbfffffffffffffffffffffffffffffff"
+    },
+    {
+        "\149                  \159\138\129 \151\129\151\129\149       \149\135\129 \149   \143            \154\129\133\143    \149                                                         \151 \131      \143\144                               ",
+        "f000000000000000000bf70bb993000000030309000f000000000000f7bf0000f000000000000000000000000000000000000000000000000000000000f0b000000fb0000000000000000000000000000000",
+        "7bbbbbbbbbbbbbbbbbb7bbb9933999999990399bbbbbffbbbbbbbbbb7bfbffffbbffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbfffffffbffffffffffffffffffffffffffffffff"
+    },
+    {
+        "\151                      \149  \131            \130\131   \149 \130\144       \144\159\148\144\130    \149\129\149 \135                                                     \133       \151\159\129                               ",
+        "70000000000000000000000b003000000000000bb000b0bf0000000fbfb70000fbb0f00000000000000000000000000000000000000000000000000000f0000000fb70000000000000000000000000000000",
+        "bbbbbbbbbbbbbbbbbbbbbbb999999999999999999bbbfffbbbbbbbbbfbffffffb77f7fffffffffffffffffffffffffffffffffffffffffffffffffffff7bffffff77ffffffffffffffffffffffffffffffff"
+    },
+    {
+        "\149                  \144 \159\131 \144             \129\130    \149  \138      \138\133\138\130\149     \149\131 \130 \149\148                                                  \159 \129      \149\129                                ",
+        "7000000000000000000f0bb030000000000000330000b00b000000fffbb00000fd0f0f700000000000000000000000000000000000000000000000000f0b000000fb00000000000000000000000000000000",
+        "bbbbbbbbbbbbbbbbbbbbb99999999999999999009bbbffffbbbbbbb77fffffffbbbbfdfffffffffffffffffffffffffffffffffffffffffffffffffff7bfffffffbfffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                 \138\129  \129  \133     \151\144\144     \130\129 \138\131     \139   \135\146\135\143\129 \133     \138 \159 \149\149\149                                                  \149       \159\148                                 ",
+        "00000000000000000ff00b0000000090300000330bb00000b000bbbbb0b00000b0b0bfc00000000000000000000000000000000000000000000000000f0000000fb000000000000000000000000000000000",
+        "bbbbbbbbbbbbbbbbbbbbb9933999993399999999999bbbbffbbbfffffffffffffb7bf5fffffffffffffffffffffffffffffffffffffffffffffffffff7bffffff7ffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "                 \148  \143         \149\130\130\144      \151\149        \148\138\129\151   \132          \138\138\144\136                                               \151\159       \149                                   ",
+        "00000000000000000f00b00000000093930000009300000000f7fb000b0000000000f7d700000000000000000000000000000000000000000000000ff0000000f00000000000000000000000000000000000",
+        "bbbbbbbbbbbbbbbbbbbb99999999993039999999399bbbbfff7bbffffffffffffbbbbffffffffffffffffffffffffffffffffffffffffffffffffff77bbfffffbbffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "               \151\149    \151\132      \151\133  \148        \159\130\131  \139\131\148\130\149\159\143\144\148            \159\132\143                                                \133\129 \159      \144 \159\139\143                    \133         ",
+        "000000000000000bf00009300000093000000000009bb00ffbb7bbfb000000000000bbd000000000000000000000000000000000000000000000000f70b000000f0fff00000000000000000000b000000000",
+        "bbbbbbbbbbbbbbbfbbbb9399999993000399999999399bbbbffbffbffffffffffbbb7ffffffffffffffffffffffffffffffffffffffffffffffffff7bb7ffffffbf77bffffffffffffffffffffffffffffff"
+    },
+    {
+        "               \149\133  \159 \129       \149   \149       \149\140\144 \144   \149 \139\129            \148 \159\135\129   \159\144                           \144               \159\129  \149      \130\130\129  \148                             ",
+        "000000000000000bf00b09000000090000000000090309000b0bb000000000000f0bb7000f70000000000000000000000000007000000000000000f700b0000007f700700000000000000000000000000000",
+        "bbbbbbbbbbbbbbbfbbb99399999993000399999993399bbbbffffffffffffffffbb7fffff7ffffffffffffffffffffffffffffffffffffffffffff7bbbffffffffbbbbffffffffffffffffffffffffffffff"
+    },
+    {
+        "      \143       \159\148  \149  \139\129    \159\129\135   \130\130\131     \130\131\149\149    \149               \149\159\130\148    \129\130\144                                            \159\135\149           \149                             ",
+        "000000b0000000bf00b000300009330003390000033930000b000000000000000fbfb000077700000000000000000000000000000000000000000000bbb00000000000b00000000000000000000000000000",
+        "bbbbbb7bbbbbbbfbbb9993999993000000039999999399bbb7fffffffffffffffb7bfffff55fffffffffffffffffffffffffffffffffffffffffff7baaffffffffbbbbffffffffffffffffffffffffffffff"
+    },
+    {
+        "     \129\144\148     \149    \159\131       \149      \130\139\130\144     \138\149    \149               \138\138\133\135\148  \135\130\144\138                                           \144\129 \149       \130\143   \148                            ",
+        "00000bbf00000b0000b300000009000000339300000330000b000000000000000bfffb00f71f0000000000000000000000000000000000000000000bb0b0000000bb000b0000000000000000000000000000",
+        "bbbbbff7bbbbbfbbbb9099999993000000003999999999bbb7ffffffffffffffff7b7fff75ccffffffffffffffffffffffffffffffffffffffffff7aaaffffffffffbbbfffffffffffffffffffffffffffff"
+    },
+    {
+        "\139\144    \159\151     \149  \159\143\149\149     \159\131\129        \130\149      \149    \149                 \135\131  \151\159 \130\150                              \143\143\131 \148       \148\130 \149\149         \131\131\129   \151                         ",
+        "b70000bf00000b00bbb000000993000000003300000030000b00000000000000000bb00f50ce000000000000000000000000000000fff0e0000000fb0ab000000000bb7000f0000000000000000000000000",
+        "fbbbbf77bbbbbfbb999399999330000000000999999999bbbfffffffffffffffffbffff7111fffffffffffffffffffffffffffffff7eeeffffffff77abffffffffffffffff7fffffffffffffffffffffffff"
+    },
+    {
+        "\135\129   \139\135      \149  \149 \130     \136\149           \130\144     \149    \149              \159\144\143\143\131\144\135\133\159\133\138 \139                            \129\129 \159\135\129        \159 \130\131\148                                        ",
+        "f7000fb000000b00b03000003900000000000330000030000b00000000000000fbfff5f51550f0000000000000000000000000000fc0eee0000000070bbb0000000000000000000000000000000000000000",
+        "7bbbb7fbbbbbbfbb999399999300000000000099999999bbbfffffffffffffffbfd75fd15ff1effffffffffffffffffffffffffffceefffffffffffaaaafffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "             \149  \149 \159     \159\129             \132    \149    \149              \129\149\130\131\151\159\135 \151\159 \138 \139                          \154 \143\129          \149\129   \149                                        ",
+        "0000000000000b00b09000009300000000000003000030000b00000000000000fb115f505f050f00000000000000000000000000c0ee0000000000fb000b0000000000000000000000000000000000000000",
+        "bbbbbbbbbbbbbfbb993399993000000000000039999999bbbfffffffffffffffbf5dfc11fbff1efffffffffffffffffffffffffffeffffffffffff7aaaafffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "             \149  \149 \149     \149\149    \138\149     \159\159    \159\148    \149             \151 \149\138\149 \151 \151 \133\144 \139\146\148                        \159              \149    \149\148                                       ",
+        "0000000000000b00b09000009300003300000030000930000b0000000000000f0b1505010fb0cce000000000000000000000000f00000000000000f0000ab000000000000000000000000000000000000000",
+        "bbbbbbbbbbbbbfbb993399993000000000000399999399bbbffffffffffffffbbf5ff11ffbfffefffffffffffffffffffffffff7ffffffffffffff7aaaabffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "\132            \149  \149 \149     \149\149          \159\129\129    \149\149    \149             \129 \149\135\152\133 \159\159 \144\131\144 \149\149                        \130              \149     \148                                       ",
+        "7000000000000b00b09000009300000000000030000900000b000000000000070bf1f01f0ff70f1000000000000000000000000e00000000000000f00000a000000000000000000000000000000000000000",
+        "bbbbbbbbbbbbbfbb993399993000000000003399999339bbbffffffffffffffbbfd5715bfb7ff7efffffffffffffffffffffffffffffffffffffff7aaaaabfffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+        "             \149  \149 \138     \130\144\139         \151      \138\135    \149            \151  \133\138\151\138 \130\149\138\130 \129\151\129\149                                       \138     \130\148                                      ",
+        "0000000000000b00b03000003900000000003000000300000b000000000000f00b15105cbf0bfee000000000000000000000000000000000000000700000bb00000000000000000000000000000000000000",
+        "bbbbbbbbbbbbbfbb999399999330000000009999999939bbbfffffffffffffbbbf5f511ffbbfc1fffffffffffffffffffffffffffffffffffffffffaaaaaafffffffffffffffffffffffffffffffffffffff"
+    },
+    palette = {
+    [0] = {0.941176, 0.941176, 0.941176},
+    {0.949020, 0.698039, 0.200000},
+    {0.898039, 0.498039, 0.847059},
+    {0.600000, 0.698039, 0.949020},
+    {0.870588, 0.870588, 0.423529},
+    {0.498039, 0.800000, 0.098039},
+    {0.949020, 0.698039, 0.800000},
+    {0.298039, 0.298039, 0.298039},
+    {0.600000, 0.600000, 0.600000},
+    {0.298039, 0.600000, 0.698039},
+    {0.698039, 0.400000, 0.898039},
+    {0.200000, 0.400000, 0.800000},
+    {0.498039, 0.400000, 0.298039},
+    {0.341176, 0.650980, 0.305882},
+    {0.800000, 0.298039, 0.298039},
+    {0.066667, 0.066667, 0.066667},
+    }
+},
+creator = 'sanjuuni',
+version = '1.0.0',
+secondsPerFrame = 0.04,
+animation = false,
+date = '2025-05-01T16:38:32-0500',
+title = 'C:/Users/Client/Desktop/wiz3.png'
+}
