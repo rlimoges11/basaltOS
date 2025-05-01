@@ -121,6 +121,7 @@ return function(parentFrame)
                 local timestamp = textutils.formatTime(os.time("local"), false)
                 if #timestamp < 8 then
                     timestamp = " " .. timestamp
+                    
                 end
                 clock:setText(timestamp .. " ^")
                 os.sleep(30)
