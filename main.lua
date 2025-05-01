@@ -12,7 +12,10 @@ local function initMonitors()
     end
 
     monitor = monitors[#monitors]
-    term.redirect(monitor)
+
+    if(#monitors > 0) then
+        term.redirect(monitor)
+    end
 
     main = basalt.createFrame()
     :setSize(basalt.getMainFrame():getSize())

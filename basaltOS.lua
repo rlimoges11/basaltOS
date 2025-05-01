@@ -118,7 +118,11 @@ return function(parentFrame)
 
         function updateClock()
             while true do
-                clock:setText(textutils.formatTime(os.time("local"), false) .. " ^")
+                local timestamp = textutils.formatTime(os.time("local"), false)
+                if #timestamp < 8 then
+                    timestamp = " " .. timestamp
+                end
+                clock:setText(timestamp .. " ^")
                 os.sleep(30)
             end
         end
@@ -136,15 +140,15 @@ return function(parentFrame)
             :onClick(function()
                 frame:setVisible(false)
 
-                --os.reboot()
-                --local trek = parentFrame:addProgram()
-                --:setSize(164,th)
-                --:execute("trek.lua")
+                
+                local trek = parentFrame:addProgram()
+                    :setSize(164,th)
+                    :execute("trek.lua")
 
-                local tw, th = term.getSize()
-                local elevator = parentFrame:addProgram()
-                    :setSize(tw, th)
-                    :execute("apps/hellevator.lua")
+                --local tw, th = term.getSize()
+                --local elevator = parentFrame:addProgram()
+                --    :setSize(tw, th)
+                --    :execute("apps/hellevator.lua")
 
 
             end)
