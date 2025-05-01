@@ -144,7 +144,7 @@ return function(parentFrame)
                 
                 local trek = parentFrame:addProgram()
                     :setSize(164,th)
-                    :execute("trek.lua")
+                    :execute("apps/trek.lua")
 
                 --local tw, th = term.getSize()
                 --local elevator = parentFrame:addProgram()
