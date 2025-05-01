@@ -1,6 +1,6 @@
 local basalt = require("basalt")
 local basaltOS = require("basaltOS")
-local main = nil
+local main= nil
 local monitors = { peripheral.find("monitor") }
 local monitor = nil
 
@@ -11,20 +11,27 @@ local function initMonitors()
         monitor.clear()
     end
 
-    monitor = monitors[#monitors]
-
-    if(#monitors > 0) then
-        term.redirect(monitor)
-    end
-
     main = basalt.createFrame()
-    :setSize(basalt.getMainFrame():getSize())
- 
+
+    if #monitors > 0 then
+        mon1 = basalt.createFrame()
+            :setTerm(monitors[1])
+    else
+        mon1 = nil
+    end    
+    if #monitors > 1 then
+        mon2 = basalt.createFrame()
+            :setTerm(monitors[2])
+    else
+        mon2 = nil
+    end    
+        
+    -- Create OS instance
+    OS = basaltOS(main, mon1, mon2):start()
 end
 
 initMonitors()
 
--- Create OS instance
-local OS = basaltOS(main):start(monitors)
+
 
 basalt.run()

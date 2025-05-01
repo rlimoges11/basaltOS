@@ -1,7 +1,7 @@
 basalt = require("basalt")
 
-return function(parentFrame)
-    local tw, th = term.getSize()
+return function(parentFrame, monitor1, monitor2)
+    local tw, th = 168,81
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
@@ -12,6 +12,14 @@ return function(parentFrame)
             :setPosition(1, 2)
             :setSize(tw, th)
             :setBackground(colors.lightGray)
+
+        if monitor1 ~= nil then
+            desktop2 = monitor1:addFrame("desktop2"):setSize(tw, th):setBackground(colors.gray)
+        end
+        if monitor2 ~= nil then
+            desktop3 = monitor2:addFrame("desktop3"):setSize(tw, th):setBackground(colors.orange)
+        end
+
     end
 
     function api.animateWindow()
@@ -388,7 +396,7 @@ return function(parentFrame)
 
     end
 
-    function api.start(monitor)
+    function api.start()
         basalt.schedule(function()
             api.drawMenuBar()
             api.drawDesktop()
