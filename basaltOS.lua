@@ -5,7 +5,9 @@ return function(parentFrame, monitor1, monitor2)
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
-        :setBackground(colors.lightGray)        
+        :setBackground(colors.lightGray)
+
+    local desktop, desktop2, desktop3 = nil        
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
@@ -67,11 +69,7 @@ return function(parentFrame, monitor1, monitor2)
             images[i], images[j] = images[j], images[i]
         end
 
-        local file = fs.open(images[1], "r")
-        if file then
-            img = textutils.unserialize(file.readAll())
-            file:close()
-        end
+        api.loadImg(images[1])
 
         return img
     end
@@ -324,9 +322,9 @@ return function(parentFrame, monitor1, monitor2)
             end)
         end
 
-    function api.addBG(img)
+    function api.addBG(img1, img2, img3)
         bgImg = desktop:addImage()
-            :setBimg(img)
+            :setBimg(img1)
             :setSize(tw, th)
             :setCurrentFrame(1)
             :setX(1)
@@ -336,26 +334,74 @@ return function(parentFrame, monitor1, monitor2)
             :onClick(function()
                 api.changeBG()
             end)
+
+        if monitor1 ~= nil then
+            bgImg2 = desktop2:addImage()
+                :setBimg(img2)
+                :setSize(tw, th)
+                :setCurrentFrame(1)
+                :setX(1)
+                :setY(1)
+                :setBackground(colors.gray)
+                :setVisible(false)
+                :onClick(function()
+                    api.changeBG()
+                end)
+        end
+
+        if monitor2 ~= nil then
+            bgImg3 = desktop3:addImage()
+                :setBimg(img3)
+                :setSize(tw, th)
+                :setCurrentFrame(1)
+                :setX(1)
+                :setY(1)
+                :setBackground(colors.gray)
+                :setVisible(false)
+                :onClick(function()
+                    api.changeBG()
+                end)
+        end
+
+
+
     end
 
     function api.animateBG(offsetY)
-        bgImg:setVisible(true)
-        bgImg:setY(offsetY)
-        
-        bgImg:animate()
-            :move(1, 1, 1)  -- Move down
-            :start()
-        
+        basalt.schedule(function()
+            bgImg:setVisible(true)
+            bgImg:setY(offsetY)
+            bgImg:animate()
+                :move(1, 1, 1)  -- Move down
+                :start()
+
+            os.sleep(0.25)
+            if monitor1 then
+                bgImg2:setVisible(true)
+                bgImg2:setY(offsetY)
+                bgImg2:animate()
+                    :move(1, 1, 1)  -- Move down
+                    :start()
+            end
+            os.sleep(0.25)
+            if monitor2 then
+                bgImg3:setVisible(true)
+                bgImg3:setY(offsetY)
+                bgImg3:animate()
+                    :move(1, 1, 1)  -- Move down
+                    :start()
+            end
+        end)
     end
 
     function api.changeBG()
-        if tw > 57 then
-            api.addBG(api.getRandomBG())
-            api.animateBG(-th+1)
-        else
-            api.addBG(api.loadImg("images/basalty.bimg"))
-            api.animateBG(-th+1)
-        end
+        local img1 = api.loadImg("images/basalty.bimg")
+        local img2 = api.getRandomBG()
+        local img3 = api.getRandomBG()
+
+        api.addBG(img1, img2, img3)
+
+        api.animateBG(-th + 1)
     end
 
     function api.drawIcon(ox, oy, ifg, ibg, filename)
