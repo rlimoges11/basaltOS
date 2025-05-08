@@ -368,7 +368,7 @@ return function(parentFrame, monitor1, monitor2)
             bgImg:setVisible(true)
             bgImg:setY(offsetY)
             bgImg:animate()
-                :move(1, 1, 1)  -- Move down
+                :move(1, 2, 1)  -- Move down
                 :start()
 
             os.sleep(0.25)
@@ -376,7 +376,7 @@ return function(parentFrame, monitor1, monitor2)
                 bgImg2:setVisible(true)
                 bgImg2:setY(offsetY)
                 bgImg2:animate()
-                    :move(1, 1, 1)  -- Move down
+                    :move(1, 2, 1)  -- Move down
                     :start()
             end
             os.sleep(0.25)
@@ -384,7 +384,7 @@ return function(parentFrame, monitor1, monitor2)
                 bgImg3:setVisible(true)
                 bgImg3:setY(offsetY)
                 bgImg3:animate()
-                    :move(1, 1, 1)  -- Move down
+                    :move(1, 2, 1)  -- Move down
                     :start()
             end
         end)
@@ -456,9 +456,9 @@ return function(parentFrame, monitor1, monitor2)
                 os.sleep(0.25)
             end
 
-            os.sleep(0.75)
+            os.sleep(1)
             api.changeBG()
-            os.sleep(2)
+            os.sleep(1)
 
             api.drawTaskbar(desktop)
             os.sleep(0.15)
@@ -491,7 +491,7 @@ return function(parentFrame, monitor1, monitor2)
              else
                 api.showWelcomeWindow(desktop)
              end
-            os.sleep(0.5)
+            os.sleep(1)
             api.animateWindow()
         end)
 
