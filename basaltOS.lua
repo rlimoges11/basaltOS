@@ -16,12 +16,12 @@ return function(parentFrame, monitor1, monitor2)
             :setBackground(colors.lightGray)
 
         if monitor1 ~= nil then
-            tw, th = monitor1:getSize()
-            desktop2 = monitor1:addFrame("desktop2"):setSize(tw, th):setBackground(colors.gray)
+            local tw2, th2 = monitor1:getSize()
+            desktop2 = monitor1:addFrame("desktop2"):setSize(tw2, th2):setBackground(colors.gray)
         end
         if monitor2 ~= nil then
-            tw, th = monitor2:getSize()
-            desktop3 = monitor2:addFrame("desktop3"):setSize(tw, th):setBackground(colors.orange)
+            local tw3, th3 = monitor2:getSize()
+            desktop3 = monitor2:addFrame("desktop3"):setSize(tw3, th3):setBackground(colors.orange)
         end
 
     end
@@ -327,7 +327,7 @@ return function(parentFrame, monitor1, monitor2)
     function api.addBG(img1, img2, img3)
         bgImg = desktop:addImage()
             :setBimg(img1)
-            :setSize(tw, th)
+            :setSize(164, 81)
             :setCurrentFrame(1)
             :setX(1)
             :setY(1)
@@ -340,7 +340,7 @@ return function(parentFrame, monitor1, monitor2)
         if monitor1 ~= nil then
             bgImg2 = desktop2:addImage()
                 :setBimg(img2)
-                :setSize(tw, th)
+                :setSize(164, 81)
                 :setCurrentFrame(1)
                 :setX(1)
                 :setY(1)
@@ -354,7 +354,7 @@ return function(parentFrame, monitor1, monitor2)
         if monitor2 ~= nil then
             bgImg3 = desktop3:addImage()
                 :setBimg(img3)
-                :setSize(tw, th)
+                :setSize(164, 81)
                 :setCurrentFrame(1)
                 :setX(1)
                 :setY(1)
