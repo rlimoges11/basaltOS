@@ -111,7 +111,6 @@ return function(parentFrame, monitor1, monitor2)
                 mw,mh = menuBar:getSize()
                 menuBar:animate()
                     :resize(mw, 10, 0.25)
-                    :Z(10)
                     :start()
 
             end)
@@ -341,9 +340,9 @@ return function(parentFrame, monitor1, monitor2)
     function api.animateBG(offsetY)
         basalt.schedule(function()
             bgImg:setVisible(true)
-            bgImg:setY(offsetY)
+            bgImg:setY(offsetY + 1)
             bgImg:animate()
-                :move(1, 2, 1)  -- Move down
+                :move(1, 1, 1)  -- Move down
                 :start()
 
             os.sleep(0.25)
@@ -351,7 +350,7 @@ return function(parentFrame, monitor1, monitor2)
                 bgImg2:setVisible(true)
                 bgImg2:setY(offsetY)
                 bgImg2:animate()
-                    :move(1, 2, 1)  -- Move down
+                    :move(1, 1, 1)  -- Move down
                     :start()
             end
             os.sleep(0.25)
@@ -359,7 +358,7 @@ return function(parentFrame, monitor1, monitor2)
                 bgImg3:setVisible(true)
                 bgImg3:setY(offsetY)
                 bgImg3:animate()
-                    :move(1, 2, 1)  -- Move down
+                    :move(1, 1, 1)  -- Move down
                     :start()
             end
         end)
@@ -372,7 +371,7 @@ return function(parentFrame, monitor1, monitor2)
 
         api.addBG(img1, img2, img3)
 
-        api.animateBG(-th + 1)
+        api.animateBG(-th)
     end
 
     function api.drawIcon(ox, oy, ifg, ibg, filename)
@@ -422,21 +421,7 @@ return function(parentFrame, monitor1, monitor2)
         basalt.schedule(function()
             
             api.drawDesktop()
-            os.sleep(0.1)
-            api.drawMenuBar(desktop)
-            os.sleep(0.25)
-
-            if desktop2 ~= nil then 
-                api.drawMenuBar(desktop2)
-                os.sleep(0.25)
-            end
-
-            if desktop3 ~= nil then
-                api.drawMenuBar(desktop3)
-                os.sleep(0.25)
-            end
-
-            os.sleep(1)
+            os.sleep(0.5)
             api.changeBG()
             os.sleep(1)
 
@@ -465,6 +450,22 @@ return function(parentFrame, monitor1, monitor2)
             api.drawIcon(1, 14, colors.green, colors.white, "Logs")
             api.drawIcon(10, 14, colors.red, colors.yellow, "Games")
             api.drawIcon(19, 14, colors.lime, colors.black, "Media")
+
+            api.drawMenuBar(desktop)
+
+            if desktop2 ~= nil then 
+                api.drawMenuBar(desktop2)
+                os.sleep(0.1)
+            end
+
+            if desktop3 ~= nil then
+                api.drawMenuBar(desktop3)
+                os.sleep(0.1)
+            end
+
+            os.sleep(0.5)
+
+
 
             if desktop2 ~= nil then 
                 api.showWelcomeWindow(desktop2)
