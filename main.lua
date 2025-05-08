@@ -9,6 +9,7 @@ local function initMonitors()
         monitor.setBackgroundColor(colors.black)
         monitor.setTextScale(0.5)
         monitor.clear()
+        monitor.write(monitor.getSize())
     end
 
     main = basalt.createFrame()
