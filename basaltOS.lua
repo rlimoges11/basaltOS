@@ -442,14 +442,19 @@ return function(parentFrame, monitor1, monitor2)
         basalt.schedule(function()
             
             api.drawDesktop()
+            os.sleep(0.1)
             api.drawMenuBar(desktop)
             os.sleep(0.25)
-            api.drawMenuBar(desktop2)
-            os.sleep(0.25)
 
-            api.drawMenuBar(desktop3)
-            os.sleep(0.25)
+            if desktop2 ~= nil then 
+                api.drawMenuBar(desktop2)
+                os.sleep(0.25)
+            end
 
+            if desktop3 ~= nil then
+                api.drawMenuBar(desktop3)
+                os.sleep(0.25)
+            end
 
             os.sleep(0.75)
             api.changeBG()
@@ -458,11 +463,15 @@ return function(parentFrame, monitor1, monitor2)
             api.drawTaskbar(desktop)
             os.sleep(0.15)
 
-            api.drawTaskbar(desktop2)
-            os.sleep(0.15)
+            if desktop2 ~= nil then 
+                api.drawTaskbar(desktop2)
+                os.sleep(0.15)
+            end
 
-            api.drawTaskbar(desktop3)
-            os.sleep(0.15)
+            if desktop3 ~= nil then 
+                api.drawTaskbar(desktop3)
+                os.sleep(0.15)
+            end
 
 
             api.drawIcon(1, 2, colors.orange, colors.gray, "Calc")
@@ -477,11 +486,14 @@ return function(parentFrame, monitor1, monitor2)
             api.drawIcon(10, 14, colors.red, colors.yellow, "Games")
             api.drawIcon(19, 14, colors.lime, colors.black, "Media")
 
-            api.showWelcomeWindow(desktop2)
-             os.sleep(0.5)
-             api.animateWindow()
+            if desktop2 ~= nil then 
+                api.showWelcomeWindow(desktop2)
+             else
+                api.showWelcomeWindow(desktop)
+             end
+            os.sleep(0.5)
+            api.animateWindow()
         end)
-    
 
         return api
     end

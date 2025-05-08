@@ -2,14 +2,13 @@ local basalt = require("basalt")
 local basaltOS = require("basaltOS")
 local main= nil
 local monitors = { peripheral.find("monitor") }
-local monitor = nil
+local monitor, mon1, mon2 = nil
 
 local function initMonitors()
     for _, monitor in pairs(monitors) do
         monitor.setBackgroundColor(colors.black)
         monitor.setTextScale(0.5)
         monitor.clear()
-        monitor.write(monitor.getSize())
     end
 
     main = basalt.createFrame()
