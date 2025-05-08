@@ -16,12 +16,10 @@ return function(parentFrame, monitor1, monitor2)
             :setBackground(colors.lightGray)
 
         if monitor1 ~= nil then
-            local tw2, th2 = monitor1:getSize()
-            desktop2 = monitor1:addFrame("desktop2"):setSize(tw2, th2):setBackground(colors.lightBlue)
+            desktop2 = monitor1:addFrame("desktop2"):setSize(monitor1:getSize()):setBackground(colors.lightBlue)
         end
         if monitor2 ~= nil then
-            local tw3, th3 = monitor2:getSize()
-            desktop3 = monitor2:addFrame("desktop3"):setSize(tw3, th3):setBackground(colors.orange)
+            desktop3 = monitor2:addFrame("desktop3"):setSize(monitor2:getSize()):setBackground(colors.orange)
         end
 
     end
@@ -199,7 +197,7 @@ return function(parentFrame, monitor1, monitor2)
             :setBackground(colors.gray)
 
         -- Title bar
-        borderFrame:addFrame()
+        titlebar = borderFrame:addFrame()
             :setPosition(3, 1)
             :setSize(windowWidth-3, 1)
             :setBackground(colors.gray)
@@ -223,6 +221,7 @@ return function(parentFrame, monitor1, monitor2)
                     windowContainer:setSize(tw, windowHeight + 1)
                     borderFrame:setSize(tw, windowHeight+1)
                     welcomeWin:setSize(tw - 2, windowHeight - 1)
+                    welcomeText:setWidth(welcomeWin:getWidth())
                     state = "maximized"
                     minbtn:setText("\31")
                     maxbtn:setText("-")
@@ -231,11 +230,14 @@ return function(parentFrame, monitor1, monitor2)
                     windowHeight = 14
                     windowContainer:setPosition(winX, winY)
                         :setSize(windowWidth -2, windowHeight)
+                    welcomeText:setWidth(welcomeWin:getWidth())
 
                     borderFrame:setSize(windowWidth, windowHeight)
 
                     welcomeWin:setPosition(2, 2)
                         :setSize(windowWidth-4, 12)
+
+                    welcomeText:setSize(windowWidth-4, 12)
 
                     minbtn:setText("\31")
                     maxbtn:setText("\30")
@@ -263,6 +265,7 @@ return function(parentFrame, monitor1, monitor2)
 
                         welcomeWin:setPosition(2, 2)
                             :setSize(windowWidth-4, 12)
+                        welcomeText:setWidth(welcomeWin:getWidth())
 
                         maxbtn:setText("\30")
                         minbtn:setText("\31")
@@ -281,7 +284,7 @@ return function(parentFrame, monitor1, monitor2)
             )
 
         local textContent = "Sorry I'm afk right now, back in a few minutes"
-        welcomeWin:addLabel({x=1, y=2, autoSize=false, width=21})
+        welcomeText = welcomeWin:addLabel({x=1, y=2, autoSize=false, width=21})
             :setText(textContent)
             :setForeground(colors.lightBlue)
 
