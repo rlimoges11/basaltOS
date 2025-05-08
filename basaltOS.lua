@@ -46,6 +46,7 @@ return function(parentFrame, monitor1, monitor2)
             "images/basalt2.bimg",
             "images/basalt3.bimg",
             "images/dragon.bimg",
+            "images/enterprise.bimg",
             "images/friona.bimg",
             "images/gate.bimg",
             "images/guardian.bimg",
@@ -58,13 +59,14 @@ return function(parentFrame, monitor1, monitor2)
             "images/reactor.bimg",
             "images/skelak.bimg",
             "images/spooky.bimg",
+            "images/starbase.bimg",
+            "images/starbase2.bimg",
             "images/sunset.bimg",
             "images/tantalius.bimg",
             "images/wiz.bimg",
             "images/wiz2.bimg",
             "images/wiz3.bimg",
             "images/wiz4.bimg",
-            "images/enterprise.bimg",
         }
 
         -- Shuffle the images array
