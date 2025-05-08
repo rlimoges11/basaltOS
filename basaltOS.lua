@@ -1,7 +1,7 @@
 basalt = require("basalt")
 
 return function(parentFrame, monitor1, monitor2)
-    local tw, th = 168,81
+    local tw, th = term.getSize()
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
@@ -16,9 +16,11 @@ return function(parentFrame, monitor1, monitor2)
             :setBackground(colors.lightGray)
 
         if monitor1 ~= nil then
+            tw, th = monitor1.getSize()
             desktop2 = monitor1:addFrame("desktop2"):setSize(tw, th):setBackground(colors.gray)
         end
         if monitor2 ~= nil then
+            tw, th = monitor2.getSize()
             desktop3 = monitor2:addFrame("desktop3"):setSize(tw, th):setBackground(colors.orange)
         end
 
