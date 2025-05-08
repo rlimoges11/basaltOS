@@ -149,17 +149,7 @@ return function(parentFrame, monitor1, monitor2)
             :setBackground(colors.gray)
             :setForeground(colors.lightBlue)
             :onClick(function()
-                frame:setVisible(false)
-                
-                local trek = parentFrame:addProgram()
-                    :setSize(tw,th)
-                    :execute("apps/trek.lua")
-
-                --local elevator = parentFrame:addProgram()
-                --    :setSize(tw, th)
-                --    :execute("apps/hellevator.lua")
-
-
+                api.changeBG()
             end)
             os.sleep(0.1)
 
@@ -309,9 +299,7 @@ return function(parentFrame, monitor1, monitor2)
             :setY(1)
             :setBackground(colors.gray)
             :setVisible(false)
-            :onClick(function()
-                api.changeBG()
-            end)
+
 
         if monitor1 ~= nil then
             bgImg2 = desktop2:addImage()
@@ -322,9 +310,7 @@ return function(parentFrame, monitor1, monitor2)
                 :setY(1)
                 :setBackground(colors.gray)
                 :setVisible(false)
-                :onClick(function()
-                    api.changeBG()
-                end)
+
         end
 
         if monitor2 ~= nil then
@@ -336,9 +322,6 @@ return function(parentFrame, monitor1, monitor2)
                 :setY(1)
                 :setBackground(colors.gray)
                 :setVisible(false)
-                :onClick(function()
-                    api.changeBG()
-                end)
         end
 
     end
@@ -385,6 +368,11 @@ return function(parentFrame, monitor1, monitor2)
             :setBackground(ibg)
             :setSize(8, 5)
             :setPosition(ox,oy)
+            :onClick(function()
+                local trek = desktop:addProgram()
+                    :setSize(tw,th)
+                    :execute("apps/trek.lua")
+            end)
 
         local iconArea = icon:addFrame("iconArea")
             :setBackground(ibg)
