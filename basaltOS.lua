@@ -64,6 +64,7 @@ return function(parentFrame, monitor1, monitor2)
             "images/wiz2.bimg",
             "images/wiz3.bimg",
             "images/wiz4.bimg",
+            "images/enterprise.bimg",
         }
 
         -- Shuffle the images array
@@ -110,7 +111,9 @@ return function(parentFrame, monitor1, monitor2)
                 mw,mh = menuBar:getSize()
                 menuBar:animate()
                     :resize(mw, 10, 0.25)
+                    :Z(10)
                     :start()
+
             end)
     
 
