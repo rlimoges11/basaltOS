@@ -27,12 +27,14 @@ return function(parentFrame, monitor1, monitor2)
     end
 
     function api.animateWindow()
+        windowContainer:setVisible(false)
         windowContainer:setY(-10)
+        os.sleep(0.01)
         windowContainer:setVisible(true)
         windowContainer:animate()
             :resize(1, 1, 0) 
             :sequence()
-            :move(3, 3, 0.5)  -- Move down
+            :move(2, 3, 0.5)  -- Move down
             :resize(1, 14, 1.25) 
             :sequence()
             :resize(23, 14, 0.5) 
@@ -175,7 +177,7 @@ return function(parentFrame, monitor1, monitor2)
         -- Window dimensions (will auto-adjust to content)
         tw, th = dt:getSize()
         windowWidth = math.min(40, tw)
-        windowHeight = math.min(24, th - 7)
+        windowHeight = math.min(24, th - 6)
         winX = math.floor((tw - windowWidth) / 2) + 2
         winY = math.floor((th - windowHeight) / 2) + 1
         state = "normal"
@@ -278,35 +280,10 @@ return function(parentFrame, monitor1, monitor2)
                 end
             )
 
-        -- Text content with word wrapping
         local textContent = "Sorry I'm afk right now, back in a few minutes"
-        
-        -- Word wrapping function
-        local function wrapText(text, maxWidth)
-            local lines = {}
-            local line = ""
-            
-            for word in text:gmatch("%S+") do
-                if #line + #word + 1 <= maxWidth then
-                    line = line .. (line == "" and "" or " ") .. word
-                else
-                    table.insert(lines, line)
-                    line = word
-                end
-            end
-            table.insert(lines, line)
-            return lines
-        end
-
- 
-        -- Add wrapped text
-        local wrappedText = wrapText(textContent, windowWidth-3)
-        for i, line in ipairs(wrappedText) do
-                welcomeWin:addLabel("line_"..i)
-                    :setText(line)
-                    :setPosition(2, i + 1)
-                    :setForeground(colors.white)
-        end
+        welcomeWin:addLabel({x=1, y=2, autoSize=false, width=21})
+            :setText(textContent)
+            :setForeground(colors.lightBlue)
 
         -- OK button 
         welcomeButton = welcomeWin:addButton()
@@ -323,7 +300,7 @@ return function(parentFrame, monitor1, monitor2)
     function api.addBG(img1, img2, img3)
         bgImg = desktop:addImage()
             :setBimg(img1)
-            :setSize(164, 81)
+            :setSize(desktop:getSize())
             :setCurrentFrame(1)
             :setX(1)
             :setY(1)
@@ -336,7 +313,7 @@ return function(parentFrame, monitor1, monitor2)
         if monitor1 ~= nil then
             bgImg2 = desktop2:addImage()
                 :setBimg(img2)
-                :setSize(164, 81)
+                :setSize(desktop2:getSize())
                 :setCurrentFrame(1)
                 :setX(1)
                 :setY(1)
@@ -350,7 +327,7 @@ return function(parentFrame, monitor1, monitor2)
         if monitor2 ~= nil then
             bgImg3 = desktop3:addImage()
                 :setBimg(img3)
-                :setSize(164, 81)
+                :setSize(desktop3:getSize())
                 :setCurrentFrame(1)
                 :setX(1)
                 :setY(1)
