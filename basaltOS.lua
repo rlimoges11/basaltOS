@@ -11,13 +11,13 @@ return function(parentFrame, monitor1, monitor2)
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
-            :setPosition(1, 2)
-            :setSize(tw, th-1)
+            :setPosition(1, 1)
+            :setSize(tw, th)
             :setBackground(colors.lightGray)
 
         if monitor1 ~= nil then
             local tw2, th2 = monitor1:getSize()
-            desktop2 = monitor1:addFrame("desktop2"):setSize(tw2, th2):setBackground(colors.gray)
+            desktop2 = monitor1:addFrame("desktop2"):setSize(tw2, th2):setBackground(colors.lightBlue)
         end
         if monitor2 ~= nil then
             local tw3, th3 = monitor2:getSize()
@@ -87,21 +87,23 @@ return function(parentFrame, monitor1, monitor2)
         return img
     end
 
-    function api.drawMenuBar()
-        menuBar = frame:addFrame("menuBar")
+    function api.drawMenuBar(dt)
+        tw,th = dt:getSize()
+
+        menuBar = dt:addFrame("menuBar")
             :setPosition(-tw+1, 1)
             :setSize(tw, 1)
             :setBackground(colors.gray)
             :setVisible(false)
-            os.sleep(0.5)
+            os.sleep(0.25)
 
 
         menuBar:setVisible(true)
         menuBar:animate()
-            :move(1,1,0.5)
+            :move(1,1,0.25)
             :sequence()
             :start()
-            os.sleep(0.5)
+            os.sleep(0.25)
 
         -- Rainbow title
         local title = "BasaltOS"
@@ -138,21 +140,21 @@ return function(parentFrame, monitor1, monitor2)
         basalt.schedule(updateClock)
     end
 
-    function api.drawTaskbar()
-        taskbar = desktop:addFrame("taskbar")
-            :setPosition(-tw+1, th-1)
+    function api.drawTaskbar(dt)
+        tw, th = dt:getSize()
+
+        taskbar = dt:addFrame("taskbar")
+            :setPosition(-tw+1, th)
             :setSize(tw, 1)
             :setBackground(colors.gray)
             :setForeground(colors.lightBlue)
             :onClick(function()
                 frame:setVisible(false)
-
                 
                 local trek = parentFrame:addProgram()
-                    :setSize(164,th)
+                    :setSize(tw,th)
                     :execute("apps/trek.lua")
 
-                --local tw, th = term.getSize()
                 --local elevator = parentFrame:addProgram()
                 --    :setSize(tw, th)
                 --    :execute("apps/hellevator.lua")
@@ -162,28 +164,26 @@ return function(parentFrame, monitor1, monitor2)
             os.sleep(0.1)
 
             taskbar:animate()
-                :move(1,th-1,0.5)
+                :move(1,th,0.5)
                 :sequence()
                 :start()
             os.sleep(0.5)
 
     end
 
-
-    function api.showWelcomeWindow()
+    function api.showWelcomeWindow(dt)
         -- Window dimensions (will auto-adjust to content)
+        tw, th = dt:getSize()
         windowWidth = math.min(40, tw)
         windowHeight = math.min(24, th - 7)
         winX = math.floor((tw - windowWidth) / 2) + 2
         winY = math.floor((th - windowHeight) / 2) + 1
         state = "normal"
 
-        -- Main window container
-        windowContainer = desktop:addFrame("welcomeWindow")
+        windowContainer = dt:addFrame("welcomeWindow")
             :setPosition(3, winY)
             :setSize(windowWidth, windowHeight)
             :setVisible(false)
-
 
         -- Create border effect
         borderFrame = windowContainer:addFrame()
@@ -216,7 +216,7 @@ return function(parentFrame, monitor1, monitor2)
             :onClick(function()
                 if state == "normal" or state == "minimized" then
                     -- maximize
-                    windowHeight = th - 3
+                    windowHeight = th - 1
                     windowContainer:setPosition(1, 1)
                     windowContainer:setSize(tw, windowHeight + 1)
                     borderFrame:setSize(tw, windowHeight+1)
@@ -267,7 +267,7 @@ return function(parentFrame, monitor1, monitor2)
                         state = "normal"
                     else
                         windowHeight = 1
-                        windowContainer:setPosition(1, th-1)
+                        windowContainer:setPosition(1, th)
                         windowContainer:setSize(10,1)
                         borderFrame:setSize(10,1)
 
@@ -277,10 +277,6 @@ return function(parentFrame, monitor1, monitor2)
                     end
                 end
             )
-
-
-
-
 
         -- Text content with word wrapping
         local textContent = "Sorry I'm afk right now, back in a few minutes"
@@ -365,8 +361,6 @@ return function(parentFrame, monitor1, monitor2)
                 end)
         end
 
-
-
     end
 
     function api.animateBG(offsetY)
@@ -446,14 +440,30 @@ return function(parentFrame, monitor1, monitor2)
 
     function api.start()
         basalt.schedule(function()
-            api.drawMenuBar()
+            
             api.drawDesktop()
-            os.sleep(0.15)
-            api.changeBG()
-            os.sleep(1)
+            api.drawMenuBar(desktop)
+            os.sleep(0.25)
+            api.drawMenuBar(desktop2)
+            os.sleep(0.25)
 
-            api.drawTaskbar()
+            api.drawMenuBar(desktop3)
+            os.sleep(0.25)
+
+
+            os.sleep(0.75)
+            api.changeBG()
+            os.sleep(2)
+
+            api.drawTaskbar(desktop)
             os.sleep(0.15)
+
+            api.drawTaskbar(desktop2)
+            os.sleep(0.15)
+
+            api.drawTaskbar(desktop3)
+            os.sleep(0.15)
+
 
             api.drawIcon(1, 2, colors.orange, colors.gray, "Calc")
             api.drawIcon(10, 2, colors.magenta, colors.white, "Paint")
@@ -467,7 +477,7 @@ return function(parentFrame, monitor1, monitor2)
             api.drawIcon(10, 14, colors.red, colors.yellow, "Games")
             api.drawIcon(19, 14, colors.lime, colors.black, "Media")
 
-            api.showWelcomeWindow()
+            api.showWelcomeWindow(desktop2)
              os.sleep(0.5)
              api.animateWindow()
         end)
