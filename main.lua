@@ -1,6 +1,11 @@
+local modem = peripheral.find("modem") or nil
+if settings.get("GPScoordinates") and modem ~= nil then
+    -- Host GPS @ GPScoordinates
+    require ("lib/GPSHelpers")
+end
+
 local basalt = require("basalt")
 local basaltOS = require("basaltOS")
-local main= nil
 local monitors = { peripheral.find("monitor") }
 local monitor, mon1, mon2 = nil
 
@@ -31,7 +36,5 @@ local function initMonitors()
 end
 
 initMonitors()
-
-
 
 basalt.run()
