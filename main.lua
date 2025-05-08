@@ -1,5 +1,6 @@
 local modem = peripheral.find("modem") or nil
-if settings.get("GPScoordinates") and modem ~= nil then
+
+if settings.get("GPScoordinates") and modem ~= nil and not pocket then
     -- Host GPS @ GPScoordinates
     require ("lib/GPSHelpers")
 end
