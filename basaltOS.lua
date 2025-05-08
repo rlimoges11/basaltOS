@@ -12,15 +12,15 @@ return function(parentFrame, monitor1, monitor2)
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
             :setPosition(1, 2)
-            :setSize(tw, th)
+            :setSize(tw, th-1)
             :setBackground(colors.lightGray)
 
         if monitor1 ~= nil then
-            tw, th = monitor1.getSize()
+            tw, th = monitor1:getSize()
             desktop2 = monitor1:addFrame("desktop2"):setSize(tw, th):setBackground(colors.gray)
         end
         if monitor2 ~= nil then
-            tw, th = monitor2.getSize()
+            tw, th = monitor2:getSize()
             desktop3 = monitor2:addFrame("desktop3"):setSize(tw, th):setBackground(colors.orange)
         end
 
