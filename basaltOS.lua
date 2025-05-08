@@ -8,6 +8,7 @@ return function(parentFrame, monitor1, monitor2)
         :setBackground(colors.lightGray)
 
     local desktop, desktop2, desktop3 = nil        
+    local menuBar, menuBar2, menuBar3 = nil        
 
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
@@ -104,6 +105,14 @@ return function(parentFrame, monitor1, monitor2)
             :sequence()
             :start()
             os.sleep(0.25)
+
+            menuBar:onClick(function(menuBar)
+                mw,mh = menuBar:getSize()
+                menuBar:animate()
+                    :resize(mw, 10, 0.25)
+                    :start()
+            end)
+    
 
         -- Rainbow title
         local title = "BasaltOS"
