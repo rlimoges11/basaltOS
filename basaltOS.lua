@@ -395,7 +395,7 @@ return function(parentFrame, monitor1, monitor2)
         api.animateBG(-th)
     end
 
-    function api.drawIcon(ox, oy, ifg, ibg, filename)
+    function api.drawIcon(ox, oy, ifg, ibg, filename, appPath)
         local icon = desktop:addFrame("icon")
             :setBackground(ibg)
             :setSize(8, 5)
@@ -403,7 +403,7 @@ return function(parentFrame, monitor1, monitor2)
             :onClick(function()
                 local trek = desktop:addProgram()
                     :setSize(tw,th)
-                    :execute("apps/trek.lua")
+                    :execute(appPath)
             end)
 
         local iconArea = icon:addFrame("iconArea")
@@ -458,19 +458,19 @@ return function(parentFrame, monitor1, monitor2)
                 api.drawTaskbar(desktop3)
                 os.sleep(0.15)
             end
+            
+            api.drawIcon(1, 2, colors.orange, colors.gray, "Calc", "apps/trek.lua")
+            api.drawIcon(10, 2, colors.magenta, colors.white, "Paint", "apps/trek.lua")
+            api.drawIcon(19, 2, colors.white, colors.lightBlue, "Weather", "apps/weather.lua")
 
+            api.drawIcon(1, 8, colors.lightBlue, colors.gray, "Devices", "apps/trek.lua")
+            api.drawIcon(10, 8, colors.cyan, colors.white, "MCARS", "apps/trek.lua")
+            api.drawIcon(19, 8, colors.white, colors.purple, "Remote", "apps/trek.lua")
 
-            api.drawIcon(1, 2, colors.orange, colors.gray, "Calc")
-            api.drawIcon(10, 2, colors.magenta, colors.white, "Paint")
-            api.drawIcon(19, 2, colors.white, colors.lightBlue, "Weather")
+            api.drawIcon(1, 14, colors.green, colors.white, "Logs", "apps/trek.lua")
+            api.drawIcon(10, 14, colors.red, colors.yellow, "Games", "apps/hellevator.lua")
+            api.drawIcon(19, 14, colors.lime, colors.black, "Media", "apps/trek.lua")
 
-            api.drawIcon(1, 8, colors.lightBlue, colors.gray, "Devices")
-            api.drawIcon(10, 8, colors.cyan, colors.white, "GPS")
-            api.drawIcon(19, 8, colors.white, colors.purple, "Remote")
-
-            api.drawIcon(1, 14, colors.green, colors.white, "Logs")
-            api.drawIcon(10, 14, colors.red, colors.yellow, "Games")
-            api.drawIcon(19, 14, colors.lime, colors.black, "Media")
 
             api.drawMenuBar(desktop)
 
