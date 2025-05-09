@@ -457,7 +457,7 @@ return function(parentFrame, monitor1, monitor2)
             api.drawMenuBar(desktop)
 
             api.drawIcon(menuBar, 1, 2, colors.orange, colors.gray, "Calc", "apps/trek.lua")
-            api.drawIcon(menuBar, 10, 2, colors.magenta, colors.white, "Paint", "apps/trek.lua")
+            api.drawIcon(menuBar, 10, 2, colors.magenta, colors.white, "Paint", "apps/basaltImage.lua")
             api.drawIcon(menuBar, 19, 2, colors.white, colors.lightBlue, "Weather", "apps/weather.lua")
 
             api.drawIcon(menuBar, 1, 8, colors.lightBlue, colors.gray, "Devices", "apps/trek.lua")
