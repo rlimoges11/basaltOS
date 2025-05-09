@@ -43,8 +43,10 @@ return function(parentFrame, monitor1, monitor2)
 
     function api.getRandomBG()
         local images = {
+            "images/astrolab.bimg",
             "images/basalt2.bimg",
             "images/basalt3.bimg",
+            "images/cabin.bimg",
             "images/dragon.bimg",
             "images/enterprise.bimg",
             "images/friona.bimg",
@@ -54,20 +56,28 @@ return function(parentFrame, monitor1, monitor2)
             "images/helios-2.bimg",
             "images/helios-3.bimg",
             "images/illager.bimg",
+            "images/magitech.bimg",
+            "images/mech.bimg",
             "images/kerrigan.bimg",
             "images/ps1.bimg",
             "images/reactor.bimg",
+            "images/seascape.bimg",
             "images/skelak.bimg",
             "images/spooky.bimg",
             "images/starbase.bimg",
             "images/starbase2.bimg",
+            "images/stirs.bimg",
             "images/steampunk.bimg",
+            "images/student.bimg",
             "images/sunset.bimg",
             "images/tantalius.bimg",
+            "images/tavern.bimg",
+            "images/tree.bimg",
             "images/wiz.bimg",
             "images/wiz2.bimg",
             "images/wiz3.bimg",
             "images/wiz4.bimg",
+            "images/wiz5.bimg",
         }
 
         -- Shuffle the images array
@@ -76,7 +86,7 @@ return function(parentFrame, monitor1, monitor2)
             images[i], images[j] = images[j], images[i]
         end
 
-        --api.loadImg("images/steampunk.bimg")
+        --api.loadImg("images/tree.bimg")
         api.loadImg(images[1])
 
         return img
