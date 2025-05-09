@@ -121,14 +121,21 @@ return function(parentFrame, monitor1, monitor2)
             :start()
             os.sleep(0.25)
 
-            menuBar:onClick(function(menuBar)
-                mw,mh = menuBar:getSize()
+        menuBar:onClick(function(menuBar)
+            mw,mh = menuBar:getSize()
+
+            if mh == 1 then 
+                -- Slide open
                 menuBar:animate()
                     :resize(mw, 10, 0.25)
                     :start()
-
-            end)
-    
+            else
+                -- Slide closed
+                menuBar:animate()
+                    :resize(mw, 1, 0.25)
+                    :start()
+            end
+        end)
 
         -- Rainbow title
         local title = "BasaltOS"
