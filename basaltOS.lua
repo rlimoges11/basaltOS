@@ -108,18 +108,13 @@ return function(parentFrame, monitor1, monitor2)
 
         menuBar = dt:addFrame("menuBar")
             :setPosition(-tw+1, 1)
-            :setSize(tw, 1)
+            :setSize(tw, 20)
             :setBackground(colors.gray)
             :setVisible(false)
             os.sleep(0.25)
 
 
         menuBar:setVisible(true)
-        menuBar:animate()
-            :move(1,1,0.25)
-            :sequence()
-            :start()
-            os.sleep(0.25)
 
         menuBar:onClick(function(menuBar)
             mw,mh = menuBar:getSize()
@@ -127,7 +122,7 @@ return function(parentFrame, monitor1, monitor2)
             if mh == 1 then 
                 -- Slide open
                 menuBar:animate()
-                    :resize(mw, 10, 0.25)
+                    :resize(mw, 20, 0.25)
                     :start()
             else
                 -- Slide closed
@@ -395,8 +390,8 @@ return function(parentFrame, monitor1, monitor2)
         api.animateBG(-th)
     end
 
-    function api.drawIcon(ox, oy, ifg, ibg, filename, appPath)
-        local icon = desktop:addFrame("icon")
+    function api.drawIcon(el, ox, oy, ifg, ibg, filename, appPath)
+        local icon = el:addFrame("icon")
             :setBackground(ibg)
             :setSize(8, 5)
             :setPosition(ox,oy)
@@ -458,21 +453,27 @@ return function(parentFrame, monitor1, monitor2)
                 api.drawTaskbar(desktop3)
                 os.sleep(0.15)
             end
-            
-            api.drawIcon(1, 2, colors.orange, colors.gray, "Calc", "apps/trek.lua")
-            api.drawIcon(10, 2, colors.magenta, colors.white, "Paint", "apps/trek.lua")
-            api.drawIcon(19, 2, colors.white, colors.lightBlue, "Weather", "apps/weather.lua")
-
-            api.drawIcon(1, 8, colors.lightBlue, colors.gray, "Devices", "apps/trek.lua")
-            api.drawIcon(10, 8, colors.cyan, colors.white, "MCARS", "apps/trek.lua")
-            api.drawIcon(19, 8, colors.white, colors.purple, "Remote", "apps/trek.lua")
-
-            api.drawIcon(1, 14, colors.green, colors.white, "Logs", "apps/trek.lua")
-            api.drawIcon(10, 14, colors.red, colors.yellow, "Games", "apps/hellevator.lua")
-            api.drawIcon(19, 14, colors.lime, colors.black, "Media", "apps/trek.lua")
-
 
             api.drawMenuBar(desktop)
+
+            api.drawIcon(menuBar, 1, 2, colors.orange, colors.gray, "Calc", "apps/trek.lua")
+            api.drawIcon(menuBar, 10, 2, colors.magenta, colors.white, "Paint", "apps/trek.lua")
+            api.drawIcon(menuBar, 19, 2, colors.white, colors.lightBlue, "Weather", "apps/weather.lua")
+
+            api.drawIcon(menuBar, 1, 9, colors.lightBlue, colors.gray, "Devices", "apps/trek.lua")
+            api.drawIcon(menuBar, 10, 9, colors.cyan, colors.white, "MCARS", "apps/trek.lua")
+            api.drawIcon(menuBar, 19, 9, colors.white, colors.purple, "Remote", "apps/trek.lua")
+
+            api.drawIcon(menuBar, 1, 15, colors.green, colors.white, "Logs", "apps/trek.lua")
+            api.drawIcon(menuBar, 10, 15, colors.red, colors.yellow, "Games", "apps/hellevator.lua")
+            api.drawIcon(menuBar, 19, 15, colors.lime, colors.black, "Media", "apps/trek.lua")
+
+        menuBar:animate()
+            :move(1,1,0.25)
+            :sequence()
+            :start()
+            os.sleep(0.25)
+
 
             if desktop2 ~= nil then 
                 api.drawMenuBar(desktop2)
@@ -486,14 +487,18 @@ return function(parentFrame, monitor1, monitor2)
 
             os.sleep(0.5)
 
-
-
             if desktop2 ~= nil then 
                 api.showWelcomeWindow(desktop2)
              else
                 api.showWelcomeWindow(desktop)
              end
             os.sleep(1)
+
+            mw,mh = menuBar:getSize()
+            menuBar:animate()
+                :resize(mw,1,0.25)
+                :start()
+            os.sleep(0.25)
             api.animateWindow()
         end)
 
