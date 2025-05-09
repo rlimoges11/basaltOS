@@ -1,17 +1,5 @@
--- weather_display_ultimate_final.lua
--- 100% working with all requested fixes
-
--- 1. MONITOR SETUP
-local mon = peripheral.find("monitor")
-if not mon then
-    print("Please connect a monitor first!")
-    return
-end
-
-local old_term = term.redirect(mon)
-mon.setTextScale(0.5)
-local w, h = mon.getSize()
-
+local w, h = term.getSize()
+local mon = term.current()
 -- 2. CONFIGURATION
 settings.load("weather.cfg")
 local config = {
@@ -51,21 +39,21 @@ local WEATHER_ICONS = {
 
 -- 5. DRAWING FUNCTIONS
 local function drawBorder()
-    mon.setBackgroundColor(colors.border)
-    mon.clear()
-    mon.setBackgroundColor(colors.main_bg)
+    term.setBackgroundColor(colors.border)
+    term.clear()
+    term.setBackgroundColor(colors.main_bg)
     for y = 2, h-1 do
-        mon.setCursorPos(2, y)
-        mon.write((" "):rep(w-2))
+        term.setCursorPos(2, y)
+        term.write((" "):rep(w-2))
     end
 end
 
 local function drawCentered(y, text, fg, bg)
     local x = math.floor((w - #text)/2) + 1
-    mon.setBackgroundColor(bg or colors.main_bg)
-    mon.setTextColor(fg or colors.white)
-    mon.setCursorPos(math.max(1, x), math.max(1, math.min(y, h)))
-    mon.write(tostring(text))
+    term.setBackgroundColor(bg or colors.main_bg)
+    term.setTextColor(fg or colors.white)
+    term.setCursorPos(math.max(1, x), math.max(1, math.min(y, h)))
+    term.write(tostring(text))
 end
 
 -- 6. WEATHER DATA FETCHING (FIXED ICON SELECTION)
