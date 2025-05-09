@@ -61,6 +61,7 @@ return function(parentFrame, monitor1, monitor2)
             "images/spooky.bimg",
             "images/starbase.bimg",
             "images/starbase2.bimg",
+            "images/steampunk.bimg",
             "images/sunset.bimg",
             "images/tantalius.bimg",
             "images/wiz.bimg",
@@ -75,6 +76,7 @@ return function(parentFrame, monitor1, monitor2)
             images[i], images[j] = images[j], images[i]
         end
 
+        --api.loadImg("images/steampunk.bimg")
         api.loadImg(images[1])
 
         return img
