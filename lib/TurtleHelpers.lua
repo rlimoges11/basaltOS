@@ -1,17 +1,16 @@
-require ("../cc-helpers/MonitorHelpers")
+require ("lib/MonitorHelpers")
 label = os.computerLabel()
 logger(label .. " online")
 
 -- Get settings
-local LauncherCoordinates = settings.get("LauncherCoordinates")
-local LOW_FUEL_THRESHOLD = settings.get("LOW_FUEL_THRESHOLD")
-local HIGH_FUEL_THRESHOLD = settings.get("HIGH_FUEL_THRESHOLD")
-local HARVEST_ROW_LENGTH = settings.get("HARVEST_ROW_LENGTH")
-local HARVEST_MAX_AGE = settings.get("HARVEST_MAX_AGE")
-local HARVEST_MODE = settings.get("HARVEST_MODE")
-local MAX_FUEL = settings.get("MAX_FUEL")
-local HARVEST_CROP = settings.get("HARVEST_CROP")
-
+local LauncherCoordinates = settings.get("LauncherCoordinates") or nil
+local LOW_FUEL_THRESHOLD = settings.get("LOW_FUEL_THRESHOLD") or nil
+local HIGH_FUEL_THRESHOLD = settings.get("HIGH_FUEL_THRESHOLD") or nil
+local HARVEST_ROW_LENGTH = settings.get("HARVEST_ROW_LENGTH") or nil
+local HARVEST_MAX_AGE = settings.get("HARVEST_MAX_AGE") or nil
+local HARVEST_MODE = settings.get("HARVEST_MODE") or nil
+local MAX_FUEL = settings.get("MAX_FUEL") or nil
+local HARVEST_CROP = settings.get("HARVEST_CROP") or nil
 
 -- Turtle Self-tracking System created by Latias1290.
 local xPos, yPos, zPos = nil
@@ -160,29 +159,13 @@ end
 
 function IsLowOnFuel()
 	local fuelLevel = math.floor(turtle.getFuelLevel())
-	local monitor = peripheral.find("monitor") or nil
-	
-	if monitor ~= nil and term ~= nil then
-		term.redirect(monitor)
-		monitor.setTextScale(0.5)
-		monitor.clear()
-		monitor.setCursorPos(1,1)
-		monitor.setTextColor(colors.lime)
-	end
-	logger(label)
-	
-	
-	if fuelLevel < LOW_FUEL_THRESHOLD then
-		printFuel()
-		print(label .. " fueling...")
-        TryRefillIfLow = false
-        --local previousData = TurtleGPS.ReturnToOrigin(true)
 
+	if fuelLevel < LOW_FUEL_THRESHOLD then
+        TryRefillIfLow = false
 		local container = peripheral.wrap("top")
         if container == nil then
 			print("ALERT: " .. label .. " fuel chest not found.")
             TryRefillIfLow = true
-            --TurtleGPS.ReturnToPreviousPosition(previousData)
             return
         end
 
@@ -209,14 +192,12 @@ function IsLowOnFuel()
                 break
             end
         end
-		monitor.setTextColor(colors.green)
-		logger(label)
-		write_center(term, "REFUELED")
+		
 		deploy()
-		monitor = nil
+		
 	else 
 		deploy()
-		monitor = nil
+		
     end
 end
 
@@ -480,21 +461,10 @@ function launch()
 end
 
 function initTurtle() 
-	term.setTextColor(colors.green)
-	print ("Launcher Coordinates: " .. getLaunchCoorString() .. ".")
-	print ("LOW_FUEL_THRESHOLD: " .. LOW_FUEL_THRESHOLD .. ".")
-	print ("HIGH_FUEL_THRESHOLD: " .. HIGH_FUEL_THRESHOLD .. ".")
-	print ("MAX_FUEL: " .. MAX_FUEL .. ".")
-	print ("HARVEST_ROW_LENGTH: " .. HARVEST_ROW_LENGTH .. ".")
-	print ("HARVEST_MAX_AGE: " .. HARVEST_MAX_AGE .. ".")
-	print ("HARVEST_MODE: " .. HARVEST_MODE .. ".")
-	print ("HARVEST_CROP: " .. HARVEST_CROP .. ".")
-	printLocation()
-
 	local x = (LauncherCoordinates[1])
 	local y = (LauncherCoordinates[2])
 	local z = (LauncherCoordinates[3])
-
+	IsLowOnFuel()
 	launch()
 end
 

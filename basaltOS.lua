@@ -10,6 +10,8 @@ return function(parentFrame, monitor1, monitor2)
     local desktop, desktop2, desktop3 = nil        
     local menuBar, menuBar2, menuBar3 = nil        
 
+    local LauncherCoordinates = settings.get("LauncherCoordinates") or nil
+
     function api.drawDesktop()
         desktop = frame:addFrame("desktop")
             :setPosition(1, 1)
@@ -22,11 +24,9 @@ return function(parentFrame, monitor1, monitor2)
         if monitor2 ~= nil then
             desktop3 = monitor2:addFrame("desktop3"):setSize(monitor2:getSize()):setBackground(colors.orange)
         end
-
     end
 
     function api.animateWindow()
-        windowContainer:setVisible(false)
         windowContainer:setY(-10)
         os.sleep(0.01)
         windowContainer:setVisible(true)
@@ -396,8 +396,9 @@ return function(parentFrame, monitor1, monitor2)
             :setSize(8, 5)
             :setPosition(ox,oy)
             :onClick(function()
-                local trek = desktop:addProgram()
-                    :setSize(tw,th)
+                local app = desktop:addProgram()
+                    :setSize(tw,th-1)
+                    :setPosition(1,2)
                     :execute(appPath)
             end)
 
@@ -446,17 +447,17 @@ return function(parentFrame, monitor1, monitor2)
 
             if desktop2 ~= nil then 
                 api.drawTaskbar(desktop2)
-                os.sleep(0.15)
+                os.sleep(0.25)
             end
 
             if desktop3 ~= nil then 
                 api.drawTaskbar(desktop3)
-                os.sleep(0.15)
+                os.sleep(0.25)
             end
 
             api.drawMenuBar(desktop)
 
-            api.drawIcon(menuBar, 1, 2, colors.orange, colors.gray, "Calc", "apps/trek.lua")
+            api.drawIcon(menuBar, 1, 2, colors.orange, colors.gray, "Calc", "programs/checkFuel.lua")
             api.drawIcon(menuBar, 10, 2, colors.magenta, colors.white, "Paint", "apps/basaltImage.lua")
             api.drawIcon(menuBar, 19, 2, colors.white, colors.lightBlue, "Weather", "apps/weather.lua")
 
@@ -468,7 +469,7 @@ return function(parentFrame, monitor1, monitor2)
             api.drawIcon(menuBar, 10, 14, colors.red, colors.yellow, "Games", "apps/hellevator.lua")
             api.drawIcon(menuBar, 19, 14, colors.lime, colors.black, "Media", "apps/trek.lua")
 
-        menuBar:animate()
+            menuBar:animate()
             :move(1,1,0.25)
             :sequence()
             :start()
@@ -477,29 +478,37 @@ return function(parentFrame, monitor1, monitor2)
 
             if desktop2 ~= nil then 
                 api.drawMenuBar(desktop2)
-                os.sleep(0.1)
+                os.sleep(0.25)
             end
 
             if desktop3 ~= nil then
                 api.drawMenuBar(desktop3)
-                os.sleep(0.1)
+                os.sleep(0.25)
             end
 
-            os.sleep(0.5)
 
-            if desktop2 ~= nil then 
-                api.showWelcomeWindow(desktop2)
-             else
-                api.showWelcomeWindow(desktop)
-             end
-            os.sleep(1)
 
             mw,mh = menuBar:getSize()
             menuBar:animate()
                 :resize(mw,1,0.25)
                 :start()
             os.sleep(0.25)
-            api.animateWindow()
+            
+
+            if desktop2 ~= nil then 
+                api.showWelcomeWindow(desktop2)
+                os.sleep(1)
+                api.animateWindow()
+            else
+                api.showWelcomeWindow(desktop)
+                os.sleep(1)
+                api.animateWindow()
+            end
+
+            if LauncherCoordinates ~= nil then 
+                local HelTurtle = require("lib/TurtleHelpers")
+                initTurtle()
+            end
         end)
 
         return api
