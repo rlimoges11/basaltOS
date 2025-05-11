@@ -111,7 +111,7 @@ return function(parentFrame, monitor1, monitor2)
             :setSize(tw, 19)
             :setBackground(colors.gray)
             :setVisible(false)
-            os.sleep(0.25)
+            os.sleep(0.3)
 
 
         menuBar:setVisible(true)
@@ -470,10 +470,9 @@ return function(parentFrame, monitor1, monitor2)
             api.drawIcon(menuBar, 19, 14, colors.lime, colors.black, "Media", "apps/trek.lua")
 
             menuBar:animate()
-            :move(1,1,0.25)
-            :sequence()
+            :move(1,1,0.5)
             :start()
-            os.sleep(0.25)
+            os.sleep(0.75)
 
 
             if desktop2 ~= nil then 
@@ -485,8 +484,6 @@ return function(parentFrame, monitor1, monitor2)
                 api.drawMenuBar(desktop3)
                 os.sleep(0.25)
             end
-
-
 
             mw,mh = menuBar:getSize()
             menuBar:animate()
