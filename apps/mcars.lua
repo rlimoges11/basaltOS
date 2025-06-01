@@ -47,13 +47,10 @@ return function(monitor)
     end
 
     function api.start()
-        -- pocket : 26, 
+        -- pocket : 26, 20
         -- term: 51, 19
         -- small : 121, 38
         -- large : 164, 38
-
-
-
 
         if tw == 164 then
             -- Large layout
@@ -106,21 +103,19 @@ return function(monitor)
 
         elseif pocket then
             -- Pocket Computer Layout
-            panels[#panels] = api.drawPanel(1, 2, 26, 18, colors.blue, colors.lightBlue, 4)
+            panels[#panels] = api.drawPanel(1, 1, 26, 20, colors.blue, colors.lightBlue, 1)
             local floggerApp = panels[1]:addProgram()
-                :setSize(26, 16)
-                :setPosition(3,3)
+                :setSize(24, 16)
+                :setPosition(2,6)
                 :execute("programs/fLogger")
-
-        else
-            panels[#panels] = api.drawPanel(1, 2, 5, 5, colors.blue, colors.lightBlue, 4)
+            
         end
 
     deb = panels[0]:addFrame()
         :setSize(12,1)
         :setPosition(2,2)
         :setBackground(colors.black)
-        :setVisible(true)
+        :setVisible(false)
     deb:addLabel()
         :setForeground(colors.orange)
         :setText("W: " .. tw .. " H: " .. th)
