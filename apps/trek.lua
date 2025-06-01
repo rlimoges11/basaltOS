@@ -1,14 +1,14 @@
 local mcars = require("mcars")
-local monitors = { peripheral.find("monitor") }
+local monitor1, monitor2 = peripheral.find("monitor")
+
 local function initMonitors()
-    if #monitors > 0 then
-        for _, monitor in pairs(monitors) do
-            monitor.clear()
-            mcars().start(monitor)
-        end
-    else
-        mcars().start(nil)
+    if monitor1 ~= nil then
+        mcars(monitor1).start()
     end
+    if monitor2 ~= nil then
+        mcars(monitor2).start()
+    end
+    mcars(term).start()
 end
 
 initMonitors()
