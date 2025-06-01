@@ -10,7 +10,7 @@ local function initMonitors()
         monitor2.setTextScale(0.5)
         mcars(monitor2).start()
     end
-    mcars(term).start()
+    mcars(term.native()).start()
 end
 
 initMonitors()

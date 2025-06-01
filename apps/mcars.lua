@@ -1,5 +1,9 @@
 basalt = require("basalt")
-
+_G.flogger_colors = {
+  hc = colors.purple,
+  fg = colors.lightBlue,
+  bg = colors.black
+}
 return function(monitor)
     local tw, th = monitor:getSize()
     local api = {}
@@ -9,34 +13,32 @@ return function(monitor)
     main:setTerm(monitor)
         :setSize(tw, th)
         :setPosition(1,1)
-        :setBackground(colors.green)
 
     local frame = main:addFrame()
         :setSize(tw, th)
         :setPosition(1,1)
-        :setBackground(colors.black)
 
 
-    function api.drawPanel(x, y, w, h, bg)
+    function api.drawPanel(x, y, w, h, fg, bg, frame)
         local thisPanel = main:addFrame("panel")
-            :setPosition(x,y)
-            :setSize(w,h)
+            :setPosition(x, y)
+            :setSize(w, h)
             :setBackground(bg)
+            :setForeground(fg)
             :onClick(function(thisPanel)
-                    thisPanel.bgImg:setCurrentFrame(math.random(1,9))
+                    thisPanel.bgImg:setCurrentFrame(math.random(1, 9))
             end)
 
         local img = api.loadImg("images/mcars.bimg")
         thisPanel.bgImg = thisPanel:addImage()
             :setBimg(img)
             :setSize(w, h)
-            :setCurrentFrame(math.random(1,9))
+            :setCurrentFrame(frame)
             :setX(1)
             :setY(1)
 
             table.insert(panels, thisPanel)
         return thisPanel
-
     end
 
     function api.loadImg(path)
@@ -50,42 +52,36 @@ return function(monitor)
     end
 
     function api.start()
-        local c = colors.blue
+        local mw, mh = monitor:getSize()
+        panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
 
-        for j = 0, 5, 1 do
-            if j == 0 then 
-                for i = 0, 7, 1 do
-                    if i%2 == 0  then
-                        c = colors.black
-                     else
-                        c = colors.blue
-                    end
-                    panels[#panels] = api.drawPanel(i*20+1,1,20,10, c)
-                end
-            elseif j < 4 then
-                for i = 0, 3, 1 do
-                    if (i%2 == 0 and j%2 == 0) or (i%2 ~= 0  and j%2 ~= 0) then
-                        c = colors.blue
-                     else
-                        c = colors.black
-                    end
-                    panels[#panels] = api.drawPanel(i*40+1,j*20 - 9, 40,20, c)
-                end
-            elseif j == 4 then
-                
-                for i = 0, 7, 1 do
-                    if i%2 ~= 0  then
-                        c = colors.blue
-                     else
-                        c = colors.black
-                    end
-                    panels[#panels] = api.drawPanel(i*20+3,72,20,10, c)
-                end
-            end
-        end
 
-        --panels[#panels] = api.drawPanel(2,2,23,18, colors.blue)
+        local floggerApp = panels[1]:addProgram()
+            :setSize(33, 16)
+            :setPosition(3,3)
+            :execute("programs/fLogger")
 
+        panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
+        local floggerApp3 = panels[2]:addProgram()
+            :setSize(38, 16)
+            :setPosition(3,5)
+            :execute("programs/fLogger")
+
+
+
+        panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
+        panels[#panels] = api.drawPanel(121, 1, 40, 20, colors.blue, colors.lightBlue, 6)
+
+        panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
+        local floggerApp2 = panels[5]:addProgram()
+            :setSize(33, 16)
+            :setPosition(3,3)
+            :execute("programs/fLogger")
+
+
+        panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
+        panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
+        panels[#panels] = api.drawPanel(121, 20, 40, 20, colors.blue, colors.lightBlue, 6)
     end
 
     return api, basalt
