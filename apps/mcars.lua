@@ -104,9 +104,12 @@ return function(monitor)
 
             panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
 
-        else
+        elseif pocket then
             -- Pocket Computer Layout
-            panels[#panels] = api.drawPanel(1, 1, 26, 20, colors.blue, colors.lightBlue, 4)
+            panels[#panels] = api.drawPanel(1, 2, 26, 18, colors.blue, colors.lightBlue, 4)
+
+        else
+            panels[#panels] = api.drawPanel(1, 2, 5, 5, colors.blue, colors.lightBlue, 4)
         end
 
     deb = panels[0]:addFrame()
