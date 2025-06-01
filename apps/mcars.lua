@@ -107,6 +107,9 @@ return function(monitor)
         elseif pocket then
             -- Pocket Computer Layout
             panels[#panels] = api.drawPanel(1, 2, 26, 18, colors.blue, colors.lightBlue, 4)
+                :setSize(26, 16)
+                :setPosition(3,3)
+                :execute("programs/fLogger")
 
         else
             panels[#panels] = api.drawPanel(1, 2, 5, 5, colors.blue, colors.lightBlue, 4)
