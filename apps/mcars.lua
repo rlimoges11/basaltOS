@@ -128,9 +128,9 @@ return function(monitor)
         elseif pocket then
             -- Pocket Computer Layout
             panels[#panels] = api.drawPanel(1, 1, 26, 20, colors.blue, colors.lightBlue, 1)
-            local floggerApp = panels[#panels-1]:addProgram()
-                :setSize(24, 16)
-                :setPosition(2,6)
+            local floggerApp = panels[1]:addProgram()
+                :setSize(23, 16)
+                :setPosition(3,6)
                 :execute("programs/fLogger")
             
         end
