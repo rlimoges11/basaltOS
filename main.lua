@@ -1,9 +1,3 @@
-local modem = peripheral.find("modem") or nil
-if settings.get("GPScoordinates") and modem ~= nil and not pocket then
-    -- Host GPS @ GPScoordinates
-    require ("lib/GPSHelpers")
-end
-
 local basalt = require("basalt")
 local basaltOS = require("basaltOS")
 local monitors = { peripheral.find("monitor") }
