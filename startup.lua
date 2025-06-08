@@ -4,9 +4,10 @@ else
     local modem = peripheral.find("modem") or nil
     if settings.get("GPScoordinates") and modem ~= nil and not pocket then
         local GPSH =  require ("lib/GPSHelpers")
+        local mainApp = shell.openTab("main")
+        multishell.setTitle(mainApp, "main")
+        multishell.setFocus(mainApp)
+    else
+        shell.run("main")
     end
-
-    local mainApp = shell.openTab("main")
-    multishell.setTitle(mainApp, "main")
-    multishell.setFocus(mainApp)
 end
