@@ -23,7 +23,6 @@ return function(monitor)
     art[#art+1] = "lion"
     art[#art+1] = "M"
     art[#art+1] = "magitech"
---art[#art+1] = "mech"
     art[#art+1] = "ps1"
     art[#art+1] = "reactor"
     art[#art+1] = "seascape"
