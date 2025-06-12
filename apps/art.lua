@@ -17,7 +17,7 @@ initMonitors()
 
 
 basalt.schedule(function()
-    os.sleep(15)
+    os.sleep(60)
     os.reboot()
 end)
 
