@@ -22,7 +22,7 @@ return function(monitor)
             :setBackground(bg)
             :setForeground(fg)
             :onClick(function(thisPanel)
-                    thisPanel.bgImg:setCurrentFrame(math.random(1, 9))
+                thisPanel.bgImg:setCurrentFrame(math.random(1, 9))
             end)
 
         local img = api.loadImg("images/mcars.bimg")
@@ -32,8 +32,7 @@ return function(monitor)
             :setCurrentFrame(frame)
             :setX(1)
             :setY(1)
-            :setBackground(colors.black)
-
+            :setBackground(colors.orange)
             table.insert(panels, thisPanel)
         return thisPanel
     end
@@ -89,6 +88,10 @@ return function(monitor)
 
             panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
             panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
+
+        elseif tw == 143 then
+            panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.blue, colors.lightBlue, 5)
+
 
         elseif tw == 121 then
             -- Medium Layout
