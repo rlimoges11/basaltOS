@@ -20,7 +20,7 @@ return function(monitor)
     art[#art+1] = "illager"
 --art[#art+1] = "janur"
     art[#art+1] = "kerrigan"
-    art[#art+1] = "lion"
+--art[#art+1] = "lion"
     art[#art+1] = "M"
     art[#art+1] = "magitech"
     art[#art+1] = "ps1"
@@ -71,11 +71,23 @@ return function(monitor)
 	        :setSize(tw, th)
 	        :setCurrentFrame(1)
 	        :setX(1)
-	        :setY(2)
-	        :setBackground(colors.orange)
+	        :setY(1)
+	        :setBackground(colors.black)
             :onClick(function(thisPanel)
                 os.reboot()
             end)
+
+        function api.addCaption()
+            local captionPanel = artPanel:addFrame()
+                :setSize(20, 15)
+                :setPosition(math.ceil(tw/2) - 10, th)
+                :setBackground(colors.lightGray)
+                :setZ(100)
+
+            local captionText = captionPanel:addLabel()
+                :setText(art[r])
+        end
+
 
     end
 
