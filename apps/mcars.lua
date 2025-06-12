@@ -11,9 +11,9 @@ return function(monitor)
     local main = basalt.createFrame()
 
     main:setTerm(monitor)
-        :setSize(tw, th)
-        :setPosition(1,1)
-        :setBackground(colors.orange)
+        :setSize(tw, th-2)
+        :setPosition(1,2)
+        :setBackground(colors.black)
 
     function api.drawPanel(x, y, w, h, fg, bg, frame)
         local thisPanel = main:addFrame("panel")
@@ -49,6 +49,7 @@ return function(monitor)
     end
 
     function api.start()
+        -- hol 143, 81
         -- pocket : 26, 20
         -- term: 51, 19
         -- small : 121, 38
@@ -122,13 +123,9 @@ return function(monitor)
 
         elseif tw == 51 then
             -- Computer Teminal Layout
-            panels[#panels] = api.drawPanel(1, 1, 51, 20, colors.blue, colors.lightBlue, 4)
-            local floggerApp = panels[#panels-1]:addProgram()
-                :setSize(33, 16)
-                :setPosition(3,3)
-                :execute("programs/fLogger")
-
-            panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
+            panels[#panels] = api.drawPanel(1, 2, 40, 18, colors.blue, colors.lightBlue, 4)
+            local floggerApp = panels[#panels-1]:addProgram():setSize(33, 16):setPosition(3,3):execute("programs/fLogger")
+            panels[#panels] = api.drawPanel(41, 2, 11, 18, colors.blue, colors.lightBlue, 2)
 
         elseif pocket then
             -- Pocket Computer Layout
@@ -140,14 +137,17 @@ return function(monitor)
             
         end
 
-    deb = panels[0]:addFrame()
-        :setSize(12,1)
-        :setPosition(2,2)
-        :setBackground(colors.black)
-        :setVisible(false)
-    deb:addLabel()
-        :setForeground(colors.orange)
-        :setText("W: " .. tw .. " H: " .. th)
+
+        function api.debugframe()
+            deb = main:addFrame()
+                :setSize(12,1)
+                :setPosition(2,2)
+                :setBackground(colors.black)
+                :setVisible(true)
+            deb:addLabel()
+                :setForeground(colors.white)
+                :setText("W: " .. tw .. " H: " .. th)
+        end
     end
 
     return api, basalt

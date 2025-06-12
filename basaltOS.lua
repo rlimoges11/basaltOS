@@ -189,7 +189,6 @@ return function(parentFrame, monitor1, monitor2)
     end
 
     function api.showWelcomeWindow(dt)
-        -- Window dimensions (will auto-adjust to content)
         tw, th = dt:getSize()
         windowWidth = math.min(40, tw)
         windowHeight = math.min(24, th - 6)
