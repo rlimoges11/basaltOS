@@ -14,4 +14,11 @@ local function initMonitors()
 end
 
 initMonitors()
+
+
+basalt.schedule(function()
+    os.sleep(15)
+    os.reboot()
+end)
+
 basalt.run()
