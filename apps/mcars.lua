@@ -1,19 +1,15 @@
 basalt = require("basalt")
-_G.flogger_colors = {
-  hc = colors.purple,
-  fg = colors.lightBlue,
-  bg = colors.black
-}
-return function(monitor)
+
+return function(monitor, layout)
     local tw, th = monitor:getSize()
     local api = {}
     local panels = {}
     local main = basalt.createFrame()
 
     main:setTerm(monitor)
-        :setSize(tw, th-2)
-        :setPosition(1,2)
-        :setBackground(colors.black)
+        :setSize(tw, th)
+        :setPosition(1,1)
+        :setBackground(colors.orange)
 
     function api.drawPanel(x, y, w, h, fg, bg, frame)
         local thisPanel = main:addFrame("panel")
@@ -48,108 +44,109 @@ return function(monitor)
     end
 
     function api.start()
-        -- hol 143, 81
-        -- pocket : 26, 20
-        -- term: 51, 19
-        -- small : 121, 38
-        -- large : 164, 38
+        if layout == "" or layout == nil then
+            ----------------------------
+            -- Default layouts
+            ----------------------------
+            -- hol 143, 81 [7x6]
+            -- pocket : 26, 20
+            -- term: 51, 19
+            -- small : 121, 38[5x3]
+            -- large : 164, 38[8x3]
 
-        if tw == 164 then
-            -- Large layout
-            -- Row 1
-            panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
+            if tw == 164 then
+                -- Large layout
+                -- Row 1
+                panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
 
-            local floggerApp = panels[#panels-1]:addProgram()
-                :setSize(33, 16)
-                :setPosition(3,3)
-                :execute("programs/fLogger")
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
 
-            panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
-            local floggerApp3 = panels[#panels-1]:addProgram()
-                :setSize(37, 16)
-                :setPosition(3,5)
-                :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(37, 16)
+                    :setPosition(3,5)
+                    :execute("programs/fLogger")
 
-            panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
-            panels[#panels] = api.drawPanel(123, 1, 40, 20, colors.blue, colors.lightBlue, 6)
+                panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
+                panels[#panels] = api.drawPanel(123, 1, 40, 20, colors.blue, colors.lightBlue, 6)
 
-            
-            -- Row 2
-            panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
-            local floggerApp2 = panels[#panels-1]:addProgram()
-                :setSize(33, 16)
-                :setPosition(3,3)
-                :execute("programs/fLogger")
-            panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
-            local floggerApp3 = panels[#panels-1]:addProgram()
-                :setSize(37, 16)
-                :setPosition(3,5)
-                :execute("programs/fLogger")
+                
+                -- Row 2
+                panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
+                local floggerApp2 = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(37, 16)
+                    :setPosition(3,5)
+                    :execute("programs/fLogger")
 
-            panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
-            panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
+                panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
+                panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
 
-        elseif tw == 143 then
-            panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.blue, colors.lightBlue, 5)
+            elseif tw == 143 then
+                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.blue, colors.lightBlue, 5)
 
+            elseif tw == 121 then
+                -- Medium Layout
+                -- Header Row
+                panels[#panels] = api.drawPanel(2, 1, 80, 10, colors.blue, colors.lightBlue, 9)
+                panels[#panels] = api.drawPanel(82, 1, 40, 10, colors.blue, colors.lightBlue, 8)
 
-        elseif tw == 121 then
-            -- Medium Layout
-            -- Header Row
-            panels[#panels] = api.drawPanel(2, 1, 80, 10, colors.blue, colors.lightBlue, 9)
-            panels[#panels] = api.drawPanel(82, 1, 40, 10, colors.blue, colors.lightBlue, 8)
+                --Middle Row
+                panels[#panels] = api.drawPanel(2, 11, 40, 20, colors.blue, colors.lightBlue, 1)
+                local floggerApp1 = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,6)
+                    :execute("programs/fLogger")
 
-            --Middle Row
-            panels[#panels] = api.drawPanel(2, 11, 40, 20, colors.blue, colors.lightBlue, 1)
-            local floggerApp1 = panels[#panels-1]:addProgram()
-                :setSize(33, 16)
-                :setPosition(3,6)
-                :execute("programs/fLogger")
-
-            panels[#panels] = api.drawPanel(42, 11, 80, 20, colors.blue, colors.lightBlue, 4)
-            local floggerApp2 = panels[#panels-1]:addProgram()
-                :setSize(33, 16)
-                :setPosition(3,3)
-                :execute("programs/fLogger")
-            panels[#panels] = api.drawPanel(82, 11, 40, 20, colors.blue, colors.lightBlue, 2)
-            local floggerApp3 = panels[#panels-1]:addProgram()
-                :setSize(33, 16)
-                :setPosition(3,6)
-                :execute("programs/fLogger")
-
-
-            --Bottom Row
-            panels[#panels] = api.drawPanel(2, 31, 80, 10, colors.blue, colors.lightBlue, 8)
-            panels[#panels] = api.drawPanel(82, 31, 40, 20, colors.blue, colors.lightBlue, 8)
+                panels[#panels] = api.drawPanel(42, 11, 80, 20, colors.blue, colors.lightBlue, 4)
+                local floggerApp2 = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(82, 11, 40, 20, colors.blue, colors.lightBlue, 2)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,6)
+                    :execute("programs/fLogger")
 
 
+                --Bottom Row
+                panels[#panels] = api.drawPanel(2, 31, 80, 10, colors.blue, colors.lightBlue, 8)
+                panels[#panels] = api.drawPanel(82, 31, 40, 20, colors.blue, colors.lightBlue, 8)
 
-        elseif tw == 51 then
-            -- Computer Teminal Layout
-            panels[#panels] = api.drawPanel(1, 2, 40, 18, colors.blue, colors.lightBlue, 4)
-            local floggerApp = panels[#panels-1]:addProgram():setSize(33, 16):setPosition(3,3):execute("programs/fLogger")
-            panels[#panels] = api.drawPanel(41, 2, 11, 18, colors.blue, colors.lightBlue, 2)
+            elseif tw == 51 then
+                -- Computer Teminal Layout
+                panels[#panels] = api.drawPanel(1, 2, 40, 18, colors.blue, colors.lightBlue, 4)
+                local floggerApp = panels[#panels-1]:addProgram():setSize(33, 16):setPosition(3,3):execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(41, 2, 11, 18, colors.blue, colors.lightBlue, 2)
 
-        elseif pocket then
-            -- Pocket Computer Layout
-            panels[#panels] = api.drawPanel(1, 1, 26, 20, colors.blue, colors.lightBlue, 1)
-            local floggerApp = panels[1]:addProgram()
-                :setSize(23, 16)
-                :setPosition(3,6)
-                :execute("programs/fLogger")
-            
-        end
+            elseif pocket then
+                -- Pocket Computer Layout
+                panels[#panels] = api.drawPanel(1, 1, 26, 20, colors.blue, colors.lightBlue, 1)
+                local floggerApp = panels[1]:addProgram()
+                    :setSize(23, 16)
+                    :setPosition(3,6)
+                    :execute("programs/fLogger")
+            end
+        else
+            if layout == "Holocube-Top"  then
 
+                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.blue, colors.lightBlue, 3)
 
-        function api.debugframe()
-            deb = main:addFrame()
-                :setSize(12,1)
-                :setPosition(2,2)
-                :setBackground(colors.black)
-                :setVisible(true)
-            deb:addLabel()
-                :setForeground(colors.white)
-                :setText("W: " .. tw .. " H: " .. th)
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(30, 13)
+                    :setPosition(3,6)
+                    :execute("programs/fLogger")
+            elseif layout == "Holocube-Bottom"  then
+                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.orange, colors.black, 5)
+            end
         end
     end
 
