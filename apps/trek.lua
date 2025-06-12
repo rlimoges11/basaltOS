@@ -5,7 +5,7 @@ local function initMonitors()
     local l1 = ""
     local l2 = ""
 
-    if settings.get("Layout") ~= nil and settings.get("Layout") ~= "" then
+    if settings.get("Layout") ~= nil and settings.get("Layout") == "Holocube" then
         l1 = "Holocube-Top"
         l2 = "Holocube-Bottom"
     end
@@ -19,7 +19,9 @@ local function initMonitors()
         mcars(monitor2, l2).start()
     end
 
-    --mcars(term.native()).start()
+    if pocket then
+        mcars(term.native()).start()
+    end
 end
 
 initMonitors()
