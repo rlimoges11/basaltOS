@@ -7,7 +7,7 @@ return function(monitor)
     local art = {}
 
     art[#art+1] = "astrolab"
-    art[#art+1] = "basalt2"
+--    art[#art+1] = "basalt2"
     art[#art+1] = "basalt2b"
     art[#art+1] = "cabin"
     art[#art+1] = "enterprise"

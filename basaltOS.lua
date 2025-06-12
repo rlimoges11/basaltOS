@@ -380,7 +380,7 @@ return function(parentFrame, monitor1, monitor2)
     end
 
     function api.changeBG()
-        local img1 = api.loadImg("images/basalty.bimg")
+        local img1 = api.loadImg("images/basalt.bimg")
         local img2 = api.getRandomBG()
         local img3 = api.getRandomBG()
 
