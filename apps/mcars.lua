@@ -22,6 +22,16 @@ return function(monitor, layout)
             end)
 
         local img = api.loadImg("images/mcars.bimg")
+
+        if frame == 10 then
+            img = api.loadImg("images/enterprise.bimg")
+            frame = 1
+        end
+        if frame == 11 then
+            img = api.loadImg("images/guardian.bimg")
+            frame = 1
+        end
+
         thisPanel.bgImg = thisPanel:addImage()
             :setBimg(img)
             :setSize(w, h)
@@ -31,6 +41,7 @@ return function(monitor, layout)
             :setBackground(bg)
             :setForeground(fg)
             table.insert(panels, thisPanel)
+
         return thisPanel
     end
 
@@ -150,36 +161,39 @@ return function(monitor, layout)
            
            -- MI screens
             elseif layout == "MI-1A" then
-                -- 184, 38 [8x3]
-
-
+                -- 164, 38 [8x3]
                 -- row 1
+                panels[#panels] = api.drawPanel(1, 1, 40, 10, colors.blue, colors.lightBlue, 8)
+                panels[#panels] = api.drawPanel(41, 1, 40, 10, colors.blue, colors.lightBlue, 8)
+                panels[#panels] = api.drawPanel(81, 1, 40, 10, colors.blue, colors.lightBlue, 8)
+                panels[#panels] = api.drawPanel(121, 1, 44, 10, colors.blue, colors.lightBlue, 8)
 
                 -- row 2
-                panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
-
-                panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
-
-                panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
-                panels[#panels] = api.drawPanel(123, 1, 40, 20, colors.blue, colors.lightBlue, 6)
-
-                
-                -- Row 2
-                panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
-                panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
-                local floggerApp3 = panels[#panels-1]:addProgram()
-                    :setSize(37, 16)
-                    :setPosition(3,5)
+                panels[#panels] = api.drawPanel(1, 11, 40, 20, colors.blue, colors.lightBlue, 4)
+                panels[#panels] = api.drawPanel(41, 11, 40, 20, colors.blue, colors.lightBlue, 1)
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(36, 16)
+                    :setPosition(4,6)
                     :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(81, 11, 40, 20, colors.blue, colors.lightBlue, 2)
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(76, 16)
+                    :setPosition(4,6)
+                    :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(121, 11, 44, 20, colors.blue, colors.blue, 3)
 
-                panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
-                panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
+                -- Row 3
+                panels[#panels] = api.drawPanel(1, 31, 40, 8, colors.blue, colors.lightBlue, 9)
+                panels[#panels] = api.drawPanel(41, 31, 40, 8, colors.blue, colors.lightBlue, 9)
+                panels[#panels] = api.drawPanel(81, 31, 40, 8, colors.white, colors.purple, 9)
+                panels[#panels] = api.drawPanel(121, 31, 44, 8, colors.blue, colors.lightBlue, 9)
+
             elseif layout == "MI-1B" then
                 -- 124, 38? [6x3]
                 panels[#panels] = api.drawPanel(1, 1, 20, 13, colors.pink, colors.purple, 1)
                 panels[#panels] = api.drawPanel(1, 14, 20, 13, colors.pink, colors.purple, 2)
                 panels[#panels] = api.drawPanel(1, 27, 20, 12, colors.pink, colors.purple, 1)
-                panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 8)
+                panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 10)
                 panels[#panels] = api.drawPanel(101, 1, 20, 13, colors.pink, colors.purple, 2)
                 panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 1)
                 panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 2)
@@ -189,7 +203,7 @@ return function(monitor, layout)
                 panels[#panels] = api.drawPanel(1, 1, 20, 13, colors.pink, colors.purple, 1)
                 panels[#panels] = api.drawPanel(1, 14, 20, 13, colors.pink, colors.purple, 2)
                 panels[#panels] = api.drawPanel(1, 27, 20, 12, colors.pink, colors.purple, 1)
-                panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 8)
+                panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 11)
                 panels[#panels] = api.drawPanel(101, 1, 20, 13, colors.pink, colors.purple, 2)
                 panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 1)
                 panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 2)
