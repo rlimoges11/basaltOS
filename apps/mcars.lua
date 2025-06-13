@@ -150,14 +150,14 @@ return function(monitor, layout)
         else
             -- Holocube
             if layout == "Holocube-Top" then
-                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.blue, colors.lightBlue, 3)
+                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.white, colors.orange, 3)
 
                 local floggerApp = panels[#panels-1]:addProgram()
                     :setSize(30, 13)
                     :setPosition(3,6)
                     :execute("programs/fLogger")
             elseif layout == "Holocube-Bottom" then
-                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.orange, colors.black, 5)
+                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.lightBlue, colors.blue, 5)
            
            -- MI screens
             elseif layout == "MI-1A" then
