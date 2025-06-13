@@ -10,8 +10,8 @@ local function initMonitors()
             l1 = "Holocube-Top"
             l2 = "Holocube-Bottom"
         elseif settings.get("Layout") == "MI-1" then
-            l1 = "MI-1A"
-            l2 = "MI-1B"
+            l1 = "MI-1B"
+            l2 = "MI-1A"
         elseif settings.get("Layout") == "MI-2" then
             l1 = "MI-2A"
             l2 = "MI-2B"
