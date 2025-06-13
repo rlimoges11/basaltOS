@@ -11,8 +11,8 @@ local function initMonitors()
     if #monitors > 0 then
         monitor1 = basalt.createFrame()
             :setTerm(monitors[1])
+            :setForeground(colors.white)
             :setBackground(colors.orange)
-            :setForeground(colors.black)
 
     else
         monitor1 = nil
@@ -20,8 +20,8 @@ local function initMonitors()
     if #monitors > 1 then
         monitor2 = basalt.createFrame()
             :setTerm(monitors[2])
-            :setBackground(colors.orange)
-            :setForeground(colors.black)
+            :setForeground(colors.lightBlue)
+            :setBackground(colors.blue)
     else
         monitor2 = nil
     end    

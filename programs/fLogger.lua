@@ -8,5 +8,5 @@ term.setBackgroundColor(bg)
 
 while true do
 	logRandomMessage()
-	sleep(math.random(2.5, 8))
+	sleep(math.random(5, 12))
 end
