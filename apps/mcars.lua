@@ -151,18 +151,14 @@ return function(monitor, layout)
            -- MI screens
             elseif layout == "MI-1A" then
                 -- 184, 38 [8x3]
+
+
+                -- row 1
+
+                -- row 2
                 panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
 
-                local floggerApp = panels[#panels-1]:addProgram()
-                    :setSize(33, 16)
-                    :setPosition(3,3)
-                    :execute("programs/fLogger")
-
                 panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
-                local floggerApp3 = panels[#panels-1]:addProgram()
-                    :setSize(37, 16)
-                    :setPosition(3,5)
-                    :execute("programs/fLogger")
 
                 panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
                 panels[#panels] = api.drawPanel(123, 1, 40, 20, colors.blue, colors.lightBlue, 6)
@@ -170,10 +166,6 @@ return function(monitor, layout)
                 
                 -- Row 2
                 panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
-                local floggerApp2 = panels[#panels-1]:addProgram()
-                    :setSize(33, 16)
-                    :setPosition(3,3)
-                    :execute("programs/fLogger")
                 panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
                 local floggerApp3 = panels[#panels-1]:addProgram()
                     :setSize(37, 16)
