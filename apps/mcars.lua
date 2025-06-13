@@ -190,6 +190,49 @@ return function(monitor, layout)
                 panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 1)
                 panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 2)
 
+
+elseif layout == "MI-1A" then
+                panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
+
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
+
+                panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(37, 16)
+                    :setPosition(3,5)
+                    :execute("programs/fLogger")
+
+                panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
+                panels[#panels] = api.drawPanel(123, 1, 40, 20, colors.blue, colors.lightBlue, 6)
+
+                
+                -- Row 2
+                panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
+                local floggerApp2 = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(37, 16)
+                    :setPosition(3,5)
+                    :execute("programs/fLogger")
+
+                panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
+                panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
+            elseif layout == "MI-1B" then
+                panels[#panels] = api.drawPanel(1, 1, 20, 13, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(1, 14, 20, 13, colors.pink, colors.purple, 2)
+                panels[#panels] = api.drawPanel(1, 27, 20, 12, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 8)
+                panels[#panels] = api.drawPanel(101, 1, 20, 13, colors.pink, colors.purple, 2)
+                panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 2)
+
+
             end
         end
     end
