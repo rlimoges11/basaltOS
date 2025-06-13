@@ -190,13 +190,13 @@ return function(monitor, layout)
 
             elseif layout == "MI-1B" then
                 -- 124, 38? [6x3]
-                panels[#panels] = api.drawPanel(1, 1, 20, 13, colors.pink, colors.purple, 1)
-                panels[#panels] = api.drawPanel(1, 14, 20, 13, colors.pink, colors.purple, 2)
-                panels[#panels] = api.drawPanel(1, 27, 20, 12, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(1, 1, 20, 13, colors.pink, colors.purple, 5)
+                panels[#panels] = api.drawPanel(1, 14, 20, 13, colors.pink, colors.purple, 6)
+                panels[#panels] = api.drawPanel(1, 27, 20, 12, colors.pink, colors.purple, 5)
                 panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 10)
-                panels[#panels] = api.drawPanel(101, 1, 20, 13, colors.pink, colors.purple, 2)
-                panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 1)
-                panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 2)
+                panels[#panels] = api.drawPanel(101, 1, 20, 13, colors.pink, colors.purple, 6)
+                panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 5)
+                panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 6)
 
             elseif layout == "MI-2A" then
                 -- 124, 38? [6x3]
