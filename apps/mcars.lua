@@ -28,7 +28,8 @@ return function(monitor, layout)
             :setCurrentFrame(frame)
             :setX(1)
             :setY(1)
-            :setBackground(colors.orange)
+            :setBackground(bg)
+            :setForeground(fg)
             table.insert(panels, thisPanel)
         return thisPanel
     end
@@ -44,7 +45,7 @@ return function(monitor, layout)
     end
 
     function api.start()
-        if layout == "" or layout == nil then
+        if layout == nil or layout == "" then
             ----------------------------
             -- Default layouts
             ----------------------------
@@ -136,16 +137,59 @@ return function(monitor, layout)
                     :execute("programs/fLogger")
             end
         else
-            if layout == "Holocube-Top"  then
-
+            -- Holocube
+            if layout == "Holocube-Top" then
                 panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.blue, colors.lightBlue, 3)
 
                 local floggerApp = panels[#panels-1]:addProgram()
                     :setSize(30, 13)
                     :setPosition(3,6)
                     :execute("programs/fLogger")
-            elseif layout == "Holocube-Bottom"  then
+            elseif layout == "Holocube-Bottom" then
                 panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.orange, colors.black, 5)
+           
+           -- MI screens
+            elseif layout == "MI-1A" then
+                panels[#panels] = api.drawPanel(1, 1, 40, 20, colors.blue, colors.lightBlue, 4)
+
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
+
+                panels[#panels] = api.drawPanel(41, 1, 40, 20, colors.blue, colors.lightBlue, 2)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(37, 16)
+                    :setPosition(3,5)
+                    :execute("programs/fLogger")
+
+                panels[#panels] = api.drawPanel(81, 1, 40, 20, colors.blue, colors.lightBlue, 5)
+                panels[#panels] = api.drawPanel(123, 1, 40, 20, colors.blue, colors.lightBlue, 6)
+
+                
+                -- Row 2
+                panels[#panels] = api.drawPanel(1, 20, 40, 20, colors.blue, colors.lightBlue, 3)
+                local floggerApp2 = panels[#panels-1]:addProgram()
+                    :setSize(33, 16)
+                    :setPosition(3,3)
+                    :execute("programs/fLogger")
+                panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
+                local floggerApp3 = panels[#panels-1]:addProgram()
+                    :setSize(37, 16)
+                    :setPosition(3,5)
+                    :execute("programs/fLogger")
+
+                panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
+                panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
+            elseif layout == "MI-1B" then
+                panels[#panels] = api.drawPanel(1, 1, 20, 13, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(1, 14, 20, 13, colors.pink, colors.purple, 2)
+                panels[#panels] = api.drawPanel(1, 27, 20, 12, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(21, 1, 80, 38, colors.pink, colors.black, 8)
+                panels[#panels] = api.drawPanel(101, 1, 20, 13, colors.pink, colors.purple, 2)
+                panels[#panels] = api.drawPanel(101, 14, 20, 13, colors.pink, colors.purple, 1)
+                panels[#panels] = api.drawPanel(101, 27, 20, 12, colors.pink, colors.purple, 2)
+
             end
         end
     end
