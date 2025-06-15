@@ -1,15 +1,11 @@
-local hc = (_G.flogger_colors and _G.flogger_colors.hc) or colors.lime
-local fg = (_G.flogger_colors and _G.flogger_colors.fg) or colors.green
-local bg = colors.black
+function printc(msg, c, fg)
 
-function printc(msg, c)
     term.setTextColor(c)
     print(msg)
     term.setTextColor(fg)
 end
 
-function logRandomMessage()
-
+function logRandomMessage(fg, bg, hc)
     local logType = math.random(1, 6)  -- Now 6 possible log types
     if logType == 1 then
         -- Reactor status report
@@ -26,15 +22,15 @@ function logRandomMessage()
         if math.random(2) == 1 then
             severity = "WARNING"
             response = "Initiate protocol "..math.random(1,5)
-            printc(severity .. ":", colors.yellow)
+            printc(severity .. ":", colors.yellow, fg)
 
         else
             severity = "CRITICAL"
             response = "EVACUATE sector "..sector
-            printc(severity .. ":", colors.red)
+            printc(severity .. ":", colors.red, fg)
 
         end
-        printc("Containment breach Sector "..sector.."!", hc)
+        printc("Containment breach Sector "..sector.."!", hc, fg)
     	print("Radiation: "..math.random(50,500).." rem | "..response.."\n"..
                " \136 Seal blast doors and inject boron reserves\n\n")
         
@@ -68,7 +64,7 @@ function logRandomMessage()
             action = "serviced"
         end
         
-        printc("MAINTENANCE: ", hc)
+        printc("MAINTENANCE: ", hc, fg)
     	print(" \136 "..math.random(2,8).." "..system.." "..action.." in Reactor #"..math.random(1,4))
       	print(" \136 Next service due in "..math.random(7,30).." days")
         print(" \136 All safety checks completed\n")
@@ -100,7 +96,7 @@ function logRandomMessage()
             "The Emperor approves our progress\n \136 Double production targets"
         }
         
-        printc("EVENT:", hc)
+        printc("EVENT:", hc, fg)
         print(events[math.random(#events)])
     	print(" \136 Log updated: "..os.date("%H:%M").."\n\n")
     end
