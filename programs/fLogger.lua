@@ -6,7 +6,6 @@ local bg = colors.black
 term.setTextColor(fg)
 term.setBackgroundColor(bg)
 
-while true do
-	logRandomMessage()
-	sleep(math.random(5, 12))
-end
+
+logRandomMessage()
+sleep(math.random(5, 12))
