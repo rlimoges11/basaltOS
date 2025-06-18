@@ -13,7 +13,12 @@ return function(monitor, layout)
         :setBackground(colors.orange)
 
     function api.drawPanel(x, y, w, h, fg, bg, frame)
+<<<<<<< Updated upstream
         local hc = colors.yellow
+=======
+        main:setForeground(fg)
+        main:setBackground(bg)
+>>>>>>> Stashed changes
 
         local thisPanel = main:addFrame("panel")
             :setPosition(x, y)
@@ -129,10 +134,20 @@ return function(monitor, layout)
         else
             -- Holocube
             if layout == "Holocube-Top" then
-                panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.white, colors.orange, 3)
+                panels[#panels] = api.drawPanel(1, 1, tw, th, colors.white, colors.orange, 5)
+                
+            elseif layout == "Holocube-Bottom" then
+                panels[#panels] = api.drawPanel(tw-39, th-19, 40, 20, colors.lightBlue, colors.blue, 3)
 
+<<<<<<< Updated upstream
             elseif layout == "Holocube-Bottom" then
                 panels[#panels] = api.drawPanel(1, 1, 143, 81, colors.lightBlue, colors.blue, 5)
+=======
+                local floggerApp = panels[#panels-1]:addProgram()
+                    :setSize(30, 13)
+                    :setPosition(3,6)
+                    :execute("programs/fLogger")
+>>>>>>> Stashed changes
            
            -- MI screens
             elseif layout == "MI-1A" then

@@ -7,8 +7,8 @@ local function initMonitors()
 
     if settings.get("Layout") ~= nil then
         if settings.get("Layout") == "Holocube" then
-            l1 = "Holocube-Top"
-            l2 = "Holocube-Bottom"
+            l1 = "Holocube-Bottom"
+            l2 = "Holocube-Top"
         elseif settings.get("Layout") == "MI-1" then
             l1 = "MI-1B"
             l2 = "MI-1A"
@@ -34,4 +34,3 @@ end
 
 initMonitors()
 basalt.run()
-
