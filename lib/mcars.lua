@@ -11,6 +11,7 @@ return function(monitor, layout)
         main = monitor
         main:setBackground(colors.blue)
     else
+        main = basalt.createFrame()
         main:setTerm(monitor)
             :setSize(tw, th)
             :setPosition(1, 1)
@@ -192,7 +193,7 @@ return function(monitor, layout)
                 panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
                 panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
 
-            elseif layout == "Ninja" then
+            elseif layout == "Ninja" or pocket then
                 panels[#panels] = api.drawPanel(1, 2, 27, 12, colors.pink, colors.brown, 1)
                 panels[#panels] = api.drawPanel(28, 2, 12, 12, colors.pink, colors.brown, 2)
             end

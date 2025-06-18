@@ -465,7 +465,7 @@ return function(parentFrame, monitor1, monitor2)
             api.drawIcon(menuBar, 19, 2, colors.white, colors.lightBlue, "Weather", "/apps/weather.lua", false)
 
             api.drawIcon(menuBar, 1, 8, colors.lightBlue, colors.gray, "Home", "/apps/home.lua", false)
-            api.drawIcon(menuBar, 10, 8, colors.cyan, colors.white, "MCARS", "/apps/trek.lua", true)
+            api.drawIcon(menuBar, 10, 8, colors.cyan, colors.white, "ST", "/apps/trek.lua", true)
             api.drawIcon(menuBar, 19, 8, colors.white, colors.purple, "Remote", "/apps/trek.lua", false)
 
             api.drawIcon(menuBar, 1, 14, colors.green, colors.white, "Logs", "/apps/trek.lua", false)
@@ -503,7 +503,6 @@ return function(parentFrame, monitor1, monitor2)
 
             if LauncherCoordinates ~= nil then
                 local HelTurtle = require("/lib/TurtleHelpers")
-                
                 initTurtle(desktop)
             end
         end)

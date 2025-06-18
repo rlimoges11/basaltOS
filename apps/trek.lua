@@ -1,3 +1,4 @@
+local mcars = require("/lib/basalt")
 local mcars = require("/lib/mcars")
 local monitor1, monitor2 = peripheral.find("monitor")
 
@@ -26,8 +27,8 @@ local function initMonitors()
         monitor2.setTextScale(0.5)
         mcars(monitor2, l2).start()
     end
-    
-    mcars(term.native()).start()
+
+    mcars(term.native(), "").start()
 end
 
 initMonitors()
