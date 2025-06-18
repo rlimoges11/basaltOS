@@ -1,4 +1,4 @@
-basalt = require("basalt")
+basalt = require("/lib/basalt")
 
 local monitors = { peripheral.find("monitor") }
 local frame = nil 

@@ -1,5 +1,5 @@
-local basalt = require("basalt")
-local basaltOS = require("basaltOS")
+local basalt = require("/lib/basalt")
+local basaltOS = require("/lib/basaltOS")
 local monitors = { peripheral.find("monitor") }
 local monitor1, monitor2 = nil
 

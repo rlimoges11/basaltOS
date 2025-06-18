@@ -26,10 +26,8 @@ local function initMonitors()
         monitor2.setTextScale(0.5)
         mcars(monitor2, l2).start()
     end
-
-    if pocket then
-        mcars(term.native()).start()
-    end
+    
+    mcars(term.native()).start()
 end
 
 initMonitors()
