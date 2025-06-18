@@ -1,6 +1,6 @@
-require ("lib/MonitorHelpers")
-label = os.computerLabel()
-logger(label .. " online")
+local basalt = require ("/lib/basalt")
+local mcars = require("/lib/mcars")
+local label = os.computerLabel()
 
 -- Get settings
 local LauncherCoordinates = settings.get("LauncherCoordinates") or nil
@@ -11,14 +11,11 @@ local HARVEST_MAX_AGE = settings.get("HARVEST_MAX_AGE") or nil
 local HARVEST_MODE = settings.get("HARVEST_MODE") or nil
 local MAX_FUEL = settings.get("MAX_FUEL") or nil
 local HARVEST_CROP = settings.get("HARVEST_CROP") or nil
-
--- Turtle Self-tracking System created by Latias1290.
 local xPos, yPos, zPos = nil
 local xOld, yOld, zOld = nil
 face = -1
 cal = false
 state = "Finding facing direction"
-
 
 function consider()
 	if(HARVEST_MODE == "bottom") then
@@ -114,8 +111,8 @@ function dropInventory()
 	local monitor = peripheral.find("monitor") or nil
 	if(monitor) then
 		term.redirect(monitor)
-		recalibrate(monitor)
-		logger(label)
+		--recalibrate(monitor)
+		--logger(label)
 		write_center(term, "UNLOADING\n\n")
 	end
 	
@@ -123,7 +120,7 @@ function dropInventory()
 	
 	local container = peripheral.wrap("bottom")
 	if container == nil then
-		print(label .. " Alert: Drop chest not found.")
+		--logger(label .. " Alert: Drop chest not found.")
 		--TurtleGPS.ReturnToPreviousPosition(previousData)
 		return
 	end
@@ -136,7 +133,7 @@ function dropInventory()
 	end
 
 	term.setTextColor(colors.green)
-	logger(label)
+	--logger(label)
 	write_center(term, "UNLOADED")
 	write_center(term, "DEPLOYED \n")
 
@@ -164,7 +161,7 @@ function IsLowOnFuel()
         TryRefillIfLow = false
 		local container = peripheral.wrap("top")
         if container == nil then
-			print("ALERT: " .. label .. " fuel chest not found.")
+			--logger("ALERT: " .. label .. " fuel chest not found.")
             TryRefillIfLow = true
             return
         end
@@ -211,7 +208,7 @@ function deploy()
 	state = "Harvesting"
 	sleep(2)
 	term.setCursorBlink(false)
-	logger(label)
+	--logger(label)
 	write_center(term, "DEPLOYED")
 	print("")
 	term.redirect(term.native())
@@ -221,7 +218,7 @@ end
 function gotoLaunchPad()
 	if LauncherCoordinates ~= nil then
 		term.setTextColor(colors.lime)
-		logger("seeking launchpad (" .. getLaunchCoorString() .. ")")
+		--logger("seeking launchpad (" .. getLaunchCoorString() .. ")")
 	else
 		
 		term.setTextColor(colors.red)
@@ -437,7 +434,7 @@ function printLocation()
 	getLocation()
 	setLocation()
 	if xPos ~= nil and yPos ~= nil and zPos ~= nil then
-		logger ("" .. xPos .. "," .. yPos .. "," .. zPos)
+		--logger ("" .. xPos .. "," .. yPos .. "," .. zPos)
 	end
 
 end
@@ -455,15 +452,18 @@ end
 
 function launch()
 	-- Docked, check Fuel and harvest
-	print("launched")
+	--logger("launched")
 	state = "Scanning"
-	recalibrate()
+	--recalibrate()
 end
 
-function initTurtle() 
+function initTurtle(dt) 
 	local x = (LauncherCoordinates[1])
 	local y = (LauncherCoordinates[2])
 	local z = (LauncherCoordinates[3])
+
+	mcars(dt, "Ninja").start()
+
 	IsLowOnFuel()
 	launch()
 end

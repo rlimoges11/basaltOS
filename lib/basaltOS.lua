@@ -501,9 +501,10 @@ return function(parentFrame, monitor1, monitor2)
                 api.animateWindow()
             end
 
-            if LauncherCoordinates ~= nil then 
-                local HelTurtle = require("lib/TurtleHelpers")
-                initTurtle()
+            if LauncherCoordinates ~= nil then
+                local HelTurtle = require("/lib/TurtleHelpers")
+                
+                initTurtle(desktop)
             end
         end)
 

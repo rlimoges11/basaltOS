@@ -1,4 +1,4 @@
-local mcars = require("mcars")
+local mcars = require("/lib/mcars")
 local monitor1, monitor2 = peripheral.find("monitor")
 
 local function initMonitors()

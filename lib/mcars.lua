@@ -5,12 +5,17 @@ return function(monitor, layout)
     local tw, th = monitor:getSize()
     local api = {}
     local panels = {}
-    local main = basalt.createFrame()
+    local main = nil
 
-    main:setTerm(monitor)
-        :setSize(tw, th)
-        :setPosition(1,1)
-        :setBackground(colors.orange)
+    if layout == "Ninja" then
+        main = monitor
+        main:setBackground(colors.blue)
+    else
+        main:setTerm(monitor)
+            :setSize(tw, th)
+            :setPosition(1, 1)
+            :setBackground(colors.orange)
+    end
 
     function api.drawPanel(x, y, w, h, fg, bg, frame)
         local hc = colors.yellow
@@ -186,6 +191,10 @@ return function(monitor, layout)
                 panels[#panels] = api.drawPanel(41, 20, 40, 20, colors.blue, colors.lightBlue, 1)
                 panels[#panels] = api.drawPanel(81, 20, 40, 20, colors.blue, colors.lightBlue, 5)
                 panels[#panels] = api.drawPanel(123, 20, 40, 20, colors.blue, colors.lightBlue, 6)
+
+            elseif layout == "Ninja" then
+                panels[#panels] = api.drawPanel(1, 2, 27, 12, colors.pink, colors.brown, 1)
+                panels[#panels] = api.drawPanel(28, 2, 12, 12, colors.pink, colors.brown, 2)
             end
         end
     end
