@@ -5,7 +5,7 @@ return function(parentFrame, monitor1, monitor2)
     local api = {}
     local frame = parentFrame:addFrame()
         :setSize(tw, th)
-        :setBackground(colors.lightGray)
+        :setBackground(colors.gray)
 
     local desktop, desktop2, desktop3 = nil        
     local menuBar, menuBar2, menuBar3 = nil        
@@ -16,7 +16,7 @@ return function(parentFrame, monitor1, monitor2)
         desktop = frame:addFrame("desktop")
             :setPosition(1, 1)
             :setSize(tw, th)
-            :setBackground(colors.lightGray)
+            :setBackground(colors.gray)
 
         if monitor1 ~= nil then
             desktop2 = monitor1:addFrame("desktop2"):setSize(monitor1:getSize()):setBackground(colors.lightBlue)
@@ -357,7 +357,7 @@ return function(parentFrame, monitor1, monitor2)
             bgImg:setVisible(true)
             bgImg:setY(offsetY + 1)
             bgImg:animate()
-                :move(1, 1, 1)  -- Move down
+                :move(1, 2, 1)  -- Move down
                 :start()
 
             os.sleep(0.25)
@@ -495,11 +495,7 @@ return function(parentFrame, monitor1, monitor2)
             os.sleep(0.25)
             
 
-            if desktop2 ~= nil then 
-                api.showWelcomeWindow(desktop2)
-                os.sleep(1)
-                api.animateWindow()
-            else
+            if pocket then 
                 api.showWelcomeWindow(desktop)
                 os.sleep(1)
                 api.animateWindow()
