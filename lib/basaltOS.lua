@@ -1,4 +1,4 @@
-basalt = require("basalt")
+basalt = require("/lib/basalt")
 
 return function(parentFrame, monitor1, monitor2)
     local tw, th = term.getSize()
@@ -460,17 +460,17 @@ return function(parentFrame, monitor1, monitor2)
 
             api.drawMenuBar(desktop)
 
-            api.drawIcon(menuBar, 1, 2, colors.orange, colors.gray, "Calc", "programs/checkFuel.lua", false)
-            api.drawIcon(menuBar, 10, 2, colors.magenta, colors.white, "Paint", "apps/basaltImage.lua", false)
-            api.drawIcon(menuBar, 19, 2, colors.white, colors.lightBlue, "Weather", "apps/weather.lua", false)
+            api.drawIcon(menuBar, 1, 2, colors.orange, colors.gray, "Calc", "/programs/checkFuel.lua", false)
+            api.drawIcon(menuBar, 10, 2, colors.magenta, colors.white, "Paint", "/apps/basaltImage.lua", false)
+            api.drawIcon(menuBar, 19, 2, colors.white, colors.lightBlue, "Weather", "/apps/weather.lua", false)
 
-            api.drawIcon(menuBar, 1, 8, colors.lightBlue, colors.gray, "Home", "apps/home.lua", false)
-            api.drawIcon(menuBar, 10, 8, colors.cyan, colors.white, "MCARS", "apps/trek.lua", true)
-            api.drawIcon(menuBar, 19, 8, colors.white, colors.purple, "Remote", "apps/trek.lua", false)
+            api.drawIcon(menuBar, 1, 8, colors.lightBlue, colors.gray, "Home", "/apps/home.lua", false)
+            api.drawIcon(menuBar, 10, 8, colors.cyan, colors.white, "MCARS", "/apps/trek.lua", true)
+            api.drawIcon(menuBar, 19, 8, colors.white, colors.purple, "Remote", "/apps/trek.lua", false)
 
-            api.drawIcon(menuBar, 1, 14, colors.green, colors.white, "Logs", "apps/trek.lua", false)
-            api.drawIcon(menuBar, 10, 14, colors.red, colors.yellow, "Games", "apps/hellevator.lua", false)
-            api.drawIcon(menuBar, 19, 14, colors.lime, colors.black, "Media", "apps/trek.lua", false)
+            api.drawIcon(menuBar, 1, 14, colors.green, colors.white, "Logs", "/apps/trek.lua", false)
+            api.drawIcon(menuBar, 10, 14, colors.red, colors.yellow, "Games", "/apps/hellevator.lua", false)
+            api.drawIcon(menuBar, 19, 14, colors.lime, colors.black, "Media", "/apps/trek.lua", false)
 
             menuBar:animate()
             :move(1,1,0.5)

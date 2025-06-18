@@ -1,20 +1,4 @@
-local basalt
-local args = {...}
-
-if(args[1]=="install")then
-    shell.run("wget", "run", "https://raw.githubusercontent.com/Pyroxenium/Basalt2/main/install.lua")
-    return
-end
-
-if(fs.exists("basalt"))or(fs.exists("basalt.lua"))then
-    basalt = require("basalt")
-else
-    basalt = load(http.get("https://raw.githubusercontent.com/Pyroxenium/Basalt2/main/release/basalt.lua").readAll(), nil, "bt", _ENV)()
-end
-
-if(basalt==nil)then
-    error("Basalt not found!")
-end
+local basalt = require("/lib/basalt")
 
 
 --basalt.LOGGER._enabled = true
