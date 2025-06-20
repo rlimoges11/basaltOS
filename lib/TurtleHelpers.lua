@@ -93,6 +93,11 @@ function cross()
 	turtle.turnLeft()
 end
 
+function crossMagma()
+	turtle.turnLeft()
+	turtle.forward()
+	turtle.turnRight()
+end
 
 function dock() 
 	consider()
