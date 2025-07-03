@@ -49,7 +49,7 @@ return function(monitor, layout)
             img = api.loadImg("images/reactor.bimg")
             thisPanel.bgImg = thisPanel:addImage()
                 :setBimg(img)
-                :setSize(w, 80)
+                :setSize(164, 80)
                 :setCurrentFrame(1)
                 :setX(1)
                 :setY(1)
@@ -57,7 +57,7 @@ return function(monitor, layout)
 
 
             local tanim = thisPanel.bgImg:animate()
-                :move(1, -40, 2.0)
+                :move(1, -40, 1.0)
                 :start()
 
             reactorLogs = thisPanel:addLabel({x=63, y=12, autoSize=false, width= 44, height= 14, autoResize=false})
