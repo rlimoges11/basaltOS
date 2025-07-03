@@ -44,10 +44,6 @@ return function(monitor, layout)
         if frame == 10 then
             img = api.loadImg("images/enterprise.bimg")
             frame = 1
-        end
-
-        if frame >= 11 then
-            img = api.loadImg("images/reactor.bimg")
             thisPanel.bgImg = thisPanel:addImage()
                 :setBimg(img)
                 :setSize(164, 80)
@@ -56,6 +52,21 @@ return function(monitor, layout)
                 :setY(1)
                 :setZ(1)
 
+            local tanim = thisPanel.bgImg:animate()
+                :move(1, -40, 1.0)
+                :start()
+
+        end
+
+        if frame == 11 then
+            img = api.loadImg("images/reactor.bimg")
+            thisPanel.bgImg = thisPanel:addImage()
+                :setBimg(img)
+                :setSize(164, 80)
+                :setCurrentFrame(1)
+                :setX(1)
+                :setY(1)
+                :setZ(1)
 
             local tanim = thisPanel.bgImg:animate()
                 :move(1, -40, 1.0)
@@ -69,7 +80,10 @@ return function(monitor, layout)
 
 
             contentHelpers(reactorLogs, colors.yellow, bg, colors.yellow)
-        else
+        end
+        
+
+        if thisPanel.bgImg == nil then
             thisPanel.bgImg = thisPanel:addImage()
             :setBimg(img)
             :setSize(w, h)
