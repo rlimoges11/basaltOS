@@ -43,6 +43,7 @@ return function(monitor, layout)
 
         if frame == 10 then
             img = api.loadImg("images/enterprise.bimg")
+            frame = 1
         end
 
         if frame >= 11 then
