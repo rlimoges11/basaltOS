@@ -49,13 +49,15 @@ return function(monitor, layout)
                 :setSize(164, 80)
                 :setCurrentFrame(1)
                 :setX(1)
-                :setY(1)
+                :setY(-8)
                 :setZ(1)
 
             local tanim = thisPanel.bgImg:animate()
-                :move(1, -40, 1.0)
-                :start()
+                :move(-28, -28, 1.0)
+                :sequence()
 
+
+                :start()
         end
 
         if frame == 11 then
@@ -77,7 +79,6 @@ return function(monitor, layout)
                 :setZ(15)
                 :setForeground(fg)
                 :setBackground(bg)
-
 
             contentHelpers(reactorLogs, colors.yellow, bg, colors.yellow)
         end
