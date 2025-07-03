@@ -36,29 +36,40 @@ return function(monitor, layout)
 
         if frame == 10 then
             img = api.loadImg("images/enterprise.bimg")
-            frame = 1
         end
 
         if frame >= 11 then
-            local scienceLogs = thisPanel:addLabel("logs")
-
-            scienceLogs:setText("test")
-                :setForeground(fg)
-                :setBackground(bg)
-                
-            contentHelpers(scienceLogs, fg, bg, hc).logRandomMessage()
-
-        else
+            img = api.loadImg("images/reactor.bimg")
             thisPanel.bgImg = thisPanel:addImage()
                 :setBimg(img)
-                :setSize(w, h)
-                :setCurrentFrame(frame)
+                :setSize(w, 80)
+                :setCurrentFrame(1)
                 :setX(1)
-                :setY(1)
-                :setBackground(bg)
+                :setY(-40)
+                :setZ(1)
+
+            --thisPanel.bgImg:setY(-10)
+
+            reactorLogs = thisPanel:addLabel({x=63, y=12, autoSize=false, width= 44, height= 14, autoResize=false})
+                :setText("")
+                :setZ(15)
                 :setForeground(fg)
+                :setBackground(bg)
+
+
+            contentHelpers(reactorLogs, colors.yellow, bg, colors.yellow)
+        else
+            thisPanel.bgImg = thisPanel:addImage()
+            :setBimg(img)
+            :setSize(w, h)
+            :setCurrentFrame(frame)
+            :setX(1)
+            :setY(1)
+            :setZ(1)
         end
-            table.insert(panels, thisPanel)
+
+        
+        table.insert(panels, thisPanel)
 
         return thisPanel
     end
@@ -168,7 +179,8 @@ return function(monitor, layout)
 
             elseif layout == "MI-1B" then
                 -- 124, 38? [6x3]
-                panels[#panels] = api.drawPanel(1, 1, tw, th, colors.blue, colors.black, 11)
+                panels[#panels] = api.drawPanel(1, 1, tw, th, colors.lime, colors.green, 11)
+
 
             elseif layout == "MI-2A" then
                 -- 124, 38? [6x3]

@@ -157,7 +157,7 @@ local function drawWeatherDisplay()
         mon.setTextColor(colors.data_value)
         mon.write(string.format("%.1f", weather.temp))
         mon.setTextColor(colors.data_unit)
-        mon.write("°C")
+        mon.write("\176C")
         
         -- Humidity
         mon.setCursorPos(boxX + 4, boxY + 2)
