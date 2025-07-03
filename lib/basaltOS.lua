@@ -299,7 +299,7 @@ return function(parentFrame, monitor1, monitor2)
                 end
             )
 
-        local textContent = "Sorry I'm afk right now, back in a few minutes"
+        local textContent = "Sorry... I'm afk right now.\n\nI'll be back in a few minutes!"
         welcomeText = welcomeWin:addLabel({x=1, y=2, autoSize=false, width=21})
             :setText(textContent)
             :setForeground(colors.lightBlue)
