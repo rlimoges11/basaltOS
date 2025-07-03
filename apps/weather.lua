@@ -42,7 +42,7 @@ local function drawBorder()
     term.setBackgroundColor(colors.border)
     term.clear()
     term.setBackgroundColor(colors.main_bg)
-    for y = 2, h-1 do
+    for y = 1, h do
         term.setCursorPos(2, y)
         term.write((" "):rep(w-2))
     end
@@ -107,30 +107,32 @@ local function drawWeatherDisplay()
     pcall(drawBorder)
     
     -- Header with time in yellow
-    pcall(drawCentered, 1, os.date("%H:%M"), colors.header_fg, colors.header_bg)
+    if not pocket then 
+        pcall(drawCentered, 1, os.date("%H:%M"), colors.header_fg, colors.header_bg)
+    end
     
-    -- Get weather data
     local weather = fetchWeather()
-    
-    -- Draw weather icon (NOW 100% ACCURATE)
-    local iconPath = "images/"..weather.icon..".nfp"
+    local iconPath = "/images/weather/"..weather.icon..".nfp"
+
+    -- pcall(drawCentered, 1, iconPath, colors.header_fg, colors.header_bg)
+
     if fs.exists(iconPath) then
         local ok, image = pcall(paintutils.loadImage, iconPath)
         if ok and image then
             local img_w, img_h = #image[1], #image
-            local startX = math.floor((w - img_w)/2) + 2
-            local startY = math.floor(h/3) - math.floor(img_h/2)
+            local startX = 6
+            local startY = 3
             pcall(paintutils.drawImage, image, startX, startY)
             
             -- Condition caption
-            pcall(drawCentered, startY + img_h + 2, weather.condition)
+            pcall(drawCentered, startY, weather.condition)
         end
     end
     
     -- Weather data box with perfect spacing (1 pixel padding)
     local boxWidth = 30
-    local boxX = math.floor((w - boxWidth)/2) - 1  -- Shifted 1 pixel left
-    local boxY = math.floor(h/2) + 1
+    local boxX = math.floor((w - boxWidth)/2) + 1
+    local boxY = math.floor(h/2) + 4
     
     -- Draw dark blue box extending one line below last text
     pcall(function()
@@ -169,20 +171,20 @@ local function drawWeatherDisplay()
         -- Wind
         mon.setCursorPos(boxX + 4, boxY + 3)
         mon.setTextColor(colors.data_label)
-        mon.write("WIND:       ")
+        mon.write("WIND:        ")
         mon.setTextColor(colors.data_value)
         mon.write(string.format("%.1f", weather.wind))
         mon.setTextColor(colors.data_unit)
-        mon.write(" km/h")
+        mon.write("km/h")
         
         -- Pressure
         mon.setCursorPos(boxX + 4, boxY + 4)
         mon.setTextColor(colors.data_label)
-        mon.write("PRESSURE:   ")
+        mon.write("PRESSURE:    ")
         mon.setTextColor(colors.data_value)
         mon.write(tostring(weather.pressure))
         mon.setTextColor(colors.data_unit)
-        mon.write(" hPa")
+        mon.write("hPa")
     end)
     
     -- City name without brackets
