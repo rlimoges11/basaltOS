@@ -28,9 +28,16 @@ return function(monitor, layout)
             :setSize(w, h)
             :setBackground(bg)
             :setForeground(fg)
-            :onClick(function(thisPanel)
-                thisPanel.bgImg:setCurrentFrame(math.random(1, 9))
-            end)
+            if frame < 10 then
+                thisPanel:onClick(function(thisPanel)
+                    thisPanel.bgImg:setCurrentFrame(math.random(1, 9))
+                end)
+            else
+                thisPanel:onClick(function(thisPanel)
+                    os.reboot()
+                end)
+
+            end
 
         local img = api.loadImg("images/mcars.bimg")
 
@@ -45,10 +52,13 @@ return function(monitor, layout)
                 :setSize(w, 80)
                 :setCurrentFrame(1)
                 :setX(1)
-                :setY(-40)
+                :setY(1)
                 :setZ(1)
 
-            --thisPanel.bgImg:setY(-10)
+
+            local tanim = thisPanel.bgImg:animate()
+                :move(1, -40, 2.0)
+                :start()
 
             reactorLogs = thisPanel:addLabel({x=63, y=12, autoSize=false, width= 44, height= 14, autoResize=false})
                 :setText("")

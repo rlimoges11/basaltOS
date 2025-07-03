@@ -5,8 +5,6 @@ return function(el, fg, bg, hc)
     el:setForeground(fg)
     el:setBackground(bg)
 
-
-
     function api.printc(msg)
         pre = el:getText()
         
@@ -17,8 +15,11 @@ return function(el, fg, bg, hc)
         end
 
         local lw, lh = el:getSize()
-            el:setY(37 - lh)
+        local lx, ly = el:getPosition()
 
+        local an = el:animate()
+            an:move(lx, 37 - lh, 1.50)
+            an:start()
     end
 
     function api.logRandomMessages()
