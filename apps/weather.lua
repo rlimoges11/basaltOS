@@ -121,7 +121,7 @@ local function drawWeatherDisplay()
         if ok and image then
             local img_w, img_h = #image[1], #image
             local startX = 6
-            local startY = 3
+            local startY = 2
             pcall(paintutils.drawImage, image, startX, startY)
             
             -- Condition caption
