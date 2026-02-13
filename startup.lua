@@ -35,16 +35,16 @@ end
 for y,rowTriple in ipairs(data) do
     local chars, bgStr, fgStr = rowTriple[1], rowTriple[2], rowTriple[3]
 
-    -- Ensure all strings exist
-    if not chars then chars = "" end
-    if not bgStr then bgStr = string.rep("0", #chars) end
-    if not fgStr then fgStr = string.rep("0", #chars) end
+    -- Make sure all strings are valid
+    if type(chars) ~= "string" then chars = "" end
+    if type(bgStr) ~= "string" then bgStr = string.rep("0", #chars) end
+    if type(fgStr) ~= "string" then fgStr = string.rep("0", #chars) end
 
     term.setCursorPos(1,y)
     for x=1,#chars do
-        local ch = chars:sub(x,x)
-        local bgChar = bgStr:sub(x,x) or "0"
-        local fgChar = fgStr:sub(x,x) or "0"
+        local ch = (chars:sub(x,x)) or " "           -- safe fallback to space
+        local bgChar = (bgStr:sub(x,x)) or "0"       -- safe fallback to black
+        local fgChar = (fgStr:sub(x,x)) or "0"       -- safe fallback to black
 
         term.setBackgroundColor(hexToColor(bgChar))
         term.setTextColor(hexToColor(fgChar))
