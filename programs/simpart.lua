@@ -1,18 +1,33 @@
--- Minimal .bimg renderer for astrolab
+-- Minimal .bimg renderer for CC:Tweaked
 local file = "images/astrolab.bimg"
-if not fs.exists(file) then print("Missing "..file) return end
-local f = fs.open(file,"r")
-local data = f.readAll()
-f.close()
+if not fs.exists(file) then
+    print("Missing "..file)
+    return
+end
+
+-- Map your character codes to colors (example: adjust to your .bimg encoding)
+local function parseChar(c)
+    -- This example just returns white text, black bg
+    return colors.white, colors.black, c
+end
 
 term.clear()
 term.setCursorPos(1,1)
 
--- Example parser for simple CC .bimg: each char is one pixel
--- If your .bimg stores fg/bg info, you can expand parser here
-local y = 1
-for line in data:gmatch("[^\n]+") do
+local f = fs.open(file,"r")
+for y,line in ipairs((function()
+    local t = {}
+    local content = fs.open(file,"r").readAll()
+    for l in content:gmatch("[^\n]+") do table.insert(t,l) end
+    return t
+end)()) do
     term.setCursorPos(1,y)
-    term.write(line) -- simple: just prints the ASCII art
-    y = y + 1
+    for x=1,#line do
+        local fg,bg,ch = parseChar(line:sub(x,x))
+        term.setTextColor(fg)
+        term.setBackgroundColor(bg)
+        term.write(ch)
+    end
 end
+term.setTextColor(colors.white)
+term.setBackgroundColor(colors.black)
