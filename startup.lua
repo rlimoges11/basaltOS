@@ -1,62 +1,30 @@
 local file = "images/astrolab.bimg"
+
+-- Make sure file exists
 if not fs.exists(file) then
     print("Missing "..file)
     return
 end
 
--- Load serialized .bimg data
-local f = fs.open(file,"r")
-local raw = f.readAll()
-f.close()
-local ok, data = pcall(textutils.unserialize, raw)
+-- Load the .bimg using paintutils
+local ok, image = pcall(paintutils.loadImage, file)
 if not ok then
-    print("Failed to parse .bimg")
+    print("Failed to load .bimg: "..tostring(image))
     return
 end
 
+-- Clear terminal and start at top-left
 term.clear()
 term.setCursorPos(1,1)
 
--- Map codes to CC colors
-local function hexToColor(h)
-    if h == "0" or h == "0000" then return colors.black
-    elseif h == "f" or h == "ffff" then return colors.white
-    elseif h == "1" then return colors.gray
-    elseif h == "2" then return colors.red
-    elseif h == "3" then return colors.green
-    elseif h == "4" then return colors.blue
-    elseif h == "5" then return colors.yellow
-    elseif h == "6" then return colors.orange
-    elseif h == "7" then return colors.purple
-    else return colors.gray
-    end
-end
+-- Draw the image row by row
+for y,row in ipairs(image) do
+    local chars = row[1] or ""  -- fallback empty string
+    local fg    = row[2] or ""  -- fallback empty string
+    local bg    = row[3] or ""  -- fallback empty string
 
-for y,rowTriple in ipairs(data) do
-    -- Make sure rowTriple is a table
-    if type(rowTriple) ~= "table" then
-        print("Skipping malformed row "..y)
-    else
-        local chars = rowTriple[1]
-        local bgStr = rowTriple[2]
-        local fgStr = rowTriple[3]
-
-        -- Ensure all strings are valid
-        if type(chars) ~= "string" then chars = "" end
-        if type(bgStr) ~= "string" then bgStr = string.rep("0", #chars) end
-        if type(fgStr) ~= "string" then fgStr = string.rep("0", #chars) end
-
-        term.setCursorPos(1,y)
-        for x=1,#chars do
-            local ch = chars:sub(x,x) or " "
-            local bgChar = bgStr:sub(x,x) or "0"
-            local fgChar = fgStr:sub(x,x) or "0"
-
-            term.setBackgroundColor(hexToColor(bgChar))
-            term.setTextColor(hexToColor(fgChar))
-            term.write(ch)
-        end
-    end
+    term.setCursorPos(1, y)
+    term.blit(chars, fg, bg)    -- proper blit display
 end
 
 -- Reset terminal colors
